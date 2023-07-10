@@ -1,9 +1,10 @@
 
 
+const W = 1000;
+const H = 500;
+
 window.onload = function(){
 	const canvas = document.createElement("canvas");
-	const W = 1000;
-	const H = 500;
 
     let x=1000, y=1000; //정 가운데로 위치
     let w=128, h=128; //플레이어 이미지의 절반 사이즈
@@ -15,18 +16,37 @@ window.onload = function(){
 	canvas.style.height = H+"px";
     canvas.style.transition = 'all 0.5s linear'
     
-	const btn = document.createElement("button");
-    btn.width = 120;
-    btn.height = 120;
-    btn.addEventListener("click", function (){
-        window.cancelAnimationFrame(draw)
-        setTimeout(function(){
-            console.log("start")
-            window.requestAnimationFrame(origin)
-        },1000);
-    })
+    let type = "wait"
+    
+	// const btn = document.createElement("button");
+    // btn.width = 120;
+    // btn.height = 120;
+    // btn.addEventListener("click", function (){
+    //     window.cancelAnimationFrame(draw)
+    //     setTimeout(function(){
+    //         console.log("start")
+    //         window.requestAnimationFrame(origin)
+    //     },1000);
+    // })
+	// document.body.appendChild(btn);
 	document.body.appendChild(canvas);
-	document.body.appendChild(btn);
+
+    document.addEventListener('keypress', function(event){
+        //눌러진 key의 코드값
+        keycode=event.keyCode;
+        switch(keycode){
+            case 13: 
+                if(type === 'wait'){
+                    type = 'start'
+                    window.cancelAnimationFrame(draw)
+                    setTimeout(function(){
+                        console.log("start")
+                        window.requestAnimationFrame(origin)
+                    },1000);
+                }
+                break; //left
+        }
+    })
 
     const stopImgChar= new Image();
     stopImgChar.src="../../images/common/stopImg.png";
@@ -54,22 +74,22 @@ window.onload = function(){
         }else{
             context.setTransform(1, 0, 0, 1, -1000, -1000)
             window.cancelAnimationFrame(origin)
-            start(context, W, H, stopImgChar, moveImgChar, imgBg);
+            canvas.style.display="none"
+            start(stopImgChar, moveImgChar, imgBg);
         }
     }
-    draw()
+
+    draw();
     context.transform(2, 0, 0, 2, -1000, -1000)
 
 };
 
-function start(context, W, H, stopI, moveI, bgI){
+function start(stopI, moveI, bgI){
+	const canvas = document.createElement("canvas");
+
     const stopImgChar = stopI;
     const moveImgChar = moveI;
     const imgBg = bgI;
-    // 픽셀 정리
-    context.clearRect(0, 0, W*2, H*2);
-    // 컨텍스트 리셋
-    context.beginPath();
 
     let x=1000, y=1000; //정 가운데로 위치
     let w=128, h=128; //플레이어 이미지의 절반 사이즈
@@ -82,6 +102,15 @@ function start(context, W, H, stopI, moveI, bgI){
     let type = "stop";
     let arrow = 'right';
     
+	canvas.width = W*2;
+	canvas.height = H*2;
+	canvas.style.width = W+"px";
+	canvas.style.height = H+"px";
+
+	document.body.appendChild(canvas);
+
+    const context= canvas.getContext('2d');
+
     document.addEventListener('keydown', function(event){
         //눌러진 key의 코드값
         keycode=event.keyCode;
@@ -132,9 +161,11 @@ function start(context, W, H, stopI, moveI, bgI){
             stopImgChar.src = "../../images/common/stopImg_"+arrow+".png" 
             imgChar = stopImgChar;
         }
+        console.log(x, y, w, h)
         context.strokeStyle = "rgba(0,0,0,0.5)";
         context.drawImage(imgBg,bgx,0,1000,500,0,0,W*2,H*2)
-        context.drawImage(imgChar,x-w,y-h,w*2,h*2);
+        context.drawImage(imgChar,x-w,y-(h*3),w*2,h*2);
+        // context.drawImage(imgChar,x-w,y-h,w*2,h*2);
         //window.requestAnimationFrame(draw);
     }
     //window.requestAnimationFrame(draw);
