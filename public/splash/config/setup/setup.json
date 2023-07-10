@@ -1,0 +1,27 @@
+{
+    "map": 
+    {
+        "bg":{
+            "name":"bg",
+            "position":[2500,500,0,0]
+        },
+        "warp":[
+            {
+                "name":"warp1",
+                "position":[80,130,0,300]
+            },
+            {
+                "name":"warp2",
+                "position":[80,130,0,100]
+            },
+            {
+                "name":"warp3",
+                "position":[-80,130,2500,300]
+            },
+            {
+                "name":"warp4",
+                "position":[-80,130,2500,100]
+            }
+        ]
+    }
+}
