@@ -1,9 +1,8 @@
-function start(stopI, moveI, bgI) {
+function start() {
   const canvas = document.createElement("canvas");
-
-  const stopImgChar = stopI;
-  const moveImgChar = moveI;
-  const imgBg = bgI;
+  offScreenCanvas(canvas);
+  let moveImgChar;
+  let stopImgChar;
 
   const warpImg = [];
 
@@ -74,15 +73,18 @@ function start(stopI, moveI, bgI) {
       toggle = !toggle;
       moveCount = 1;
     }
-    moveImgChar.src = toggle
-      ? IMG_PATH + "/common/moveImg1_" + arrow + ".png"
-      : IMG_PATH + "/common/moveImg2_" + arrow + ".png";
+    moveImgChar = toggle
+      ? arrow === "left"
+        ? canvas.offMove1L
+        : canvas.offMove1R
+      : arrow === "left"
+      ? canvas.offMove2L
+      : canvas.offMove2R;
   }
   const draw = function () {
     let imgChar;
     if (!canJump) {
-      moveImgChar.src = IMG_PATH + "/common/moveImg2_" + arrow + ".png";
-      imgChar = moveImgChar;
+      imgChar = arrow === "left" ? canvas.offMove2L : canvas.offMove2R;
     } else {
       if (type === "move") {
         moveCount++;
@@ -90,12 +92,12 @@ function start(stopI, moveI, bgI) {
         imgChar = moveImgChar;
       } else {
         moveCount = 0;
-        stopImgChar.src = IMG_PATH + "/common/stopImg_" + arrow + ".png";
+        stopImgChar = arrow === "left" ? canvas.offStopL : canvas.offStopR;
         imgChar = stopImgChar;
       }
     }
     context.strokeStyle = "rgba(0,0,0,0.5)";
-    context.drawImage(imgBg, bgx, 0, W, H, 0, 0, W * 2, H * 2);
+    context.drawImage(canvas.offBG, bgx, 0, W, H, 0, 0, W * 2, H * 2);
     context.drawImage(imgChar, x - w, y - h * 3, w * 2, h * 2);
     warpDraw(context, warpImg, bgx);
   };
