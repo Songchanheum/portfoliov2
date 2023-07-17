@@ -34,6 +34,33 @@ function start() {
   document.body.appendChild(canvas);
 
   const context = canvas.getContext("2d");
+  canvas.onmousedown = function (event) {
+    const x = event.clientX - context.canvas.offsetLeft;
+    const y = event.clientY - context.canvas.offsetTop;
+
+    if (x > -163 && x < -106 && y > 44 && y < 89) {
+      dx = -5;
+      type = "move";
+      arrow = "left";
+    }
+    if (x > -83 && x < -26 && y > 44 && y < 89) {
+      dx = 5;
+      type = "move";
+      arrow = "right";
+    }
+    if (x > 163 && x < 240 && y > 44 && y < 89) {
+      if (canJump) {
+        pressJump = true;
+        canJump = false;
+      }
+    }
+    console.log(x, y);
+  };
+  canvas.onmouseup = function () {
+    dx = 0;
+    type = "stop";
+    pressJump = false;
+  };
 
   document.addEventListener("keydown", function (event) {
     //눌러진 key의 코드값

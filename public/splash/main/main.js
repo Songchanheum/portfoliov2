@@ -20,6 +20,8 @@ window.onload = function () {
   let type = "wait";
 
   document.body.appendChild(canvas);
+  const context = canvas.getContext("2d");
+
   document.addEventListener("keypress", function (event) {
     //눌러진 key의 코드값
     keycode = event.keyCode;
@@ -36,15 +38,22 @@ window.onload = function () {
         break;
     }
   });
-
+  canvas.ontouchstart = function () {
+    if (type === "wait") {
+      type = "start";
+      draw();
+      setTimeout(function () {
+        console.log("start");
+        window.requestAnimationFrame(origin);
+      }, 1000);
+    }
+  };
   const stopImgChar = new Image();
   stopImgChar.src = IMG_PATH + "/common/stopImg_right.png";
   const moveImgChar = new Image();
   moveImgChar.src = IMG_PATH + "/common/moveImg1_right.png";
   const imgBg = new Image();
   imgBg.src = IMG_PATH + "/" + category + "/bg.png";
-
-  const context = canvas.getContext("2d");
 
   function draw() {
     context.strokeStyle = "rgba(0,0,0,0.5)";
