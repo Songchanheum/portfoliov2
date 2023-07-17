@@ -12,6 +12,10 @@ window.onload = function () {
   canvas.style.width = W + "px";
   canvas.style.height = H + "px";
   canvas.style.transition = "all 0.5s linear";
+  canvas.style.position = "absolute";
+  canvas.style.top = "220px";
+  canvas.style.left = "50%";
+  canvas.style.transform = "translateX(-50%)";
 
   let type = "wait";
 

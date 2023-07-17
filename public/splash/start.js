@@ -26,6 +26,10 @@ function start() {
   canvas.height = H * 2;
   canvas.style.width = W + "px";
   canvas.style.height = H + "px";
+  canvas.style.position = "absolute";
+  canvas.style.top = "220px";
+  canvas.style.left = "50%";
+  canvas.style.transform = "translateX(-50%)";
 
   document.body.appendChild(canvas);
 
