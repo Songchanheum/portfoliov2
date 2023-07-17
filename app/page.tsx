@@ -10,7 +10,7 @@ export default function Home() {
     <>
       <div className="hidden lg:block">
         <div
-          className="absolute w-screen h-screen min-h-[1080px]"
+          className="absolute w-screen h-[720px] min-h-[720px]"
           dangerouslySetInnerHTML={{ __html: splash_html }}
         ></div>
         <div className="grid grid-row-3">
