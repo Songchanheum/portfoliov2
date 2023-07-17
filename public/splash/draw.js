@@ -69,6 +69,39 @@ function offScreenCanvas(canvas) {
   canvas.offMove2RContext = canvas.offMove2R.getContext("2d");
   canvas.offMove2R.width = 64;
   canvas.offMove2R.height = 64;
+  canvas.moveBg = document.createElement("canvas");
+  canvas.moveBgContext = canvas.moveBg.getContext("2d");
+  canvas.moveBg.width = 900;
+  canvas.moveBg.height = 240;
+  canvas.jumpBg = document.createElement("canvas");
+  canvas.jumpBgContext = canvas.jumpBg.getContext("2d");
+  canvas.jumpBg.width = 750;
+  canvas.jumpBg.height = 240;
+
+  canvas.right = document.createElement("canvas");
+  canvas.rightContext = canvas.right.getContext("2d");
+  canvas.right.width = 512;
+  canvas.right.height = 486;
+  canvas.rightClick = document.createElement("canvas");
+  canvas.rightClickContext = canvas.rightClick.getContext("2d");
+  canvas.rightClick.width = 512;
+  canvas.rightClick.height = 486;
+  canvas.left = document.createElement("canvas");
+  canvas.leftContext = canvas.left.getContext("2d");
+  canvas.left.width = 512;
+  canvas.left.height = 486;
+  canvas.leftClick = document.createElement("canvas");
+  canvas.leftClickContext = canvas.leftClick.getContext("2d");
+  canvas.leftClick.width = 512;
+  canvas.leftClick.height = 486;
+  canvas.space = document.createElement("canvas");
+  canvas.spaceContext = canvas.space.getContext("2d");
+  canvas.space.width = 700;
+  canvas.space.height = 486;
+  canvas.spaceClick = document.createElement("canvas");
+  canvas.spaceClickContext = canvas.spaceClick.getContext("2d");
+  canvas.spaceClick.width = 700;
+  canvas.spaceClick.height = 486;
 
   const stopLImgChar = new Image();
   stopLImgChar.src = IMG_PATH + "/common/stopImg_left.png";
@@ -109,5 +142,53 @@ function offScreenCanvas(canvas) {
   imgBg.src = IMG_PATH + "/" + category + "/bg.png";
   imgBg.addEventListener("load", () => {
     canvas.offBGContext.drawImage(imgBg, 0, 0);
+  });
+
+  const moveBg = new Image();
+  moveBg.src = IMG_PATH + "/common/move.png";
+  moveBg.addEventListener("load", () => {
+    canvas.moveBgContext.drawImage(moveBg, 0, 0);
+  });
+
+  const jumpBg = new Image();
+  jumpBg.src = IMG_PATH + "/common/jump.png";
+  jumpBg.addEventListener("load", () => {
+    canvas.jumpBgContext.drawImage(jumpBg, 0, 0);
+  });
+
+  const right = new Image();
+  right.src = IMG_PATH + "/common/right.png";
+  right.addEventListener("load", () => {
+    canvas.rightContext.drawImage(right, 0, 0);
+  });
+
+  const rightClick = new Image();
+  rightClick.src = IMG_PATH + "/common/right-click.png";
+  rightClick.addEventListener("load", () => {
+    canvas.rightClickContext.drawImage(rightClick, 0, 0);
+  });
+
+  const left = new Image();
+  left.src = IMG_PATH + "/common/left.png";
+  left.addEventListener("load", () => {
+    canvas.leftContext.drawImage(left, 0, 0);
+  });
+
+  const leftClick = new Image();
+  leftClick.src = IMG_PATH + "/common/left-click.png";
+  leftClick.addEventListener("load", () => {
+    canvas.leftClickContext.drawImage(leftClick, 0, 0);
+  });
+
+  const space = new Image();
+  space.src = IMG_PATH + "/common/space.png";
+  space.addEventListener("load", () => {
+    canvas.spaceContext.drawImage(space, 0, 0);
+  });
+
+  const spaceClick = new Image();
+  spaceClick.src = IMG_PATH + "/common/space-click.png";
+  spaceClick.addEventListener("load", () => {
+    canvas.spaceClickContext.drawImage(spaceClick, 0, 0);
   });
 }

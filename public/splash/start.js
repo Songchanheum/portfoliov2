@@ -18,7 +18,7 @@ function start() {
 
   let type = "stop";
   let arrow = "right";
-
+  let pressJump = false;
   let canJump = true;
   let jumpDown = false;
 
@@ -53,6 +53,7 @@ function start() {
         break; //right
       case 32:
         if (canJump) {
+          pressJump = true;
           canJump = false;
         }
         break; //right
@@ -66,6 +67,9 @@ function start() {
       case 39:
         dx = 0;
         type = "stop";
+        break;
+      case 32:
+        pressJump = false;
         break;
     }
   });
@@ -85,6 +89,15 @@ function start() {
       ? canvas.offMove2L
       : canvas.offMove2R;
   }
+  function pressKeyChangeImg() {
+    let left, right, space;
+    left = arrow === "left" && type === "move" ? canvas.leftClick : canvas.left;
+    right =
+      arrow === "right" && type === "move" ? canvas.rightClick : canvas.right;
+    space = pressJump ? canvas.spaceClick : canvas.space;
+
+    return { left, right, space };
+  }
   const draw = function () {
     let imgChar;
     if (!canJump) {
@@ -100,9 +113,16 @@ function start() {
         imgChar = stopImgChar;
       }
     }
+    const { left, right, space } = pressKeyChangeImg();
     context.strokeStyle = "rgba(0,0,0,0.5)";
     context.drawImage(canvas.offBG, bgx, 0, W, H, 0, 0, W * 2, H * 2);
     context.drawImage(imgChar, x - w, y - h * 3, w * 2, h * 2);
+    context.drawImage(canvas.moveBg, 400, 50, 600, 160);
+    context.drawImage(canvas.jumpBg, 1050, 50, 500, 160);
+    context.drawImage(left, 670, 80, 120, 100);
+    context.drawImage(right, 830, 80, 120, 100);
+    context.drawImage(space, 1320, 80, 160, 100);
+
     warpDraw(context, warpImg, bgx);
   };
 
