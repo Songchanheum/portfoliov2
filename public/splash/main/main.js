@@ -38,7 +38,7 @@ window.onload = function () {
         break;
     }
   });
-  canvas.ontouchstart = function () {
+  canvas.onclick = function () {
     if (type === "wait") {
       type = "start";
       draw();
