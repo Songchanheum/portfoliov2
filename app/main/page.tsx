@@ -7,7 +7,7 @@ function Main() {
   const sentence = "Hello".split("");
   const control = useAnimationControls();
 
-  const handleMouseMove = (e) => {
+  const handleMouseMove = (e: React.MouseEvent) => {
     const { clientX, clientY } = e;
     const moveX = clientX - window.innerWidth / 2;
     const moveY = clientY - window.innerHeight / 2;
