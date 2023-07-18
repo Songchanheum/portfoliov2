@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "JUA";
+  src: url("../public/font/Jua-Regular.ttf");
+}
+
 *,
 *:before,
 *:after {

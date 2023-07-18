@@ -6,7 +6,14 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        jua: ["JUA", "cursive"],
+      },
+      transitionProperty: {
+        height: "height",
+      },
+    },
   },
   plugins: [],
 };
