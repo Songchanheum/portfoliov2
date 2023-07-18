@@ -10,6 +10,9 @@ module.exports = {
       fontFamily: {
         jua: ["JUA", "cursive"],
       },
+      transitionProperty: {
+        height: "height",
+      },
     },
   },
   plugins: [],
