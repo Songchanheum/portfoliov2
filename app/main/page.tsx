@@ -71,7 +71,7 @@ function Main() {
               if (letter === " ") {
                 text = "\u00A0";
               } else if (letter === "^") {
-                return <br />;
+                return <br key={i} />;
               } else {
                 text = letter;
               }
