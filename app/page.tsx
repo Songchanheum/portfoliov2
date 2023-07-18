@@ -3,14 +3,14 @@ import React from "react";
 
 export default function Home() {
   const splash_html = `
-<iframe id="splash_iframe" class="border-none w-full h-full text-center" src="/splash/main/index.html" scrolling="no" style="top: 0px;">
+<iframe id="splash_iframe" class="border-none w-full h-full text-center overflow-x-hidden" src="/splash/main/index.html" scrolling="no" style="top: 0px;">
 </iframe>
 `;
   return (
     <>
       <div className="hidden lg:block">
         <div
-          className="absolute w-screen h-[720px] min-h-[720px]"
+          className="absolute w-full h-[720px] min-h-[720px]"
           dangerouslySetInnerHTML={{ __html: splash_html }}
         ></div>
         <div className="grid grid-row-3">
@@ -35,10 +35,7 @@ export default function Home() {
               </button>
             </Link>
 
-            <Link
-              href="https://songchanheum.github.io/portfolio/"
-              className="place-self-start"
-            >
+            <Link href="main" className="place-self-start">
               <button className="w-72 h-14 mt-5 ml-5 font-bold text-xl border-orange-700 border-none hover:border-dotted border-8 rounded-lg bg-orange-200 hover:bg-orange-400">
                 <img
                   className="block m-auto"
