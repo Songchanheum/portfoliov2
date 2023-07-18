@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import TextSpan from "../../components/TextSpan";
-import { motion, useMotionValue, useAnimationControls } from "framer-motion";
+import { motion, useAnimationControls } from "framer-motion";
 
 function Main() {
   const sentence = "Hello".split("");
@@ -31,7 +31,7 @@ function Main() {
         </div>
         <div>
           {sentence.map((letter, i) => {
-            return <TextSpan key={i}>{useMotionValue(letter)}</TextSpan>;
+            return <TextSpan key={i}>{letter}</TextSpan>;
           })}
         </div>
       </div>

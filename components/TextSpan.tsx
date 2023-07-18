@@ -4,7 +4,7 @@ import { motion, useAnimationControls, MotionValue } from "framer-motion";
 export default function TextSpan({
   children,
 }: {
-  children: MotionValue<number> | MotionValue<string>;
+  children: ReactNode | MotionValue<number> | MotionValue<string>;
 }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const controls = useAnimationControls();
