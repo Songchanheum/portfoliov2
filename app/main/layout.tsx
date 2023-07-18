@@ -7,7 +7,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <header>123</header>
+        {children}
+      </body>
     </html>
   );
 }

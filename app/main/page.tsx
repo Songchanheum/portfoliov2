@@ -4,7 +4,7 @@ import TextSpan from "../../components/TextSpan";
 import { motion, useAnimationControls } from "framer-motion";
 
 function Main() {
-  const sentence = "Hello".split("");
+  const hi = "안녕하세요!^웹 개발자^송찬흠입니다.".split("");
   const control = useAnimationControls();
 
   const handleMouseMove = (e: React.MouseEvent) => {
@@ -19,20 +19,46 @@ function Main() {
   };
   return (
     <>
-      <div className="h-screen flex justify-center items-center">
-        <div className="relative h-[600px] w-[360px]">
+      <div className="h-screen flex justify-start items-center">
+        <div className="relative h-[600px] w-[600px] ms-20">
           <motion.img
-            className="block h-full w-full object-cover object-center"
+            className="block h-full w-full object-cover object-center opacity-50"
             animate={control}
             onMouseMove={(e) => handleMouseMove(e)}
-            src="/images/common/moveImg1_right.png"
+            src="/images/main/main.png"
           />
-          <div className="-z-[1] absolute top-0 left-0 h-full w-full bg-gray-200"></div>
+          <img
+            className="-z-[1] absolute top-0 left-0 h-full w-full opacity-30"
+            src="/images/main/main-bg.png"
+          />
         </div>
         <div>
-          {sentence.map((letter, i) => {
-            return <TextSpan key={i}>{letter}</TextSpan>;
-          })}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
+            {hi.map((letter, i) => {
+              let text: any = letter;
+              if (letter === " ") {
+                text = "\u00A0";
+              } else if (letter === "^") {
+                return <br />;
+              } else {
+                text = letter;
+              }
+              return <TextSpan key={i}>{text}</TextSpan>;
+            })}
+          </motion.div>
+          <div className="relative float-left top-10">
+            <motion.span
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="text-gray-400"
+            >
+              Front-end Developer | Next TailwindCSS Framer Motion
+            </motion.span>
+          </div>
         </div>
       </div>
     </>
