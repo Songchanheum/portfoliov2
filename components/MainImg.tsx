@@ -8,7 +8,7 @@ import {
   MotionValue,
 } from "framer-motion";
 import Image from "next/image";
-import hover3d from "./utils/hover";
+import Hover3d from "./utils/hover";
 import TextSpan from "./TextSpan";
 import { CircularText, DownArrow } from "./utils/Icons";
 
@@ -29,12 +29,12 @@ const MainImg = () => {
     target: ref,
     offset: ["start end", "end start"],
   });
-  const hover = hover3d(hero, {
+  const hover = Hover3d(hero, {
     x: -5,
     y: 10,
     z: 4,
   });
-  const hover2 = hover3d(hero, {
+  const hover2 = Hover3d(hero, {
     x: -1,
     y: 3,
     z: 1,

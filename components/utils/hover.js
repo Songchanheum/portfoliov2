@@ -1,11 +1,11 @@
 "use client";
 import React, { useState } from "react";
 
-export default function hover3d(ref, { x = 0, y = 0, z = 0 }) {
+export default function Hover3d(ref, { x = 0, y = 0, z = 0 }) {
   const [coords, setCoords] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
 
-  const handleMouseMove = (e) => {
+  const HandleMouseMove = (e) => {
     const { offsetWidth: width, offsetHeight: height } = ref.current;
     const { clientX, clientY } = e;
 
@@ -26,12 +26,12 @@ export default function hover3d(ref, { x = 0, y = 0, z = 0 }) {
   React.useEffect(() => {
     const { current } = ref;
 
-    current.addEventListener("mousemove", handleMouseMove);
+    current.addEventListener("mousemove", HandleMouseMove);
     current.addEventListener("mouseenter", handleMouseEnter);
     current.addEventListener("mouseleave", handleMouseLeave);
 
     return () => {
-      current.removeEventListener("mousemove", handleMouseMove);
+      current.removeEventListener("mousemove", HandleMouseMove);
       current.removeEventListener("mouseenter", handleMouseEnter);
       current.removeEventListener("mouseleave", handleMouseLeave);
     };
