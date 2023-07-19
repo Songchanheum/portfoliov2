@@ -13,6 +13,9 @@ module.exports = {
       transitionProperty: {
         height: "height",
       },
+      animation: {
+        "spin-slow": "spin 3s linear infinite",
+      },
     },
   },
   plugins: [],

@@ -1,16 +1,16 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { usePathname } from "next/navigation";
 import NavBar from "../../components/NavBar";
 import TopNavBar from "../../components/TopNavBar";
 import { motion } from "framer-motion";
+import { ChatIcon } from "@/components/utils/Icons";
+import ChatModal from "@/components/ChatModal";
 
-export const Header = () => {
-  const pathName = usePathname();
-  const isMain = pathName === "/main";
+export const Header = ({ isMain }: { isMain: boolean }) => {
   return (
-    <header className="sticky top-0 z-50">
+    <header className="fixed w-full top-0 z-50">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={isMain ? "" : { opacity: 1, y: 0 }}
@@ -28,16 +28,55 @@ export const Header = () => {
     </header>
   );
 };
+export const Footer = ({ isMain }: { isMain: boolean }) => {
+  const [show, setShow] = useState<Boolean>(false);
+  return (
+    <footer className="fixed bottom-12 right-32 z-50">
+      <motion.button
+        initial={{ opacity: 0, scale: 4, y: 80 }}
+        animate={isMain ? "" : { opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0 }}
+        className="bg-violet-300 w-10 h-10 rounded-xl grid place-items-center hover:cursor-pointer hover:bg-violet-500"
+        onClick={() => setShow(!show)}
+      >
+        <ChatIcon size="30" fill="white" />
+      </motion.button>
+      {show ? (
+        <motion.div
+          initial={{ y: 80, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          className="absolute bottom-10 right-10 h-[600px] w-[500px] bg-violet-100 rounded-xl flex justify-between items-center align-top"
+        >
+          <div className="inline-block w-full h-full py-2">
+            <motion.div
+              initial={{ y: 80, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.2 }}
+              className="w-[90%] h-full mx-auto"
+            >
+              <ChatModal />
+            </motion.div>
+          </div>
+        </motion.div>
+      ) : (
+        <></>
+      )}
+    </footer>
+  );
+};
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const pathName = usePathname();
+  const isMain = pathName === "/main";
   return (
     <html lang="en">
       <body>
-        <Header />
+        <Header isMain={isMain} />
         {children}
+        <Footer isMain={isMain} />
       </body>
     </html>
   );
