@@ -1,96 +1,77 @@
 "use client";
-import React from "react";
-import TextSpan from "../../components/TextSpan";
-import { motion, useAnimationControls } from "framer-motion";
-import Image from "next/image";
+import React, { useRef, useState } from "react";
+import MainImg from "@/components/MainImg";
+import { motion } from "framer-motion";
+import ChatModal from "@/components/ChatModal";
+import SocialAccount from "@/components/SocialAccount";
 
 function Main() {
-  const hi = "안녕하세요!^웹 개발자^송찬흠입니다.".split("");
-  const charImg = "/images/main/main.png";
-  // const hi = "1234".split("");
-  // const charImg = "";
-  const control = useAnimationControls();
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    const mousePageX = e.pageX;
-    const mousePageY = e.pageY;
-
-    // 마우스 좌표값 기준점을 가운데로 변경
-    const centerPageX = window.innerWidth / 2 - mousePageX;
-    const centerPageY = window.innerHeight / 2 - mousePageY;
-
-    // centerPage 최소값 -100 최대값 100 설정 (! Point)
-    const maxPageX = Math.max(-200, Math.min(100, centerPageX));
-    const maxPageY = Math.max(-200, Math.min(100, centerPageY));
-
-    // 각도 줄이는 설정
-    const anglePageX = maxPageX * 0.1;
-    const anglePageY = maxPageY * 0.1;
-
-    // 부드럽게 설정
-    let softPageX = 0;
-    let softPageY = 0;
-    softPageX += (anglePageX - softPageX) * 0.4;
-    softPageY += (anglePageY - softPageY) * 0.4;
-
-    control.start({
-      transform: `perspective(600px) rotateX(${softPageX}deg) rotateY(${softPageY}deg)`,
-    });
-  };
+  const scrollRef = useRef(null);
+  const [show, setShow] = useState<Boolean>(false);
   return (
-    <>
-      <motion.div
-        initial={{ opacity: 0, y: -200 }}
-        animate={{ opacity: 1, y: -88 }}
-        exit={{ opacity: 1, y: -200 }}
-        className="h-screen flex justify-between items-center"
+    <div className="w-full h-screen grid place-items-center">
+      <MainImg />
+      <section
+        ref={scrollRef}
+        className="w-full bg-gradient-to-b from-white via-white to-orange-100"
       >
-        <div className="w-1/2">
-          <div className="relative h-[600px] w-[600px] ms-20 float-right">
-            <motion.img
-              className="block h-full w-full object-cover object-center opacity-50"
-              animate={control}
-              onMouseMove={(e) => handleMouseMove(e)}
-              src={charImg}
-            />
-            <img
-              className="-z-[1] absolute top-0 left-0 h-full w-full opacity-30"
-              src="/images/main/main-bg.png"
-            />
-          </div>
-        </div>
-        <div className="w-1/2">
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 10 }}
-            transition={{ delay: 0.7 }}
+        <motion.div
+          initial={{ x: -80, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          exit={{ x: -80, opacity: 0 }}
+          className="w-full grid place-items-center"
+        >
+          <button
+            onClick={() => setShow(!show)}
+            className="w-44 h-16 border-none rounded-full font-jua bg-orange-200"
           >
-            {hi.map((letter, i) => {
-              let text: any = letter;
-              if (letter === " ") {
-                text = "\u00A0";
-              } else if (letter === "^") {
-                return <br key={i} />;
-              } else {
-                text = letter;
-              }
-              return <TextSpan key={i}>{text}</TextSpan>;
-            })}
-          </motion.div>
-          <div className="relative float-left top-10">
-            <motion.span
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1 }}
-              className="text-gray-400"
+            Contact Me!
+          </button>
+        </motion.div>
+        {show ? (
+          <motion.div
+            initial={{ y: 80, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            exit={{ y: 80, opacity: 0 }}
+            className="absolute top-[20%] h-[600px] w-1/2 min-w-[960px] bg-violet-100 rounded-xl flex justify-between items-center align-top"
+          >
+            <div className="inline-block border-r-2 border-gray-100 w-1/3 h-full">
+              <motion.span
+                initial={{ x: -80, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{ x: -80, opacity: 0 }}
+                transition={{ delay: 0.2 }}
+                className="inline-block absolute top-5 w-1/3 text-center font-jua text-slate-500"
+              >
+                Social Accounts
+              </motion.span>
+              <div>
+                <SocialAccount type={"v"} />
+              </div>
+            </div>
+            <div className="inline-block w-2/3 h-full pt-10 pb-2">
+              <motion.div
+                initial={{ y: 80, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: 80, opacity: 0 }}
+                transition={{ delay: 0.2 }}
+                className="w-[90%] h-full mx-auto"
+              >
+                <ChatModal />
+              </motion.div>
+            </div>
+            <button
+              onClick={() => setShow(false)}
+              className="absolute top-3 right-5 font-jua text-violet-400 hover:text-violet-800 hover:cursor-pointer"
             >
-              Front-end Developer | Next TailwindCSS Framer Motion
-            </motion.span>
-          </div>
-        </div>
-      </motion.div>
-    </>
+              X
+            </button>
+          </motion.div>
+        ) : (
+          <></>
+        )}
+      </section>
+    </div>
   );
 }
 

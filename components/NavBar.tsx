@@ -15,13 +15,13 @@ function NavBar() {
             className="mx-12"
           ></CustomLink>
           <CustomLink
-            href="/main/project"
+            href="/main/projects"
             title="Projects"
             className="mx-12"
           ></CustomLink>
           <CustomLink
-            href="/main/articles"
-            title="Articles"
+            href="/main/about"
+            title="About"
             className="mx-12"
           ></CustomLink>
         </nav>
