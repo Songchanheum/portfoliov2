@@ -41,7 +41,7 @@ export const Footer = ({ isMain }: { isMain: boolean }) => {
       >
         <ChatIcon size="30" fill="white" />
       </motion.button>
-      {show ? (
+      {show && !isMain ? (
         <motion.div
           initial={{ y: 80, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
