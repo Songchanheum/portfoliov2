@@ -36,7 +36,7 @@ export const Footer = ({ isMain }: { isMain: boolean }) => {
         initial={{ opacity: 0, scale: 4, y: 80 }}
         animate={isMain ? "" : { opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0 }}
-        className="bg-violet-300 w-10 h-10 rounded-xl grid place-items-center hover:cursor-pointer hover:bg-violet-500"
+        className="bg-violet-300 w-10 h-10 rounded-xl grid place-items-center hover:cursor-pointer hover:bg-violet-500 animate-pulse hover:animate-none"
         onClick={() => setShow(!show)}
       >
         <ChatIcon size="30" fill="white" />

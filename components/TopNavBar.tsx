@@ -1,11 +1,13 @@
 import React from "react";
 import Logo from "./Logo";
+import SocialAccount from "./SocialAccount";
 
 const TopNavBar = () => {
   return (
-    <div className="bg-blue-100">
-      <div className="flex">
-        <Logo />
+    <div className="flex justify-start bg-white">
+      <Logo />
+      <div>
+        <SocialAccount type="h" />
       </div>
     </div>
   );

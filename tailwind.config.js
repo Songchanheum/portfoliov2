@@ -16,6 +16,15 @@ module.exports = {
       animation: {
         "spin-slow": "spin 3s linear infinite",
       },
+      minHeight: {
+        screenHeightWithoutHeader: "calc(100vh - 141px)",
+      },
+      height: {
+        screenHeightWithoutHeader: "calc(100vh - 141px)",
+      },
+      margin: {
+        header: "181px",
+      },
     },
   },
   plugins: [],

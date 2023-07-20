@@ -2,18 +2,18 @@ import Link from "next/link";
 import React from "react";
 import { Github, Gmail, Instagram, Me, Programmers } from "./utils/Icons";
 
-const SelectIcon = ({ name }: { name: string }) => {
+const SelectIcon = ({ name, type }: { name: string; type: boolean }) => {
   switch (name) {
     case "github":
-      return <Github size="48" />;
+      return <Github size={type ? "48" : "26"} />;
     case "instagram":
-      return <Instagram size="32" />;
+      return <Instagram size={type ? "32" : "12"} />;
     case "gmail":
-      return <Gmail size="48" />;
+      return <Gmail size={type ? "48" : "26"} />;
     case "programmers":
-      return <Programmers size="48" />;
+      return <Programmers size={type ? "48" : "26"} />;
     case "blog":
-      return <Me size="48" />;
+      return <Me size={type ? "48" : "26"} />;
     default:
       return <div className="w-full h-full bg-gray-200 rounded-2xl"></div>;
   }
@@ -35,30 +35,46 @@ const SocialAccount = ({ type }: { type: string }) => {
       href: "mailto:bsk9212@gmail.com?subject=Portfolio 문의 사항",
     },
   ];
-  const mainClass = type === "v" ? "mt-16 mx-4 " : "flex";
+  const mainClass =
+    type === "v"
+      ? "mt-16 mx-4 "
+      : "flex justify-center mt-8 mr-10 animate-bounce hover:animate-none group";
   return (
     <div className={mainClass}>
       {social.map((item, i) => {
-        return (
-          <Link
-            className="w-full h-16 justify-between items-center text-center flex border-2 border-slate-400 bg-white rounded-2xl mt-2 p-2"
-            href={item.href}
-            key={item.name + i}
-            target="_blank"
-          >
-            <div className="w-[20%]">
-              <div className="w-12 h-12 me-5">
-                <SelectIcon name={item.name} />
+        if (type === "v") {
+          return (
+            <Link
+              className="w-full h-16 justify-between items-center text-center flex border-2 border-slate-400 bg-white rounded-2xl mt-2 p-2"
+              href={item.href}
+              key={item.name + i}
+              target="_blank"
+            >
+              <div className="w-[20%]">
+                <div className="w-12 h-12 me-5">
+                  <SelectIcon name={item.name} type={type === "v"} />
+                </div>
               </div>
-            </div>
-            <span className="w-[70%] float-left relative inline-block font-jua uppercase">
-              {item.name}
-            </span>
-            <span className="w-[10%] float-right relative inline-block text-gray-700 font-jua uppercase">
-              {">>"}
-            </span>
-          </Link>
-        );
+              <span className="w-[70%] float-left relative inline-block font-jua uppercase">
+                {item.name}
+              </span>
+              <span className="w-[10%] float-right relative inline-block text-gray-700 font-jua uppercase">
+                {">>"}
+              </span>
+            </Link>
+          );
+        } else {
+          return (
+            <Link
+              className="w-full -me-4 group-hover:me-4 transition-all ease-in duration-200"
+              href={item.href}
+              key={item.name + i}
+              target="_blank"
+            >
+              <SelectIcon name={item.name} type={type === "v"} />
+            </Link>
+          );
+        }
       })}
     </div>
   );
