@@ -18,6 +18,7 @@ const CustomLink = ({
   child?: Array<LinkType>;
 }) => {
   const path = usePathname();
+  const [open, setOpen] = useState<boolean>(false);
   if (href) {
     const currPath = path.split("/")[2] === href?.split("/")[2];
     return (
@@ -35,7 +36,6 @@ const CustomLink = ({
       </Link>
     );
   } else {
-    const [open, setOpen] = useState<boolean>(false);
     const currPath = child?.find((e) => e.href === path);
     return (
       <button
