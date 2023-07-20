@@ -19,8 +19,8 @@ function useParallax(value: MotionValue<number>, distance: number) {
 const MainImg = () => {
   const hi = "안녕하세요!^웹 개발자^송찬흠입니다.".split("");
   const charImg = "/images/main/main.png";
-  //   const hi = "1234".split("");
-  //   const charImg = "";
+  // const hi = "1234".split("");
+  // const charImg = "";
 
   const ref = useRef<HTMLDivElement>(null);
   const hero = useRef<HTMLDivElement>(null);
