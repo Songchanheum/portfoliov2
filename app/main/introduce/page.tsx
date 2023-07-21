@@ -28,21 +28,23 @@ export default function page() {
           <div className="w-2/3 col-span-3 flex flex-col items-start justify-start pr-10">
             <h2 className="text-gray-500 font-bold mb-4">소개글</h2>
             <IntroduceText>
-              <span className="text-2xl">안</span>녕하세요. 프론트엔드 개발자
-              송찬흠입니다. 사용자 중심의 편리하고 아름다운 웹 페이지를 만들고자
-              하는 열정 넘치는 웹 개발자입니다. 총 개발 7년 / 웹 프론트엔드 개발
-              4년의 경력을 가지고 있으며 새롭고 혁신적인 개발을 하기위해
-              노력하고 있습니다.
+              <span className="text-2xl">안</span>녕하세요. 사용자의 편의성과
+              디자인적 아름다움을 추구하는 열정을 가진 프론트엔드 개발자
+              송찬흠입니다. 총 개발 7년 / 웹 프론트엔드 4년의 경력을 가지고
+              있습니다.
             </IntroduceText>
             <IntroduceText>
-              UI/UX 요소를 꾸미는 매력에 빠져 프론트엔드 개발/디자인에 집중하고
-              있습니다. 디자인적으로 보기좋게 개발하는 것 이상으로 사용하고 즐길
-              수 있는 직관적인 경험을 제공하고 싶습니다.
+              javascript를 기반으로 React를 주로 사용하고 Vue, AngularJS를
+              이용한 경험도 가지고 있습니다. TailwindCSS를 이용하여 style 작업을
+              진행하고 Ant Design, Chakra UI, Vuetify 등 UI Components 또한
+              상황에 맞게 사용합니다. 최근 관심사는 Nextjs, Typescript 이며
+              진행중인 프로젝트에 직접 사용하여 경험하고 있습니다.
             </IntroduceText>
             <IntroduceText>
-              사용자 중심적 사고로 생각하며 모든 프로젝트에 임하고 있습니다.
-              많지 않은 저의 경험/기술과 큰 열정을 다음 프로젝트에 반영할 수
-              있는 기회를 기대하고 있습니다.
+              UI/UX 요소를 꾸미는 매력에 빠져 프론트엔드/디자인에 집중하고
+              있습니다. 항상 사용자 중심적 사고로 개발하며 디자인적 요소를
+              보기좋게 만드는 것 이상으로 사용자에게 직관적이고 즐거운 경험을
+              제공할 수 있도록 노력합니다.
             </IntroduceText>
           </div>
           <div className="w-1/3 p-4">
