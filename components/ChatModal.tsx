@@ -1,4 +1,5 @@
 import React from "react";
+import LocalStorage from "./class/LocalStorage";
 
 const MyImage = ({ size }: { size: String }) => {
   const imgSrc = "/images/main/main.png";
@@ -11,6 +12,13 @@ const MyImage = ({ size }: { size: String }) => {
   return <img src={imgSrc} alt="" className={className} />;
 };
 const ChatModal = () => {
+  const chatNum = LocalStorage.getItem("chatNum") || "";
+  let blurCheck = chatNum ? true : false;
+
+  function changChatNum(chat: string) {
+    LocalStorage.setItem("chatNum", chat);
+    blurCheck = chat ? true : false;
+  }
   return (
     <div className="justify-between h-full w-full bg-white rounded-2xl p-5">
       <div className="h-[15%] justify-between py-3 border-b-2 border-gray-200">
@@ -20,7 +28,7 @@ const ChatModal = () => {
           </div>
           <div className="flex flex-col leading-tight">
             <div className="text-lg mt-1 flex items-center">
-              <span className="text-gray-700 mr-3">송찬흠</span>
+              <span className="text-gray-700 mr-3 font-bold">송찬흠</span>
             </div>
             <span className="text-sm text-gray-600">Front-end Developer</span>
           </div>
@@ -81,11 +89,24 @@ const ChatModal = () => {
         </div>
       </div>
       <div className="h-[20%] border-t-2 border-gray-200 px-4 pt-4 mb-2">
-        <input
-          type="text"
-          placeholder="답변 받으실 연락처를 남겨주세요. (E-mail/Phone)"
-          className="w-full focus:outline-none text-sm focus:placeholder-gray-400 text-gray-600 placeholder-gray-600  bg-gray-200 rounded-md pl-5 py-3 mb-1"
-        />
+        <div className="flex items-center">
+          <div className="relative w-full">
+            <input
+              type="text"
+              defaultValue={chatNum}
+              onBlur={(e) => changChatNum(e.target.value)}
+              placeholder="답변 받으실 연락처를 남겨주세요. (E-mail/Phone)"
+              className="w-full focus:outline-none text-sm focus:placeholder-gray-400 text-gray-600 placeholder-gray-600  bg-gray-200 rounded-md pl-5 py-3 mb-1"
+            />
+            {blurCheck ? (
+              <span className="absolute inset-y-0 right-0 flex items-center pr-3">
+                🫡
+              </span>
+            ) : (
+              <></>
+            )}
+          </div>
+        </div>
         <div className="relative flex">
           <input
             type="text"

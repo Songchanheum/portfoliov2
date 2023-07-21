@@ -2,11 +2,10 @@
 
 import React, { useState } from "react";
 import { usePathname } from "next/navigation";
-import NavBar from "../../components/NavBar";
-import TopNavBar from "../../components/TopNavBar";
 import { motion } from "framer-motion";
 import { ChatIcon } from "@/components/utils/Icons";
 import ChatModal from "@/components/ChatModal";
+import { NavBar, TopNavBar } from "@/components/NavBar";
 
 export const Header = ({ isMain }: { isMain: boolean }) => {
   return (
@@ -36,7 +35,9 @@ export const Footer = ({ isMain }: { isMain: boolean }) => {
         initial={{ opacity: 0, scale: 4, y: 80 }}
         animate={isMain ? "" : { opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0 }}
-        className="bg-violet-300 w-10 h-10 rounded-xl grid place-items-center hover:cursor-pointer hover:bg-violet-500 animate-pulse hover:animate-none"
+        className={`bg-violet-300 w-10 h-10 rounded-xl grid place-items-center hover:cursor-pointer hover:bg-violet-500 ${
+          isMain ? "" : " animate-pulse hover:animate-none"
+        }`}
         onClick={() => setShow(!show)}
       >
         <ChatIcon size="30" fill="white" />
@@ -45,9 +46,9 @@ export const Footer = ({ isMain }: { isMain: boolean }) => {
         <motion.div
           initial={{ y: 80, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-          className="absolute bottom-10 right-10 h-[600px] w-[500px] bg-violet-100 rounded-xl flex justify-between items-center align-top"
+          className="absolute bottom-10 right-10 h-[600px] w-[500px] flex justify-between items-center align-top"
         >
-          <div className="inline-block w-full h-full py-2">
+          <div className="inline-block w-full h-full py-2 bg-violet-100 rounded-2xl rounded-br-none opacity-40 hover:opacity-100 transition-opacity">
             <motion.div
               initial={{ y: 80, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}

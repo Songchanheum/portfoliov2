@@ -9,6 +9,7 @@ module.exports = {
     extend: {
       fontFamily: {
         jua: ["JUA", "cursive"],
+        d2: ["D2CODING", "sans"],
       },
       transitionProperty: {
         height: "height",
