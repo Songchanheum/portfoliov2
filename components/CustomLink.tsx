@@ -22,6 +22,10 @@ const CustomLink = ({
   setOpen: React.Dispatch<React.SetStateAction<string | null>>;
 }) => {
   const path = usePathname();
+  let openTab = open === title ? true : false;
+  useEffect(() => {
+    openTab = open === title ? true : false;
+  }, [open]);
   if (href) {
     const currPath = path.split("/")[2] === href?.split("/")[2];
     return (
@@ -44,10 +48,6 @@ const CustomLink = ({
     );
   } else {
     const currPath = child?.find((e) => e.href === path);
-    let openTab = open === title ? true : false;
-    useEffect(() => {
-      openTab = open === title ? true : false;
-    }, [open]);
     return (
       <button
         className={`${className} relative group/link`}
