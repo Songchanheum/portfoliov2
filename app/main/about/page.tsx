@@ -7,7 +7,7 @@ const page = () => {
   return (
     <PageWrapper>
       <div>
-        <PageHeader title="Projects" />
+        <PageHeader title="About" />
       </div>
     </PageWrapper>
   );
