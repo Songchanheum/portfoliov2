@@ -6,11 +6,18 @@ import ChatModal from "@/components/ChatModal";
 import SocialAccount from "@/components/SocialAccount";
 
 function Main() {
-  const scrollRef = useRef(null);
+  const scrollRef = useRef<HTMLTableSectionElement>(null); 
   const [show, setShow] = useState<Boolean>(false);
+
+const scrollToBottom:React.MouseEventHandler<HTMLButtonElement> = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollIntoView({behavior:"smooth"})
+    }
+};
+
   return (
     <div className="w-full h-screen grid place-items-center">
-      <MainImg />
+      <MainImg scroll={scrollToBottom}/>
       <section
         ref={scrollRef}
         className="w-full bg-gradient-to-b from-white via-white to-orange-100"
