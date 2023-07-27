@@ -16,7 +16,11 @@ function useParallax(value: MotionValue<number>, distance: number) {
   return useTransform(value, [0, 1], [-distance, distance]);
 }
 
-const MainImg = ({scroll}:{scroll:MouseEventHandler<HTMLButtonElement>}) => {
+const MainImg = ({
+  scroll,
+}: {
+  scroll: MouseEventHandler<HTMLButtonElement>;
+}) => {
   const hi = "안녕하세요!^웹 개발자^송찬흠입니다.".split("");
   const charImg = "/images/main/main.png";
   // const hi = "1234".split("");
@@ -24,8 +28,7 @@ const MainImg = ({scroll}:{scroll:MouseEventHandler<HTMLButtonElement>}) => {
 
   const ref = useRef<HTMLDivElement>(null);
   const hero = useRef<HTMLDivElement>(null);
-  const scrollRef = useRef<HTMLDivElement>(null); 
-  
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -118,14 +121,17 @@ const MainImg = ({scroll}:{scroll:MouseEventHandler<HTMLButtonElement>}) => {
           </div>
         </motion.div>
       </motion.div>
-          <button onClick={scroll}>
-      <div className="absolute bottom-8 left-[50%] translate-x-[-50%] animate-bounce z-[99] opacity-60">
-        <div className="w-32 h-32 flex items-center justify-center relative" ref={scrollRef}>
-          <CircularText className={"animate-spin-slow"} />
+      <button onClick={scroll}>
+        <div className="absolute bottom-8 left-[50%] translate-x-[-50%] animate-bounce z-[99] opacity-60">
+          <div
+            className="w-32 h-32 flex items-center justify-center relative"
+            ref={scrollRef}
+          >
+            <CircularText className={"animate-spin-slow"} />
             <DownArrow size={40} />
+          </div>
         </div>
-      </div>
-          </button>
+      </button>
     </section>
   );
 };
