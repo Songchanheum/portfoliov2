@@ -22,7 +22,7 @@ function getChatMessage(
   chatNum: string,
   setChatData: React.Dispatch<React.SetStateAction<chatType[]>>
 ) {
-  fetch(`http://localhost:5001/api/chat?num=${chatNum}`)
+  fetch(`https://songsintroduce.vercel.app/api/chat?num=${chatNum}`)
     .then(function (response) {
       return response.json();
     })
@@ -37,6 +37,7 @@ function ChatModal({ isOpen }: { isOpen: boolean }) {
     LocalStorage.getItem("chatNum") || ""
   );
   const [sendMessage, setSendMessage] = useState<string>("");
+  const [isSendding, setIsSendding] = useState<boolean>(false);
   let blurCheck = chatNum ? true : false;
 
   function changChatNum(chat: string) {
@@ -48,10 +49,11 @@ function ChatModal({ isOpen }: { isOpen: boolean }) {
     setSendMessage(message);
   }
   function sendChat() {
-    if (chatNum === "") {
+    if (chatNum === "" || sendMessage === "" || isSendding) {
       return;
     }
-    fetch(`http://localhost:5001/api/chat`, {
+    setIsSendding(true);
+    fetch(`https://songsintroduce.vercel.app/api/chat`, {
       method: "POST",
       body: JSON.stringify({ num: chatNum, message: sendMessage }),
     }).then(function (res) {
@@ -61,6 +63,7 @@ function ChatModal({ isOpen }: { isOpen: boolean }) {
         if (messageRef.current) {
           messageRef.current.value = "";
           setSendMessage("");
+          setIsSendding(false);
         }
       }
     });
@@ -92,7 +95,7 @@ function ChatModal({ isOpen }: { isOpen: boolean }) {
       </div>
     );
   }
-  function ReciveMessage({ text }: { text: Array<string> }) {
+  function ReceiveMessage({ text }: { text: Array<string> }) {
     return (
       <div className="chat-message">
         <div className="flex items-end">
@@ -130,9 +133,9 @@ function ChatModal({ isOpen }: { isOpen: boolean }) {
         if (curType === "send") {
           curType = null;
           return <SendMessage key={e.text + i} text={temp} />;
-        } else if (curType === "recive") {
+        } else if (curType === "receive") {
           curType = null;
-          return <ReciveMessage key={e.text + i} text={temp} />;
+          return <ReceiveMessage key={e.text + i} text={temp} />;
         }
       }
     });
