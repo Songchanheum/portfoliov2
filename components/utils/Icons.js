@@ -5,7 +5,7 @@ export const CircularText = ({ className, ...rest }) => (
   <Image
     className={className}
     src="/images/main/bottom.png"
-    alt
+    alt="img"
     fill
     {...rest}
   ></Image>
@@ -20,7 +20,7 @@ export const Instagram = ({ size, ...rest }) => (
 export const Gmail = ({ size, ...rest }) => (
   <Image
     src="/images/main/gmail.png"
-    alt
+    alt="img"
     width={size}
     height={size}
     {...rest}
@@ -29,7 +29,7 @@ export const Gmail = ({ size, ...rest }) => (
 export const Programmers = ({ size, ...rest }) => (
   <Image
     src="/images/main/programmers.png"
-    alt
+    alt="img"
     width={size}
     height={size}
     {...rest}
@@ -38,7 +38,7 @@ export const Programmers = ({ size, ...rest }) => (
 export const Me = ({ size, ...rest }) => (
   <Image
     src="/images/main/main.png"
-    alt
+    alt="img"
     width={size}
     height={size}
     {...rest}

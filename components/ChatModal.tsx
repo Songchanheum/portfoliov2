@@ -1,5 +1,12 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import LocalStorage from "./class/LocalStorage";
+
+interface chatType {
+  type: string;
+  text: string;
+}
 
 const MyImage = ({ size }: { size: String }) => {
   const imgSrc = "/images/main/main.png";
@@ -11,14 +18,126 @@ const MyImage = ({ size }: { size: String }) => {
   }
   return <img src={imgSrc} alt="" className={className} />;
 };
-const ChatModal = () => {
-  const chatNum = LocalStorage.getItem("chatNum") || "";
+function getChatMessage(
+  chatNum: string,
+  setChatData: React.Dispatch<React.SetStateAction<chatType[]>>
+) {
+  fetch(`http://localhost:5001/api/chat?num=${chatNum}`)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (jsonData) {
+      setChatData(jsonData);
+    });
+}
+function ChatModal({ isOpen }: { isOpen: boolean }) {
+  const messageRef = useRef<HTMLInputElement>(null);
+  const [chatData, setChatData] = useState<Array<chatType>>([]);
+  const [chatNum, setChatNum] = useState<string>(
+    LocalStorage.getItem("chatNum") || ""
+  );
+  const [sendMessage, setSendMessage] = useState<string>("");
   let blurCheck = chatNum ? true : false;
 
   function changChatNum(chat: string) {
     LocalStorage.setItem("chatNum", chat);
+    setChatNum(chat);
     blurCheck = chat ? true : false;
   }
+  function setInputMessage(message: string) {
+    setSendMessage(message);
+  }
+  function sendChat() {
+    if (chatNum === "") {
+      return;
+    }
+    fetch(`http://localhost:5001/api/chat`, {
+      method: "POST",
+      body: JSON.stringify({ num: chatNum, message: sendMessage }),
+    }).then(function (res) {
+      console.log(res);
+      if (res.ok) {
+        getChatMessage(chatNum, setChatData);
+        if (messageRef.current) {
+          messageRef.current.value = "";
+          setSendMessage("");
+        }
+      }
+    });
+  }
+  useEffect(() => {
+    getChatMessage(chatNum, setChatData);
+  }, [isOpen, chatNum]);
+
+  function SendMessage({ text }: { text: Array<string> }) {
+    return (
+      <div className="chat-message">
+        <div className="flex items-end justify-end">
+          <div className="flex flex-col space-y-2 text-sm mx-2 order-1 items-end">
+            {text.map((e, i) => {
+              return (
+                <div key={e + i}>
+                  <span
+                    className={`px-4 py-2 rounded-lg inline-block bg-violet-600 text-white ${
+                      text.length === i + 1 ? "rounded-br-none" : ""
+                    }`}
+                  >
+                    {e}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    );
+  }
+  function ReciveMessage({ text }: { text: Array<string> }) {
+    return (
+      <div className="chat-message">
+        <div className="flex items-end">
+          <div className="flex flex-col space-y-2 text-sm mx-2 order-2 items-start">
+            {text.map((e, i) => {
+              return (
+                <div key={e + i}>
+                  <span
+                    className={`px-4 py-2 rounded-lg inline-block bg-gray-300 text-gray-600 ${
+                      text.length === i + 1 ? "rounded-bl-none" : ""
+                    }`}
+                  >
+                    {e}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+          <MyImage size={"sm"} />
+        </div>
+      </div>
+    );
+  }
+  const ChatMessage = useMemo<React.ReactNode>(() => {
+    let curType: string | null = null;
+    const curList: Array<string> = [];
+    return chatData.map((e, i) => {
+      if (curType === null || curType === e.type) {
+        curType = e.type;
+        curList.push(e.text);
+      }
+      if (chatData.length === i + 1 || curType !== chatData[i + 1]?.type) {
+        const temp = [...curList];
+        curList.splice(0);
+        if (curType === "send") {
+          curType = null;
+          return <SendMessage key={e.text + i} text={temp} />;
+        } else if (curType === "recive") {
+          curType = null;
+          return <ReciveMessage key={e.text + i} text={temp} />;
+        }
+      }
+    });
+  }, [chatData]);
+
   return (
     <div className="justify-between h-full w-full bg-white rounded-2xl p-5">
       <div className="h-[15%] justify-between py-3 border-b-2 border-gray-200">
@@ -52,50 +171,16 @@ const ChatModal = () => {
             <MyImage size={"sm"} />
           </div>
         </div>
-        <div className="chat-message">
-          <div className="flex items-end justify-end">
-            <div className="flex flex-col space-y-2 text-sm mx-2 order-1 items-end">
-              <div>
-                <span className="px-4 py-2 rounded-lg inline-block rounded-br-none bg-violet-600 text-white ">
-                  yes, I have a mac. I never had issues with root permission as
-                  well, but this helped me to solve the problem
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="chat-message">
-          <div className="flex items-end">
-            <div className="flex flex-col space-y-2 text-sm mx-2 order-2 items-start">
-              <div>
-                <span className="px-4 py-2 rounded-lg inline-block bg-gray-300 text-gray-600">
-                  I get the same error on Arch Linux (also with sudo)
-                </span>
-              </div>
-              <div>
-                <span className="px-4 py-2 rounded-lg inline-block bg-gray-300 text-gray-600">
-                  I also have this issue, Here is what I was doing until now:
-                  #1076
-                </span>
-              </div>
-              <div>
-                <span className="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gray-300 text-gray-600">
-                  even i am facing
-                </span>
-              </div>
-            </div>
-            <MyImage size={"sm"} />
-          </div>
-        </div>
+        {ChatMessage}
       </div>
       <div className="h-[20%] border-t-2 border-gray-200 px-4 pt-4 mb-2">
         <div className="flex items-center">
           <div className="relative w-full">
             <input
-              type="text"
+              type="password"
               defaultValue={chatNum}
               onBlur={(e) => changChatNum(e.target.value)}
-              placeholder="답변 받으실 연락처를 남겨주세요. (E-mail/Phone)"
+              placeholder="비밀번호를 입력해 주세요. (개인 식별 번호)"
               className="w-full focus:outline-none text-sm focus:placeholder-gray-400 text-gray-600 placeholder-gray-600  bg-gray-200 rounded-md pl-5 py-3 mb-1"
             />
             {blurCheck ? (
@@ -111,11 +196,15 @@ const ChatModal = () => {
           <input
             type="text"
             placeholder="메시지를 남겨주세요."
+            defaultValue={sendMessage}
+            ref={messageRef}
+            onBlur={(e) => setInputMessage(e.target.value)}
             className="w-full focus:outline-none text-sm focus:placeholder-gray-400 text-gray-600 placeholder-gray-600  bg-gray-200 rounded-md pl-5 py-3"
           />
           <div className="absolute right-0 items-center inset-y-0 hidden sm:flex">
             <button
               type="button"
+              onClick={() => sendChat()}
               className="inline-flex items-center justify-center rounded-lg px-4 py-2 transition duration-500 ease-in-out text-white bg-violet-500 hover:bg-violet-400 focus:outline-none"
             >
               <span className="font-bold text-sm">Send</span>
@@ -133,6 +222,6 @@ const ChatModal = () => {
       </div>
     </div>
   );
-};
+}
 
 export default ChatModal;
