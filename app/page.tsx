@@ -49,7 +49,11 @@ export default function Home() {
       <div className="block lg:hidden">
         {"PC화면에 최적화 되어있는 페이지입니다. 최소 크기 1024px"}
         <br />
-        {"모바일 전용 보기 >>"}
+        <Link href="main" className="place-self-start">
+          <button className="w-72 h-14 mt-5 ml-5 font-bold text-xl border-orange-700 border-none hover:border-dotted border-8 rounded-lg bg-orange-200 hover:bg-orange-400">
+            <img className="block m-auto" src="/images/common/skip.png"></img>
+          </button>
+        </Link>
       </div>
     </>
   );

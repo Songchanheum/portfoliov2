@@ -211,6 +211,12 @@ function ChatModal({ isOpen }: { isOpen: boolean }) {
             defaultValue={sendMessage}
             ref={messageRef}
             onBlur={(e) => setInputMessage(e.target.value)}
+            onKeyDown={(e) => {
+              console.log(e);
+              if (e.key === "Enter") {
+                sendChat();
+              }
+            }}
             className="w-full focus:outline-none text-sm focus:placeholder-gray-400 text-gray-600 placeholder-gray-600  bg-gray-200 rounded-md pl-5 py-3"
           />
           <div className="absolute right-0 items-center inset-y-0 hidden sm:flex">
