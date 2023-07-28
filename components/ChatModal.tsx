@@ -76,7 +76,7 @@ function ChatModal({ isOpen }: { isOpen: boolean }) {
           <div className="flex flex-col space-y-2 text-sm mx-2 order-1 items-end">
             {text.map((e, i) => {
               return (
-                <div>
+                <div key={e + i}>
                   <span
                     className={`px-4 py-2 rounded-lg inline-block bg-violet-600 text-white ${
                       text.length === i + 1 ? "rounded-br-none" : ""
@@ -99,7 +99,7 @@ function ChatModal({ isOpen }: { isOpen: boolean }) {
           <div className="flex flex-col space-y-2 text-sm mx-2 order-2 items-start">
             {text.map((e, i) => {
               return (
-                <div>
+                <div key={e + i}>
                   <span
                     className={`px-4 py-2 rounded-lg inline-block bg-gray-300 text-gray-600 ${
                       text.length === i + 1 ? "rounded-bl-none" : ""
@@ -129,10 +129,10 @@ function ChatModal({ isOpen }: { isOpen: boolean }) {
         curList.splice(0);
         if (curType === "send") {
           curType = null;
-          return <SendMessage text={temp} />;
+          return <SendMessage key={e.text + i} text={temp} />;
         } else if (curType === "recive") {
           curType = null;
-          return <ReciveMessage text={temp} />;
+          return <ReciveMessage key={e.text + i} text={temp} />;
         }
       }
     });
