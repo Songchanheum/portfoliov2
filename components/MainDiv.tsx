@@ -1,14 +1,28 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, {
+  Dispatch,
+  SetStateAction,
+  useRef,
+  useState,
+  use,
+  useEffect,
+} from "react";
 
 import MainImg from "@/components/MainImg";
 import { motion } from "framer-motion";
 import ChatModal from "@/components/ChatModal";
 import SocialAccount from "@/components/SocialAccount";
 
+async function getUser() {
+  const res = await fetch("http://localhost:5001/api/user", {
+    cache: "no-store",
+  });
+  return res.json();
+}
+
 const MainDiv = () => {
   const scrollRef = useRef<HTMLTableSectionElement>(null);
-  const [show, setShow] = useState<Boolean>(false);
+  const [show1, setShow] = useState<boolean>(false);
 
   const scrollToBottom: React.MouseEventHandler<HTMLButtonElement> = () => {
     if (scrollRef.current) {
@@ -30,13 +44,13 @@ const MainDiv = () => {
           className="w-full grid place-items-center"
         >
           <button
-            onClick={() => setShow(!show)}
+            onClick={() => setShow(!show1)}
             className="w-44 h-16 border-none rounded-full font-jua bg-orange-200"
           >
             Contact Me!
           </button>
         </motion.div>
-        {show ? (
+        {show1 ? (
           <motion.div
             initial={{ y: 80, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
@@ -65,7 +79,7 @@ const MainDiv = () => {
                 transition={{ delay: 0.2 }}
                 className="w-[90%] h-full mx-auto"
               >
-                <ChatModal />
+                <ChatModal isOpen={show1} />
               </motion.div>
             </div>
             <button

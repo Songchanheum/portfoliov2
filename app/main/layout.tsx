@@ -28,7 +28,7 @@ export const Header = ({ isMain }: { isMain: boolean }) => {
   );
 };
 export const Footer = ({ isMain }: { isMain: boolean }) => {
-  const [show, setShow] = useState<Boolean>(false);
+  const [show, setShow] = useState<boolean>(false);
   return (
     <footer className="fixed bottom-12 right-32 z-50">
       <motion.button
@@ -55,7 +55,7 @@ export const Footer = ({ isMain }: { isMain: boolean }) => {
               transition={{ delay: 0.2 }}
               className="w-[90%] h-full mx-auto"
             >
-              <ChatModal />
+              <ChatModal isOpen={show} />
             </motion.div>
           </div>
         </motion.div>
