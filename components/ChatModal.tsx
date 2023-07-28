@@ -22,7 +22,11 @@ function getChatMessage(
   chatNum: string,
   setChatData: React.Dispatch<React.SetStateAction<chatType[]>>
 ) {
-  fetch(`https://songsintroduce.vercel.app/api/chat?num=${chatNum}`)
+  fetch(
+    `${
+      process.env.NEXT_PUBLIC_API_URL || "https://songsintroduce.vercel.app/"
+    }api/chat?num=${chatNum}`
+  )
     .then(function (response) {
       return response.json();
     })
@@ -53,10 +57,15 @@ function ChatModal({ isOpen }: { isOpen: boolean }) {
       return;
     }
     setIsSendding(true);
-    fetch(`https://songsintroduce.vercel.app/api/chat`, {
-      method: "POST",
-      body: JSON.stringify({ num: chatNum, message: sendMessage }),
-    }).then(function (res) {
+    fetch(
+      `${
+        process.env.NEXT_PUBLIC_API_URL || "https://songsintroduce.vercel.app/"
+      }api/chat`,
+      {
+        method: "POST",
+        body: JSON.stringify({ num: chatNum, message: sendMessage }),
+      }
+    ).then(function (res) {
       console.log(res);
       if (res.ok) {
         getChatMessage(chatNum, setChatData);
@@ -166,7 +175,7 @@ function ChatModal({ isOpen }: { isOpen: boolean }) {
               <div>
                 <span className="px-4 py-2 rounded-lg inline-block bg-gray-300 text-gray-600 rounded-bl-none">
                   {
-                    "안녕하세요. 프론트엔드 개발자 송찬흠입니다. 궁금하신 사항이나 문의사항이 있으시면 E-mail (bsk9212@gmail.com) 혹은 여기에 남겨주시면 답변드리겠습니다! 감사합니다."
+                    "안녕하세요. 프론트엔드 개발자 송찬흠입니다. 궁금하신 사항이나 문의사항은 E-mail (bsk9212@gmail.com) 혹은 여기에 남겨주시면 답변드리겠습니다! 감사합니다."
                   }
                 </span>
               </div>
