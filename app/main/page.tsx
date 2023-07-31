@@ -1,5 +1,5 @@
 import React from "react";
-import MainDiv from "@/components/MainDiv";
+import MainDiv from "@/app/main/components/MainDiv";
 
 async function Main() {
   return (

@@ -8,10 +8,10 @@ import React, {
   useEffect,
 } from "react";
 
-import MainImg from "@/components/MainImg";
+import MainImg from "@/app/main/components/MainImg";
 import { motion } from "framer-motion";
-import ChatModal from "@/components/ChatModal";
-import SocialAccount from "@/components/SocialAccount";
+import ChatModal from "@/app/main/components/ChatModal";
+import SocialAccount from "@/common/SocialAccount";
 
 async function getUser() {
   const res = await fetch("http://localhost:5001/api/user", {

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import LocalStorage from "./class/LocalStorage";
+import LocalStorage from "@/common/class/LocalStorage";
 
 interface chatType {
   type: string;

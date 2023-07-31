@@ -8,9 +8,9 @@ import {
   MotionValue,
 } from "framer-motion";
 import Image from "next/image";
-import Hover3d from "./utils/hover";
-import TextSpan from "./TextSpan";
-import { CircularText, DownArrow } from "./utils/Icons";
+import Hover3d from "@/common/utils/hover";
+import TextSpan from "@/common/TextSpan";
+import { CircularText, DownArrow } from "@/common/utils/Icons";
 
 function useParallax(value: MotionValue<number>, distance: number) {
   return useTransform(value, [0, 1], [-distance, distance]);

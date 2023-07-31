@@ -2,10 +2,10 @@
 
 import React, { useState } from "react";
 import { usePathname } from "next/navigation";
-import { motion } from "framer-motion";
-import { ChatIcon } from "@/components/utils/Icons";
-import ChatModal from "@/components/ChatModal";
-import { NavBar, TopNavBar } from "@/components/NavBar";
+import { AnimatePresence, motion } from "framer-motion";
+import { ChatIcon } from "@/common/utils/Icons";
+import ChatModal from "@/app/main/components/ChatModal";
+import { NavBar, TopNavBar } from "@/app/main/components/NavBar";
 
 export const Header = ({ isMain }: { isMain: boolean }) => {
   return (
@@ -75,9 +75,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Header isMain={isMain} />
-        {children}
-        <Footer isMain={isMain} />
+        <AnimatePresence mode="wait">
+          <Header isMain={isMain} />
+          {children}
+          <Footer isMain={isMain} />
+        </AnimatePresence>
       </body>
     </html>
   );
