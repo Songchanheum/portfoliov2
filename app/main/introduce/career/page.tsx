@@ -1,19 +1,15 @@
-"use client";
-import PageHeader from "@/app/main/components/PageHeader";
-import PageWrapper from "@/common/PageWrapper";
 import React from "react";
+import DevTimelineComponents from "./components/DevTimelineComponents";
+import EduCredentialComponents from "./components/EduCredentialComponents";
+import PageWrapper from "@/common/PageWrapper";
 
-const page = () => {
+const CareerPage = () => {
   return (
     <PageWrapper>
-      <div>
-        <PageHeader title="Dev Timeline" />
-      </div>
-      <div>
-        <PageHeader title="Education & Credential" />
-      </div>
+      <DevTimelineComponents />
+      <EduCredentialComponents />
     </PageWrapper>
   );
 };
 
-export default page;
+export default CareerPage;

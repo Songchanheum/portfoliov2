@@ -28,7 +28,7 @@ export const skillData: Array<SkilType> = [
     ],
   },
   {
-    title: "Backend",
+    title: "Back-end",
     info: [
       {
         title: "Main",
