@@ -27,7 +27,7 @@ const CustomLink = ({
     openTab = open === title ? true : false;
   }, [open]);
   if (href) {
-    const currPath = path.split("/")[2] === href?.split("/")[2];
+    const currPath = path === href;
     return (
       <Link
         href={href}

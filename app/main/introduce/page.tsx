@@ -1,22 +1,29 @@
 "use client";
-import PageWrapper from "@/components/PageWrapper";
-import React from "react";
-import { motion } from "framer-motion";
-import PageHeader from "@/components/PageHeader";
-import Image from "next/image";
 
-function Experience({ text, num }: { text: string; num: string }) {
+import PageWrapper from "@/common/PageWrapper";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import PageHeader from "@/app/main/components/PageHeader";
+import Image from "next/image";
+import CountUp from "react-countup";
+import { fadeIn } from "@/common/utils/variants";
+import IntroduceText from "./components/IntroduceText";
+import Skill from "./components/Skill";
+import { skillData } from "./constants";
+
+function Experience({ text, num }: { text: string; num: number }) {
   return (
     <div className="w-1/3 grid place-items-center">
-      <span className="text-6xl font-bold mb-5">{num}+</span>
+      <span className="text-6xl font-bold mb-5">
+        <CountUp end={num} duration={5} /> +
+      </span>
       <span className="font-jua"> {text}</span>
     </div>
   );
 }
-function IntroduceText({ children }: { children: React.ReactNode }) {
-  return <p className="font-d2 mb-4 text-lg">{children}</p>;
-}
-export default function page() {
+
+export default function AboutPage() {
+  const [dataIndex, setDataIndex] = useState<number>(0);
   // const myPic = "";
   const myPic = "/images/introduce/mypic.png";
   return (
@@ -25,7 +32,13 @@ export default function page() {
         <PageHeader title="Introduce" />
         {/* <PageHeader title="123" /> */}
         <div className="flex mb-10">
-          <div className="w-2/3 col-span-3 flex flex-col items-start justify-start pr-10">
+          <motion.div
+            variants={fadeIn("left", 0.2)}
+            initial="hidden"
+            animate="show"
+            exit="hidden"
+            className="w-2/3 col-span-3 flex flex-col items-start justify-start pr-10"
+          >
             <h2 className="text-gray-500 font-bold mb-4">소개글</h2>
             <IntroduceText>
               <span className="text-2xl">안</span>녕하세요. 사용자의 편의성과
@@ -46,8 +59,15 @@ export default function page() {
               보기좋게 만드는 것 이상으로 사용자에게 직관적이고 즐거운 경험을
               제공할 수 있도록 노력합니다.
             </IntroduceText>
-          </div>
-          <div className="w-1/3 p-4">
+          </motion.div>
+
+          <motion.div
+            variants={fadeIn("down", 0.4)}
+            initial="hidden"
+            animate="show"
+            exit="hidden"
+            className="w-1/3 p-4"
+          >
             <div className="border-2 border-black border-r-8 border-b-8 rounded-2xl h-fit p-8">
               <img
                 src={myPic}
@@ -55,16 +75,67 @@ export default function page() {
                 className="w-[80%] m-auto h-auto rounded-2xl bg-gray-400"
               />
             </div>
-          </div>
+          </motion.div>
         </div>
-        <div className="w-full flex hover:text-orange-400 transition-colors duration-500">
-          <Experience text="Year Of Experience" num="7" />
-          <Experience text="Projects Completed" num="20" />
-          <Experience text="Dev Toy Project" num="10" />
-        </div>
+
+        <motion.div
+          variants={fadeIn("left", 0.4)}
+          initial="hidden"
+          animate="show"
+          exit="hidden"
+          className="w-full flex hover:text-orange-400 transition-colors duration-500"
+        >
+          <Experience text="Year Of Experience" num={7} />
+          <Experience text="Projects Completed" num={30} />
+          <Experience text="Dev Toy Project" num={10} />
+        </motion.div>
       </div>
       <div>
         <PageHeader title="Skill" />
+        <div className="container mx-auto h-full flex flex-col items-center gap-x-6">
+          <div>
+            <div className="flex gap-x-12 mx-auto mb-8 justify-center">
+              {skillData.map((item, index) => {
+                return (
+                  <div
+                    key={item.title + index}
+                    className={`${
+                      index === dataIndex &&
+                      "text-violet-600 after:bg-violet-600 after:w-full after:transitio-all after:duration-300"
+                    } font-extrabold ursor-pointer capitalize text-2xl relative after:w-8 after:h-[2px] after:bg-white after:absolute after:-bottom-1 after:left-0`}
+                    onClick={() => setDataIndex(index)}
+                  >
+                    {item.title}
+                  </div>
+                );
+              })}
+            </div>
+            <div className="min-h-[800px] flex relative flex-col px-10 space-y-5 mx-auto items-start">
+              {skillData[dataIndex].info.map((item, index) => {
+                return (
+                  <div key={item.title + index}>
+                    <div className="w-full">
+                      <p className="text-gray-600 font-d2 font-bold">
+                        {item.title}
+                      </p>
+                    </div>
+                    <div className="grid xl:grid-cols-6 grid-cols-4 gap-5">
+                      {item.src.map((skillItem, skillIndex) => {
+                        return (
+                          <Skill
+                            key="skillIndex"
+                            src={`https://skillicons.dev/icons?i=${skillItem}&theme=light`}
+                            percent={item.percent[skillIndex]}
+                          />
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
       </div>
     </PageWrapper>
   );

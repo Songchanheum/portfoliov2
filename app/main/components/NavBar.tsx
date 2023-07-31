@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import CustomLink from "./CustomLink";
-import SocialAccount from "./SocialAccount";
+import SocialAccount from "@/common/SocialAccount";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
@@ -21,25 +21,22 @@ export const NavBar = () => {
             setOpen={setOpen}
           ></CustomLink>
           <CustomLink
-            title="Introduce"
+            title="About Me"
             className="mx-12"
-            child={[
-              { name: "Introduce", href: "/main/introduce" },
-              { name: "Career", href: "/main/introduce/career" },
-            ]}
+            href="/main/introduce"
+            open={open}
+            setOpen={setOpen}
+          ></CustomLink>
+          <CustomLink
+            title="Career Experience"
+            className="mx-12"
+            href="/main/introduce/career"
             open={open}
             setOpen={setOpen}
           ></CustomLink>
           <CustomLink
             href="/main/projects"
             title="Projects"
-            className="mx-12"
-            open={open}
-            setOpen={setOpen}
-          ></CustomLink>
-          <CustomLink
-            href="/main/about"
-            title="About"
             className="mx-12"
             open={open}
             setOpen={setOpen}
