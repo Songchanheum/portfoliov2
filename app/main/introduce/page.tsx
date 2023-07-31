@@ -1,4 +1,5 @@
 "use client";
+
 import PageWrapper from "@/common/PageWrapper";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
@@ -21,7 +22,7 @@ function Experience({ text, num }: { text: string; num: number }) {
   );
 }
 
-export default function page() {
+export default function AboutPage() {
   const [dataIndex, setDataIndex] = useState<number>(0);
   // const myPic = "";
   const myPic = "/images/introduce/mypic.png";
