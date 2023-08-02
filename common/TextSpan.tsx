@@ -18,7 +18,6 @@ export default function TextSpan({
         "scale3d(.9,1.05,1)",
         "scale3d(1,1,1)",
       ],
-      color: "#232323",
       //   transition: {
       //     times: [0, 0.4, 0.6, 0.7, 0.8, 0.9],
       //   },

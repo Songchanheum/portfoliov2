@@ -167,7 +167,7 @@ const MainImg = ({
             className="w-32 h-32 lg:w-52 lg:h-52 flex items-center justify-center relative"
             ref={scrollRef}
           >
-            <CircularText className={"animate-spin-slow"} />
+            <CircularText className={"animate-spin-slow dark:invert"} />
             <DownArrow size={40} />
           </div>
         </div>

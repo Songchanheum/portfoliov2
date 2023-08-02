@@ -3,9 +3,11 @@ import React, { useState } from "react";
 import PageHeader from "@/app/main/components/PageHeader";
 import Skill from "./Skill";
 import { skillData } from "../constants";
+import { useTheme } from "next-themes";
 
 const SkillComponents = () => {
   const [dataIndex, setDataIndex] = useState<number>(0);
+  const { theme } = useTheme();
   return (
     <div>
       <PageHeader title="Skill" />
@@ -18,7 +20,7 @@ const SkillComponents = () => {
                   key={item.title + index}
                   className={`${
                     index === dataIndex &&
-                    "text-violet-600 after:bg-violet-600 after:w-full after:transitio-all after:duration-300"
+                    "text-violet-600 after:bg-violet-600 dark:text-violet-300 dark:after:bg-violet-300 after:w-full after:transitio-all after:duration-300"
                   } font-extrabold ursor-pointer capitalize text-sm md:text-base lg:text-2xl relative after:w-8 after:h-[2px] after:absolute after:-bottom-1 after:left-0`}
                   onClick={() => setDataIndex(index)}
                 >
@@ -41,7 +43,7 @@ const SkillComponents = () => {
                       return (
                         <Skill
                           key="skillIndex"
-                          src={`https://skillicons.dev/icons?i=${skillItem}&theme=light`}
+                          src={`https://skillicons.dev/icons?i=${skillItem}&theme=${theme}`}
                           percent={item.percent[skillIndex]}
                         />
                       );

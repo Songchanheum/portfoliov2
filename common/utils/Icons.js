@@ -11,7 +11,7 @@ export const CircularText = ({ className, ...rest }) => (
   ></Image>
 );
 export const DownArrow = ({ ...rest }) => <BsArrowDownCircleFill {...rest} />;
-export const Github = ({ ...rest }) => <BsGithub fill="black" {...rest} />;
+export const Github = ({ ...rest }) => <BsGithub {...rest} />;
 export const Instagram = ({ size, ...rest }) => (
   <div className="w-fit bg-gradient-to-bl to-yellow-500 via-pink-500 from-purple-500 p-2 rounded-2xl ">
     <BsInstagram fill="white" size={size} {...rest} />
