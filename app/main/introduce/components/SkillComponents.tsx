@@ -27,7 +27,7 @@ const SkillComponents = () => {
               );
             })}
           </div>
-          <div className="min-h-[800px] flex relative flex-col px-10 space-y-5 mx-auto items-start">
+          <div className="min-h-[800px] flex relative flex-col px-1 space-y-5 mx-auto items-start">
             {skillData[dataIndex].info.map((item, index) => {
               return (
                 <div key={item.title + index}>
