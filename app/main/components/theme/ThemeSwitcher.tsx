@@ -8,6 +8,16 @@ const ThemeSwitcher = () => {
   const { theme, setTheme } = useTheme();
   useEffect(() => {
     setMounted(true);
+    if (!theme) {
+      if (
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+      ) {
+        setTheme("dark");
+      } else {
+        setTheme("light");
+      }
+    }
   });
   if (!mounted) {
     return null;
