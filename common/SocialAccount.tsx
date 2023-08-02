@@ -38,7 +38,7 @@ const SocialAccount = ({ type }: { type: string }) => {
   const mainClass =
     type === "v"
       ? "mt-16 mx-4 "
-      : "flex justify-center mt-8 mr-10 animate-bounce hover:animate-none group";
+      : "flex justify-center mt-8 animate-none md:animate-bounce hover:animate-none group";
   return (
     <div className={mainClass}>
       {social.map((item, i) => {
@@ -66,7 +66,7 @@ const SocialAccount = ({ type }: { type: string }) => {
         } else {
           return (
             <Link
-              className="w-full -me-4 group-hover:me-4 transition-all ease-in duration-200"
+              className="w-full me-4 md:-me-4 md:group-hover:me-4 xl:transition-all xl:ease-in xl:duration-200"
               href={item.href}
               key={item.name + i}
               target="_blank"

@@ -30,7 +30,7 @@ export const Header = ({ isMain }: { isMain: boolean }) => {
 export const Footer = ({ isMain }: { isMain: boolean }) => {
   const [show, setShow] = useState<boolean>(false);
   return (
-    <footer className="fixed bottom-12 right-32 z-50">
+    <footer className="fixed bottom-3 xl:bottom-12 right-3 xl:right-32 z-50">
       <motion.button
         initial={{ opacity: 0, scale: 4, y: 80 }}
         animate={isMain ? "" : { opacity: 1, scale: 1, y: 0 }}
@@ -46,9 +46,9 @@ export const Footer = ({ isMain }: { isMain: boolean }) => {
         <motion.div
           initial={{ y: 80, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-          className="absolute bottom-10 right-10 h-[600px] w-[500px] flex justify-between items-center align-top"
+          className="absolute bottom-11 right-0 sm:right-10 h-[90vh] sm:h-[600px] w-[450px] sm:w-[500px] flex justify-between items-center align-top"
         >
-          <div className="inline-block w-full h-full py-2 bg-violet-100 rounded-2xl rounded-br-none opacity-40 hover:opacity-100 transition-opacity">
+          <div className="inline-block w-full h-full py-2 bg-violet-100 rounded-2xl rounded-br-none opacity-100 sm:opacity-40 sm:hover:opacity-100 transition-opacity">
             <motion.div
               initial={{ y: 80, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}

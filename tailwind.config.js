@@ -11,6 +11,7 @@ module.exports = {
       fontFamily: {
         jua: ["JUA", "cursive"],
         d2: ["D2CODING", "sans"],
+        do: ["DOHYEON", "sans"],
       },
       transitionProperty: {
         height: "height",

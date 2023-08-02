@@ -45,7 +45,7 @@ const MainImg = ({
     z: 1,
   });
 
-  const y = useParallax(scrollYProgress, -700);
+  const y = useParallax(scrollYProgress, 0);
   const y2 = useParallax(scrollYProgress, 200);
 
   return (
@@ -54,10 +54,10 @@ const MainImg = ({
         initial={{ opacity: 0, y: -200 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 1, y: -200 }}
-        className="h-screen flex justify-between items-center z-20 overflow-hidden"
+        className="h-screen lg:flex lg:justify-between items-center z-20 overflow-hidden"
       >
         <motion.div
-          className="w-1/2"
+          className="w-full lg:w-1/2"
           ref={ref}
           style={{
             y: y2,
@@ -66,20 +66,20 @@ const MainImg = ({
           }}
         >
           <div
-            className="relative h-[600px] w-[600px] ms-20 float-right"
+            className="h-[400px] w-[400px] opacity-30 lg:opacity-100 relative xl:h-[600px] xl:w-[600px] mx-10 lg:ms-20 float-right"
             ref={hero}
           >
             <Image
               src={charImg}
               alt="songs"
               fill
-              className="block h-full w-full object-cover object-center"
+              className="hidden lg:block h-full w-full object-cover object-center"
               style={{
                 transform: hover.transform,
               }}
             />
             <Image
-              className="-z-[1] absolute top-0 left-0 h-full w-full opacity-30"
+              className="hidden lg:block -z-[1] absolute top-0 left-0 h-full w-full opacity-30"
               src="/images/main/main-bg.png"
               fill
               alt="songsbg"
@@ -88,9 +88,49 @@ const MainImg = ({
                 transform: hover2.transform,
               }}
             />
+            <Image
+              src={charImg}
+              alt="songs"
+              fill
+              className="fixed lg:hidden h-full w-full object-cover object-center"
+            />
           </div>
         </motion.div>
-        <motion.div className="w-1/2 relative z-10" style={{ y }}>
+        <motion.div
+          className="w-full lg:w-1/2 z-40 flex flex-col justify-center items-center"
+          style={{ y }}
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 10 }}
+            transition={{ delay: 0.7 }}
+            className="items-center"
+          >
+            {hi.map((letter, i) => {
+              let text: any = letter;
+              if (letter === " ") {
+                text = "\u00A0";
+              } else if (letter === "^") {
+                return <br key={i} />;
+              } else {
+                text = letter;
+              }
+              return <TextSpan key={i}>{text}</TextSpan>;
+            })}
+          </motion.div>
+          <div className="relative float-left top-10">
+            <motion.span
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1 }}
+              className="text-gray-400 text-sm md:text-xl"
+            >
+              Front-end Developer | Next TailwindCSS Framer Motion
+            </motion.span>
+          </div>
+        </motion.div>
+        {/* <div className="block lg:hidden w-full relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -114,17 +154,17 @@ const MainImg = ({
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1 }}
-              className="text-gray-400"
+              className="text-gray-400 text-sm"
             >
               Front-end Developer | Next TailwindCSS Framer Motion
             </motion.span>
           </div>
-        </motion.div>
+        </div> */}
       </motion.div>
       <button onClick={scroll}>
-        <div className="absolute bottom-8 left-[50%] translate-x-[-50%] animate-bounce z-[99] opacity-60">
+        <div className="absolute bottom-8 right-0 animate-bounce z-[99] opacity-60">
           <div
-            className="w-32 h-32 flex items-center justify-center relative"
+            className="w-32 h-32 lg:w-52 lg:h-52 flex items-center justify-center relative"
             ref={scrollRef}
           >
             <CircularText className={"animate-spin-slow"} />

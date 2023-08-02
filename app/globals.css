@@ -10,8 +10,11 @@
   font-family: "D2CODING";
   src: url("../public/font/D2coding.ttf");
 }
-
-*,
+@font-face {
+  font-family: "DOHYEON";
+  src: url("../public/font/DoHyeon-Regular.ttf");
+}
+DoHyeon-Regular.ttf *,
 *:before,
 *:after {
   margin: 0;

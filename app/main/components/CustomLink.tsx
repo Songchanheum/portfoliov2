@@ -9,6 +9,7 @@ interface LinkType {
 const CustomLink = ({
   href,
   title,
+  icon,
   className,
   child,
   open,
@@ -17,6 +18,7 @@ const CustomLink = ({
   href?: string;
   title: string;
   className?: string;
+  icon?: React.ReactNode;
   child?: Array<LinkType>;
   open: string | null;
   setOpen: React.Dispatch<React.SetStateAction<string | null>>;
@@ -31,10 +33,12 @@ const CustomLink = ({
     return (
       <Link
         href={href}
-        className={`${className} relative group/link`}
+        className={`${className} relative group/link text-sm md:text-lg lg:text-xl inline-block`}
         onClick={() => setOpen(title)}
       >
-        {title}
+        <span className="hidden md:block">{title}</span>
+        <div className="md:hidden">{icon}</div>
+
         <span
           className={`
         h-[2px] inline-block bg-black absolute 

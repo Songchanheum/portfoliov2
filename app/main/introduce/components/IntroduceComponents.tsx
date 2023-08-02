@@ -30,7 +30,7 @@ const IntroduceComponents = () => {
           initial="hidden"
           animate="show"
           exit="hidden"
-          className="w-2/3 col-span-3 flex flex-col items-start justify-start pr-10"
+          className="w-full xl:w-2/3 col-span-3 flex flex-col items-start justify-start pr-10"
         >
           <h2 className="text-gray-500 font-bold mb-4">소개글</h2>
           <IntroduceText>
@@ -59,7 +59,7 @@ const IntroduceComponents = () => {
           initial="hidden"
           animate="show"
           exit="hidden"
-          className="w-1/3 p-4"
+          className="hidden xl:block md:w-1/3 p-4"
         >
           <div className="border-2 border-black border-r-8 border-b-8 rounded-2xl h-fit p-8">
             <img
@@ -71,17 +71,19 @@ const IntroduceComponents = () => {
         </motion.div>
       </div>
 
-      <motion.div
-        variants={fadeIn("left", 0.4)}
-        initial="hidden"
-        animate="show"
-        exit="hidden"
-        className="w-full flex hover:text-orange-400 transition-colors duration-500"
-      >
-        <Experience text="Year Of Experience" num={7} />
-        <Experience text="Projects Completed" num={30} />
-        <Experience text="Dev Toy Project" num={10} />
-      </motion.div>
+      <div className="hidden md:block">
+        <motion.div
+          variants={fadeIn("left", 0.4)}
+          initial="hidden"
+          animate="show"
+          exit="hidden"
+          className="w-full flex hover:text-orange-400 transition-colors duration-500"
+        >
+          <Experience text="Year Of Experience" num={7} />
+          <Experience text="Projects Completed" num={30} />
+          <Experience text="Dev Toy Project" num={10} />
+        </motion.div>
+      </div>
     </div>
   );
 };
