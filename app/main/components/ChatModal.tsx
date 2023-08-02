@@ -18,6 +18,7 @@ const MyImage = ({ size }: { size: String }) => {
   }
   return <img src={imgSrc} alt="" className={className} />;
 };
+
 function getChatMessage(
   chatNum: string,
   setChatData: React.Dispatch<React.SetStateAction<chatType[]>>

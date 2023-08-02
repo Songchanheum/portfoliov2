@@ -19,7 +19,7 @@ const SkillComponents = () => {
                   className={`${
                     index === dataIndex &&
                     "text-violet-600 after:bg-violet-600 after:w-full after:transitio-all after:duration-300"
-                  } font-extrabold ursor-pointer capitalize text-2xl relative after:w-8 after:h-[2px] after:absolute after:-bottom-1 after:left-0`}
+                  } font-extrabold ursor-pointer capitalize text-md lg:text-2xl relative after:w-8 after:h-[2px] after:absolute after:-bottom-1 after:left-0`}
                   onClick={() => setDataIndex(index)}
                 >
                   {item.title}

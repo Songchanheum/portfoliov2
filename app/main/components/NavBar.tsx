@@ -2,42 +2,49 @@
 import React, { useState } from "react";
 import CustomLink from "./CustomLink";
 import SocialAccount from "@/common/SocialAccount";
-import Link from "next/link";
-import { motion } from "framer-motion";
-
-const MotionLink = motion(Link);
+import {
+  AiOutlineFundProjectionScreen,
+  AiOutlineHome,
+  AiOutlineRise,
+  AiOutlineUser,
+} from "react-icons/ai";
+import Logo from "./Logo";
 
 export const NavBar = () => {
   const [open, setOpen] = useState<string | null>(null);
   return (
-    <div className="relative group/menu">
-      <div className="w-full px-32 py-3 font-medium items-center justify-between bg-white opacity-90 group-hover/menu:bg-slate-100 transition-colors ease duration-500">
-        <nav>
+    <div className="relative group/menu flex justify-center">
+      <div className="max-w-[300px] rounded-b-full md:max-w-full md:rounded-none w-full px-6 md:px-12 lg:px-24 xl:px-32 py-3 font-medium items-center justify-between bg-white opacity-90 group-hover/menu:bg-slate-100 transition-colors ease duration-500">
+        <nav className="justify-between flex md:block mx-10 md:mx-0">
           <CustomLink
             href="/main"
             title="Home"
-            className="mx-12"
+            icon={<AiOutlineHome size={22} />}
+            className="mx-3 lg:mx-12"
             open={open}
             setOpen={setOpen}
           ></CustomLink>
           <CustomLink
             title="About Me"
-            className="mx-12"
+            className="mx-3 lg:mx-12"
             href="/main/introduce"
+            icon={<AiOutlineUser size={22} />}
             open={open}
             setOpen={setOpen}
           ></CustomLink>
           <CustomLink
             title="Career Experience"
-            className="mx-12"
+            className="mx-3 lg:mx-12"
             href="/main/introduce/career"
+            icon={<AiOutlineRise size={22} />}
             open={open}
             setOpen={setOpen}
           ></CustomLink>
           <CustomLink
             href="/main/projects"
             title="Projects"
-            className="mx-12"
+            className="mx-3 lg:mx-12"
+            icon={<AiOutlineFundProjectionScreen size={22} />}
             open={open}
             setOpen={setOpen}
           ></CustomLink>
@@ -46,36 +53,13 @@ export const NavBar = () => {
     </div>
   );
 };
-export const Logo = () => {
-  return (
-    <>
-      <div className="flex items-center justify-center my-5 mx-10">
-        <MotionLink
-          href="/"
-          className="w-12 h-12 bg-black text-white flex items-center justify-center rounded-full text-sm font-bold"
-          whileHover={{
-            backgroundColor: [
-              "#121212",
-              "#2e0914",
-              "#1f3e2f",
-              "#1f1fff",
-              "#121212",
-            ],
-            transition: { duration: 1, repeat: Infinity },
-          }}
-        >
-          Songs
-        </MotionLink>
-      </div>
-    </>
-  );
-};
-
 export const TopNavBar = () => {
   return (
-    <div className="flex justify-start bg-white">
-      <Logo />
-      <div>
+    <div className="flex justify-end md:justify-start bg-white">
+      <div className="hidden md:block">
+        <Logo />
+      </div>
+      <div className="h-12 my-5 md:my-0">
         <SocialAccount type="h" />
       </div>
     </div>
