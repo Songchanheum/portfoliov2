@@ -35,7 +35,7 @@ const MainDiv = () => {
       <MainImg scroll={scrollToBottom} />
       <section
         ref={scrollRef}
-        className="w-full bg-gradient-to-b from-white via-white to-orange-100"
+        className="w-full bg-gradient-to-b from-white via-white to-orange-100 dark:from-slate-900 dark:via-slate-800 dark:to-violet-800"
       >
         <motion.div
           initial={{ x: -80, opacity: 0 }}
@@ -45,7 +45,7 @@ const MainDiv = () => {
         >
           <button
             onClick={() => setShow(!show1)}
-            className="w-44 h-16 border-none rounded-full font-jua bg-orange-200"
+            className="w-44 h-16 border-none rounded-full font-jua bg-orange-200 dark:bg-violet-600"
           >
             Contact Me!
           </button>
@@ -55,28 +55,31 @@ const MainDiv = () => {
             initial={{ y: 80, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             exit={{ y: 80, opacity: 0 }}
-            className="absolute top-[20%] h-[600px] w-1/2 min-w-[960px] bg-violet-100 rounded-xl flex justify-between items-center align-top"
+            className="absolute top-40 w-full h-[90%] lg:top-[20%] lg:h-[600px] lg:w-1/2 lg:min-w-[960px] bg-violet-100 dark:bg-purple-950 rounded-xl flex flex-col lg:flex-row lg:justify-between items-center align-top z-[99]"
           >
-            <div className="inline-block border-r-2 border-gray-100 w-1/3 h-full">
+            <div className="inline-block lg:border-r-2 lg:border-gray-100 lg:w-1/3 w-full h-full">
               <motion.span
                 initial={{ x: -80, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 exit={{ x: -80, opacity: 0 }}
                 transition={{ delay: 0.2 }}
-                className="inline-block absolute top-5 w-1/3 text-center font-jua text-slate-500"
+                className="inline-block absolute top-5 w-full lg:w-1/3 text-center font-jua text-slate-500 dark:text-slate-200"
               >
                 Social Accounts
               </motion.span>
-              <div>
+              <div className="hidden lg:block">
                 <SocialAccount type={"v"} />
               </div>
+              <div className="flex lg:hidden pt-16 justify-center items-center">
+                <SocialAccount type={"h"} />
+              </div>
             </div>
-            <div className="inline-block w-2/3 h-full pt-10 pb-2">
+            <div className="inline-block w-full h-[85%] lg:w-2/3 lg:h-full lg:pt-10 pt-2 pb-2">
               <motion.div
                 initial={{ y: 80, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 exit={{ y: 80, opacity: 0 }}
-                transition={{ delay: 0.2 }}
+                transition={{ delay: 0.5 }}
                 className="w-[90%] h-full mx-auto"
               >
                 <ChatModal isOpen={show1} />
@@ -84,7 +87,7 @@ const MainDiv = () => {
             </div>
             <button
               onClick={() => setShow(false)}
-              className="absolute top-3 right-5 font-jua text-violet-400 hover:text-violet-800 hover:cursor-pointer"
+              className="absolute top-3 right-5 font-jua text-violet-400 hover:text-violet-800 dark:hover:text-violet-50 hover:cursor-pointer"
             >
               X
             </button>

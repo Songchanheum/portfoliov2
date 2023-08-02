@@ -9,12 +9,13 @@ import {
   AiOutlineUser,
 } from "react-icons/ai";
 import Logo from "./Logo";
+import ThemeSwitcher from "./theme/ThemeSwitcher";
 
 export const NavBar = () => {
   const [open, setOpen] = useState<string | null>(null);
   return (
     <div className="relative group/menu flex justify-center">
-      <div className="max-w-[300px] rounded-b-full md:max-w-full md:rounded-none w-full px-6 md:px-12 lg:px-24 xl:px-32 py-3 font-medium items-center justify-between bg-white opacity-90 group-hover/menu:bg-slate-100 transition-colors ease duration-500">
+      <div className="max-w-[300px] rounded-b-full md:max-w-full md:rounded-none w-full px-6 md:px-12 lg:px-24 xl:px-32 py-3 font-medium items-center justify-between bg-white dark:bg-black opacity-90 group-hover/menu:bg-slate-100 dark:group-hover/menu:bg-slate-700 transition-colors ease duration-500">
         <nav className="justify-between flex md:block mx-10 md:mx-0">
           <CustomLink
             href="/main"
@@ -55,12 +56,15 @@ export const NavBar = () => {
 };
 export const TopNavBar = () => {
   return (
-    <div className="flex justify-end md:justify-start bg-white">
+    <div className="flex justify-end md:justify-start dark:bg-slate-950 bg-white">
       <div className="hidden md:block">
         <Logo />
       </div>
-      <div className="h-12 my-5 md:my-0">
+      <div className="h-12 my-5 md:my-0 me-14">
         <SocialAccount type="h" />
+      </div>
+      <div className="absolute top-5 right-8">
+        <ThemeSwitcher />
       </div>
     </div>
   );

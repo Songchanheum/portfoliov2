@@ -38,7 +38,7 @@ const SocialAccount = ({ type }: { type: string }) => {
   const mainClass =
     type === "v"
       ? "mt-16 mx-4 "
-      : "flex justify-center mt-8 animate-none md:animate-bounce hover:animate-none group";
+      : "flex justify-center md:mt-8 animate-none md:animate-bounce hover:animate-none group";
   return (
     <div className={mainClass}>
       {social.map((item, i) => {

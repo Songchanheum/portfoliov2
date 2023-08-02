@@ -36,12 +36,14 @@ const CustomLink = ({
         className={`${className} relative group/link text-sm md:text-lg lg:text-xl inline-block`}
         onClick={() => setOpen(title)}
       >
-        <span className="hidden md:block">{title}</span>
-        <div className="md:hidden">{icon}</div>
+        <div className="flex">
+          {icon}
+          <span className="hidden md:block font-do">&nbsp;{title}</span>
+        </div>
 
         <span
           className={`
-        h-[2px] inline-block bg-black absolute 
+        h-[2px] inline-block bg-black dark:bg-white absolute 
         left-0 -bottom-0.5 group-hover/link:w-full 
         transition-[width] ease duration-200
         ${currPath ? " w-full" : " w-0"}`}

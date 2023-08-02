@@ -61,7 +61,7 @@ const IntroduceComponents = () => {
           exit="hidden"
           className="hidden xl:block md:w-1/3 p-4"
         >
-          <div className="border-2 border-black border-r-8 border-b-8 rounded-2xl h-fit p-8">
+          <div className="border-2 border-black border-r-8 border-b-8 rounded-2xl h-fit p-8 bg-white dark:bg-slate-700">
             <img
               src={myPic}
               alt="alt"
@@ -77,7 +77,7 @@ const IntroduceComponents = () => {
           initial="hidden"
           animate="show"
           exit="hidden"
-          className="w-full flex hover:text-orange-400 transition-colors duration-500"
+          className="w-full flex hover:text-orange-400 dark:hover:text-violet-300 transition-colors duration-500"
         >
           <Experience text="Year Of Experience" num={7} />
           <Experience text="Projects Completed" num={30} />

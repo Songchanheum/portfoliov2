@@ -10,6 +10,7 @@ import React, {
 import ExperienceCard from "./ExperienceCard";
 import { useScroll, useSpring, useTransform, motion } from "framer-motion";
 import { experience } from "../constants";
+import { fadeIn } from "@/common/utils/variants";
 
 const DevTimelineComponents = () => {
   const [width, setWidth] = useState<number>(0);
@@ -23,7 +24,13 @@ const DevTimelineComponents = () => {
   return (
     <div className="w-full h-screen relative mx-auto items-center" ref={ref}>
       <PageHeader title="Dev Timeline" />
-      <div className="w-fit overflow-hidden">
+      <motion.div
+        variants={fadeIn("down", 0.2)}
+        initial="hidden"
+        animate="show"
+        exit="hidden"
+        className="w-fit overflow-hidden"
+      >
         <motion.div
           drag="x"
           dragConstraints={{
@@ -36,7 +43,7 @@ const DevTimelineComponents = () => {
             return <ExperienceCard data={item} key={index} />;
           })}
         </motion.div>
-      </div>
+      </motion.div>
     </div>
   );
 };

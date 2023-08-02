@@ -152,17 +152,21 @@ function ChatModal({ isOpen }: { isOpen: boolean }) {
   }, [chatData]);
 
   return (
-    <div className="justify-between h-full w-full bg-white rounded-2xl p-5">
-      <div className="h-[15%] justify-between py-3 border-b-2 border-gray-200">
+    <div className="justify-between h-full w-full bg-white dark:bg-slate-800 rounded-2xl p-5">
+      <div className="h-[15%] justify-between py-3 border-b-2 border-gray-200 dark:border-gray-600">
         <div className="relative flex items-center space-x-4">
           <div className="relative">
             <MyImage size={"lg"} />
           </div>
           <div className="flex flex-col leading-tight">
             <div className="text-lg mt-1 flex items-center">
-              <span className="text-gray-700 mr-3 font-bold">송찬흠</span>
+              <span className="text-gray-700 dark:text-white mr-3 font-bold">
+                송찬흠
+              </span>
             </div>
-            <span className="text-sm text-gray-600">Front-end Developer</span>
+            <span className="text-sm text-gray-600 dark:text-gray-200">
+              Front-end Developer
+            </span>
           </div>
         </div>
       </div>
@@ -194,7 +198,7 @@ function ChatModal({ isOpen }: { isOpen: boolean }) {
               defaultValue={chatNum}
               onBlur={(e) => changChatNum(e.target.value)}
               placeholder="비밀번호를 입력해 주세요. (개인 식별 번호)"
-              className="w-full focus:outline-none text-sm focus:placeholder-gray-400 text-gray-600 placeholder-gray-600  bg-gray-200 rounded-md pl-5 py-3 mb-1"
+              className="w-full focus:outline-none text-sm focus:placeholder-gray-400 dark:focus:placeholder-gray-100 text-gray-600 dark:text-gray-200 placeholder-gray-600 dark:placeholder-gray-200 bg-gray-200 dark:bg-gray-700 rounded-md pl-5 py-3 mb-1"
             />
             {blurCheck ? (
               <span className="absolute inset-y-0 right-0 flex items-center pr-3">
@@ -218,15 +222,15 @@ function ChatModal({ isOpen }: { isOpen: boolean }) {
                 sendChat();
               }
             }}
-            className="w-full focus:outline-none text-sm focus:placeholder-gray-400 text-gray-600 placeholder-gray-600  bg-gray-200 rounded-md pl-5 py-3"
+            className="w-full focus:outline-none text-sm focus:placeholder-gray-400 dark:focus:placeholder-gray-100 text-gray-600 dark:text-gray-200 placeholder-gray-600 dark:placeholder-gray-200 bg-gray-200 dark:bg-gray-700 rounded-md pl-5 py-3"
           />
-          <div className="absolute right-0 items-center inset-y-0 hidden sm:flex">
+          <div className="absolute right-0 items-center inset-y-0 flex">
             <button
               type="button"
               onClick={() => sendChat()}
               className="inline-flex items-center justify-center rounded-lg px-4 py-2 transition duration-500 ease-in-out text-white bg-violet-500 hover:bg-violet-400 focus:outline-none"
             >
-              <span className="font-bold text-sm">Send</span>
+              <span className="font-bold text-sm hidden md:block">Send</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
