@@ -9,6 +9,7 @@ import React, {
 } from "react";
 import ExperienceCard from "./ExperienceCard";
 import { useScroll, useSpring, useTransform, motion } from "framer-motion";
+import { experience } from "../constants";
 
 const DevTimelineComponents = () => {
   const [width, setWidth] = useState<number>(0);
@@ -31,10 +32,9 @@ const DevTimelineComponents = () => {
           }}
           className="flex space-x-5 p-10 snap-x snap-mandatory"
         >
-          <ExperienceCard />
-          <ExperienceCard />
-          <ExperienceCard />
-          <ExperienceCard />
+          {experience?.map((item, index) => {
+            return <ExperienceCard data={item} key={index} />;
+          })}
         </motion.div>
       </div>
     </div>
