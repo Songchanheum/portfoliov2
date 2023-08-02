@@ -33,7 +33,9 @@ const ExperienceCard = ({ data }: { data: CareerType }) => {
               <img
                 key={item + index}
                 className="h-10 w-10 m-2"
-                src={`https://skillicons.dev/icons?i=${item}&theme=${theme}`}
+                src={`https://skillicons.dev/icons?i=${item}&theme=${
+                  theme ?? "light"
+                }`}
                 alt=""
               />
             );
@@ -44,7 +46,9 @@ const ExperienceCard = ({ data }: { data: CareerType }) => {
             return <li key={item + index}>{item}</li>;
           })}
         </ul>
-        <button> 더보기 </button>
+        <button className="mt-5 rounded-full bg-orange-200 dark:bg-purple-700 px-5 py-2 text-sm lg:text-base">
+          ⇱ Read More
+        </button>
       </div>
     </article>
   );

@@ -45,7 +45,7 @@ const SocialAccount = ({ type }: { type: string }) => {
         if (type === "v") {
           return (
             <Link
-              className="w-full h-16 justify-between items-center text-center flex border-2 border-slate-400 bg-white rounded-2xl mt-2 p-2"
+              className="w-full h-16 justify-between items-center text-center flex border-2 border-slate-400 bg-white dark:bg-slate-800 rounded-2xl mt-2 p-2"
               href={item.href}
               key={item.name + i}
               target="_blank"
@@ -58,7 +58,7 @@ const SocialAccount = ({ type }: { type: string }) => {
               <span className="w-[70%] float-left relative inline-block font-jua uppercase">
                 {item.name}
               </span>
-              <span className="w-[10%] float-right relative inline-block text-gray-700 font-jua uppercase">
+              <span className="w-[10%] float-right relative inline-block text-gray-700 dark:text-gray-200 font-jua uppercase">
                 {">>"}
               </span>
             </Link>

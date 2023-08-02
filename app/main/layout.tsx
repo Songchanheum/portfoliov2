@@ -7,6 +7,7 @@ import { ChatIcon } from "@/common/utils/Icons";
 import ChatModal from "@/app/main/components/ChatModal";
 import { NavBar, TopNavBar } from "@/app/main/components/NavBar";
 import Providers from "./components/theme/Provider";
+import ScrollToTop from "../../common/utils/ScrollToTop";
 
 export const Header = ({ isMain }: { isMain: boolean }) => {
   return (
@@ -87,6 +88,7 @@ export default function RootLayout({
         <Providers>
           <BgImg />
           <AnimatePresence mode="wait">
+            <ScrollToTop />
             <Header isMain={isMain} />
             {children}
             <Footer isMain={isMain} />
