@@ -30,7 +30,7 @@ const IntroduceComponents = () => {
           initial="hidden"
           animate="show"
           exit="hidden"
-          className="w-full xl:w-2/3 col-span-3 flex flex-col items-start justify-start pr-10"
+          className="w-full xl:w-2/3 col-span-3 flex flex-col items-start justify-start xl:pr-10"
         >
           <h2 className="text-gray-500 font-bold mb-4">소개글</h2>
           <IntroduceText>

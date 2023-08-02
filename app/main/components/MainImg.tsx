@@ -162,7 +162,7 @@ const MainImg = ({
         </div> */}
       </motion.div>
       <button onClick={scroll}>
-        <div className="absolute bottom-8 right-0 animate-bounce z-[99] opacity-60">
+        <div className="absolute bottom-8 right-8 animate-bounce z-[99] opacity-60">
           <div
             className="w-32 h-32 lg:w-52 lg:h-52 flex items-center justify-center relative"
             ref={scrollRef}

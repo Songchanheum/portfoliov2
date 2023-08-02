@@ -14,7 +14,7 @@
   font-family: "DOHYEON";
   src: url("../public/font/DoHyeon-Regular.ttf");
 }
-DoHyeon-Regular.ttf *,
+
 *:before,
 *:after {
   margin: 0;
@@ -34,9 +34,10 @@ body {
 
 section {
   height: 100vh;
+  min-height: -webkit-fill-available;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  scroll-snap-align: center;
 }
