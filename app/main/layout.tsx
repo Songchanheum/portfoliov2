@@ -9,7 +9,7 @@ import { NavBar, TopNavBar } from "@/app/main/components/NavBar";
 
 export const Header = ({ isMain }: { isMain: boolean }) => {
   return (
-    <header className="fixed w-full top-0 z-50">
+    <header className="fixed w-screen top-0 z-50">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={isMain ? "" : { opacity: 1, y: 0 }}
@@ -73,7 +73,7 @@ export default function RootLayout({
   const pathName = usePathname();
   const isMain = pathName === "/main";
   return (
-    <html lang="en">
+    <html lang="ko">
       <body>
         <AnimatePresence mode="wait">
           <Header isMain={isMain} />
