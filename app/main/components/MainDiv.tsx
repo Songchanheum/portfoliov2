@@ -1,24 +1,10 @@
 "use client";
-import React, {
-  Dispatch,
-  SetStateAction,
-  useRef,
-  useState,
-  use,
-  useEffect,
-} from "react";
+import React, { useRef, useState } from "react";
 
 import MainImg from "@/app/main/components/MainImg";
 import { motion } from "framer-motion";
 import ChatModal from "@/app/main/components/ChatModal";
 import SocialAccount from "@/common/SocialAccount";
-
-async function getUser() {
-  const res = await fetch("http://localhost:5001/api/user", {
-    cache: "no-store",
-  });
-  return res.json();
-}
 
 const MainDiv = () => {
   const scrollRef = useRef<HTMLTableSectionElement>(null);

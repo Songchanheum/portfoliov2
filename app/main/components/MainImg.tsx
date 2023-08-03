@@ -1,12 +1,6 @@
 import React, { MouseEventHandler, useRef } from "react";
 
-import {
-  motion,
-  useAnimationControls,
-  useScroll,
-  useTransform,
-  MotionValue,
-} from "framer-motion";
+import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import Image from "next/image";
 import Hover3d from "@/common/utils/hover";
 import TextSpan from "@/common/TextSpan";
