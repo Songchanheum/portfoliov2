@@ -23,14 +23,14 @@ const ThemeSwitcher = () => {
     return null;
   }
   return (
-    <>
-      <button className="dark:block hidden" onClick={() => setTheme("light")}>
-        <FaSun size={25} />
+    <div className="w-16 rounded-full border-2 dark:border-gray-200 border-gray-800 flex justify-between p-2">
+      <button onClick={() => setTheme("light")}>
+        <FaSun size={16} />
       </button>
-      <button className="dark:hidden block" onClick={() => setTheme("dark")}>
-        <FaRegMoon size={25} />
+      <button onClick={() => setTheme("dark")}>
+        <FaRegMoon size={16} />
       </button>
-    </>
+    </div>
   );
 };
 
