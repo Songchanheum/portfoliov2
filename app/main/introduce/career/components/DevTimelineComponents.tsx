@@ -1,14 +1,8 @@
 "use client";
 import PageHeader from "@/app/main/components/PageHeader";
-import React, {
-  useCallback,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ExperienceCard from "./ExperienceCard";
-import { useScroll, useSpring, useTransform, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { experience } from "../constants";
 import { fadeIn } from "@/common/utils/variants";
 
@@ -17,7 +11,6 @@ const DevTimelineComponents = () => {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (ref.current) {
-      console.log(ref.current.scrollWidth, ref.current.offsetWidth);
       setWidth(ref.current.scrollWidth - ref.current.offsetWidth);
     }
   }, []);

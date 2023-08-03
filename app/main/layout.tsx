@@ -67,22 +67,23 @@ export const Footer = ({ isMain }: { isMain: boolean }) => {
           <></>
         )}
       </div>
-      <div className="w-full bg-gradient-to-b to-orange-100 from-white dark:from-slate-900 dark:to-violet-900 h-36">
+      <div className="w-full bg-gradient-to-b to-orange-100 from-white dark:from-slate-900 dark:to-violet-900 h-44">
         <div className="mt-10 flex justify-center items-center">
-          <span className="text-gray-800 dark:text-gray-300 text-sm font-d2 z-50">
-            Made By Chanheum Song <br />
-            Made with Nextjs TailwindCSS Framer-motion.
-          </span>
+          <div>
+            <span className="text-gray-800 dark:text-gray-300 text-sm font-d2 z-50 me-5">
+              Made By Chanheum Song <br />
+              Made with Nextjs TailwindCSS Framer-motion.
+            </span>
+            <ul className="mt-2 space-y-2 font-jua text-xs font-extralight text-gray-600 dark:text-gray-400">
+              <li>{`취미 : 개발, 야구`}</li>
+              <li>{`특기 : 만들기(가죽공예, 베이킹 등등)`}</li>
+              <li>{`특이사항 : 한화이글스 팬(19년차), 취준생 기간 없음(이직 2회)`}</li>
+              <li>{`참고 : Indiegogo 사기 당한 횟수 1회 (F(x)tec Pro 1x)`}</li>
+            </ul>
+          </div>
           <div className="relative left-5 z-[95]">
             <ThemeSwitcher />
           </div>
-        </div>
-        <div className="flex justify-center items-center">
-          <ul className="ms-2 mt-2 space-y-1 font-do text-sm font-light text-gray-800 dark:text-gray-400">
-            <li>123</li>
-            <li>123</li>
-            <li>123</li>
-          </ul>
         </div>
       </div>
     </footer>
