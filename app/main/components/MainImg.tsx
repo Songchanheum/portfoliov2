@@ -45,8 +45,8 @@ const MainImg = ({
     z: 1,
   });
 
-  const y = useParallax(scrollYProgress, 0);
-  const y2 = useParallax(scrollYProgress, 200);
+  const y = useParallax(scrollYProgress, -100);
+  const y2 = useParallax(scrollYProgress, 100);
 
   return (
     <section>
@@ -66,7 +66,7 @@ const MainImg = ({
           }}
         >
           <div
-            className="h-[400px] w-[400px] opacity-30 lg:opacity-100 relative xl:h-[600px] xl:w-[600px] mx-10 lg:ms-20 float-right"
+            className="h-[400px] w-[400px] opacity-30 lg:opacity-100 relative xl:h-[600px] xl:w-[600px] mx-10 lg:ms-32 float-right"
             ref={hero}
           >
             <Image

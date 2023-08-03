@@ -55,7 +55,7 @@ const MainDiv = () => {
             initial={{ y: 80, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             exit={{ y: 80, opacity: 0 }}
-            className="absolute top-40 w-full h-[90%] lg:top-[20%] lg:h-[600px] lg:w-1/2 lg:min-w-[960px] bg-violet-100 dark:bg-purple-950 rounded-xl flex flex-col lg:flex-row lg:justify-between items-center align-top z-[99]"
+            className="absolute top-40 w-full h-[90%] lg:top-[20%] lg:h-[600px] lg:w-1/2 lg:min-w-[960px] bg-violet-100 dark:bg-gray-700 rounded-xl flex flex-col lg:flex-row lg:justify-between items-center align-top z-[99]"
           >
             <div className="inline-block lg:border-r-2 lg:border-gray-100 lg:w-1/3 w-full h-full">
               <motion.span
@@ -74,7 +74,7 @@ const MainDiv = () => {
                 <SocialAccount type={"h"} />
               </div>
             </div>
-            <div className="inline-block w-full h-[85%] lg:w-2/3 lg:h-full lg:pt-10 pt-2 pb-2">
+            <div className="inline-block w-full h-[90%] lg:w-2/3 lg:h-full lg:pt-10 pt-2 pb-2">
               <motion.div
                 initial={{ y: 80, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
