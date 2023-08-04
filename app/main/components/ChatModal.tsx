@@ -26,7 +26,7 @@ function getChatMessage(
   fetch(
     `${
       process.env.NEXT_PUBLIC_API_URL || "https://songsintroduce.vercel.app/"
-    }api/chat?num=${chatNum}`
+    }api/chat?num=${encodeURIComponent(chatNum)}`
   )
     .then(function (response) {
       return response.json();
