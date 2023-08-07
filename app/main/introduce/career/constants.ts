@@ -68,3 +68,52 @@ export const experience: Array<CareerType> = [
     ],
   },
 ];
+
+export const EDU_CARD: Array<ExperienceCardType> = [
+  {
+    title: "AI SW 온라인 코딩입문훈련 교육과정",
+    subtitle: "정보통신산업진흥원",
+    time: "2022.08 ~ 2022.11",
+    text: `핵심 HTML/CSS 기초, 핵심 JavaScript 기초,
+    Node.js와 Express.js, Express.js와 MongoDB,
+    웹 개발 포트폴리오 만들기 프로젝트`,
+  },
+  {
+    title: "사물인터넷(IoT)기반 스마트 웹&앱 개발자 과정",
+    subtitle: "한국정보과학진흥협회 교육이수",
+    time: "2016.06 ~ 2017.01",
+    text: "사물인터넷(IoT)기반 스마트 웹&앱 개발자 과정 국비지원 교육 이수 HTML/CSS, javascript, JAVA - Swing, Hadup, Android, Arduino",
+  },
+  {
+    title: "안양대학교",
+    subtitle: "정보통신공학과 졸업",
+    time: "2011.03 ~ 2017.02",
+    text: "안양대학교 정보통신공학과 졸업 (3.5/4.5)",
+  },
+  {
+    title: "부개고등학교",
+    subtitle: "부개고등학교 졸업",
+    time: "2008.03 ~ 2011.02",
+    text: "인천소재 부개고등학교 졸업",
+  },
+];
+export const CRE_CARD: Array<ExperienceCardType> = [
+  {
+    title: "웹 디자인 기능사 (미취득)",
+    subtitle: "한국산업인력공단",
+    time: "2023-08 (진행중)",
+    text: "웹 디자인 기능사 자격증 취즉 진행중",
+  },
+  {
+    title: "소프트웨어 교육 과정 이수",
+    subtitle: "정보통신산업진흥원",
+    time: "2022-11-02",
+    text: "정보통신산업진흥원 AI SW 온라인 코딩입문훈련 교육과정 이수증 취득",
+  },
+  {
+    title: "정보처리기사",
+    subtitle: "한국산업인력공단",
+    time: "2016-05",
+    text: "정보처리기사 자격증 취득",
+  },
+];
