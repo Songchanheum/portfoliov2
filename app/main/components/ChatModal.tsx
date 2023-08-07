@@ -3,11 +3,6 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import LocalStorage from "@/common/class/LocalStorage";
 
-interface chatType {
-  type: string;
-  text: string;
-}
-
 const MyImage = ({ size }: { size: String }) => {
   const imgSrc = "/images/main/main.png";
   let className = "rounded-full bg-gray-200";
@@ -21,7 +16,7 @@ const MyImage = ({ size }: { size: String }) => {
 
 function getChatMessage(
   chatNum: string,
-  setChatData: React.Dispatch<React.SetStateAction<chatType[]>>
+  setChatData: React.Dispatch<React.SetStateAction<ChatType[]>>
 ) {
   fetch(
     `${
@@ -37,7 +32,7 @@ function getChatMessage(
 }
 function ChatModal({ isOpen }: { isOpen: boolean }) {
   const messageRef = useRef<HTMLInputElement>(null);
-  const [chatData, setChatData] = useState<Array<chatType>>([]);
+  const [chatData, setChatData] = useState<Array<ChatType>>([]);
   const [chatNum, setChatNum] = useState<string>(
     LocalStorage.getItem("chatNum") || ""
   );
@@ -215,7 +210,8 @@ function ChatModal({ isOpen }: { isOpen: boolean }) {
             placeholder="메시지를 남겨주세요."
             defaultValue={sendMessage}
             ref={messageRef}
-            onBlur={(e) => setInputMessage(e.target.value)}
+            disabled={isSendding}
+            onChange={(e) => setInputMessage(e.target.value)}
             onKeyDown={(e) => {
               console.log(e);
               if (e.key === "Enter") {
@@ -230,15 +226,44 @@ function ChatModal({ isOpen }: { isOpen: boolean }) {
               onClick={() => sendChat()}
               className="inline-flex items-center justify-center rounded-lg px-4 py-2 transition duration-500 ease-in-out text-white bg-violet-500 hover:bg-violet-400 focus:outline-none"
             >
-              <span className="font-bold text-sm hidden md:block">Send</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                className="h-6 w-6 ml-2 transform rotate-90"
-              >
-                <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"></path>
-              </svg>
+              {isSendding ? (
+                <>
+                  <svg
+                    className="animate-spin h-6 w-6 ml-2 text-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      stroke-width="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                    ></path>
+                  </svg>
+                </>
+              ) : (
+                <>
+                  <span className="font-bold text-sm hidden md:block">
+                    Send
+                  </span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    className="h-6 w-6 ml-2 transform rotate-90"
+                  >
+                    <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"></path>
+                  </svg>
+                </>
+              )}
             </button>
           </div>
         </div>

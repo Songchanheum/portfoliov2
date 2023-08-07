@@ -15,7 +15,7 @@ const DevTimelineComponents = () => {
     }
   }, []);
   return (
-    <div className="w-full h-screen relative mx-auto items-center" ref={ref}>
+    <div className="w-full h-fit relative mx-auto items-center" ref={ref}>
       <PageHeader title="Dev Timeline" />
       <motion.div
         variants={fadeIn("down", 0.2)}

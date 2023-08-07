@@ -7,6 +7,11 @@ interface SkilType {
   title: string;
   info: Array<Skill>;
 }
+
+interface ChatType {
+  type: string;
+  text: string;
+}
 interface CareerType {
   img: string;
   title: string;
