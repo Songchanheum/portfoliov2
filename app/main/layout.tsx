@@ -34,7 +34,7 @@ export const Footer = ({ isMain }: { isMain: boolean }) => {
   const [show, setShow] = useState<boolean>(false);
   return (
     <footer>
-      <div className="fixed bottom-3 xl:bottom-12 right-3 xl:right-32 z-50">
+      <div className="fixed bottom-3 xl:bottom-12 right-3 xl:right-32 z-[99]">
         <motion.button
           initial={{ opacity: 0, scale: 4, y: 80 }}
           animate={isMain ? "" : { opacity: 1, scale: 1, y: 0 }}
@@ -67,7 +67,7 @@ export const Footer = ({ isMain }: { isMain: boolean }) => {
           <></>
         )}
       </div>
-      <div className="w-full bg-gradient-to-b to-orange-100 from-white dark:from-slate-900 dark:to-violet-900 h-44">
+      <div className="w-full bg-gradient-to-b to-orange-100 via-white from-white dark:via-slate-900 dark:from-slate-900 dark:to-violet-900 h-44">
         <div className="mt-10 flex justify-center items-center">
           <div>
             <span className="text-gray-800 dark:text-gray-300 text-sm font-d2 z-50 me-5">
