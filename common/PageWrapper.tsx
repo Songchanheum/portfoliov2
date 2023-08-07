@@ -16,7 +16,7 @@ const PageWrapper = ({
       animate={{ opacity: 1, x: 0 }}
       className={classNames(
         "min-h-screenHeightWithoutHeader",
-        "mt-header mx-auto rounded-sm px-6 opacity-90 md:max-w-3xl lg:max-w-5xl xl:max-w-7xl",
+        "mt-header mx-auto rounded-sm px-6 opacity-90 max-w-xl overflow-x-hidden md:max-w-3xl lg:max-w-5xl xl:max-w-7xl",
         className
       )}
     >
