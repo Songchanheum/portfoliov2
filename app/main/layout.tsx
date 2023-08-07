@@ -14,16 +14,42 @@ export const Header = ({ isMain }: { isMain: boolean }) => {
   return (
     <header className="fixed w-screen top-0 z-[90]">
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={isMain ? "" : { opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: "100%" }}
+        animate={
+          isMain
+            ? ""
+            : {
+                opacity: 1,
+                y: "0%",
+                transition: {
+                  delay: 1.2,
+                  duration: 0.4,
+                  ease: [0.76, 0, 0.24, 1],
+                },
+              }
+        }
       >
         <TopNavBar />
       </motion.div>
       <motion.div
         initial={{ y: -88 }}
-        animate={isMain ? "" : { y: 0 }}
-        exit={{ y: -88 }}
+        animate={
+          isMain
+            ? ""
+            : {
+                y: 0,
+                transition: {
+                  delay: 1.2,
+                  duration: 0.4,
+                  ease: [0.76, 0, 0.24, 1],
+                },
+              }
+        }
+        exit={{
+          y: -88,
+          transition: { delay: 1, duration: 0.4, ease: [0.76, 0, 0.24, 1] },
+        }}
+        transition={isMain ? {} : { delay: 1 }}
       >
         <NavBar />
       </motion.div>
@@ -104,16 +130,19 @@ export default function RootLayout({
 }) {
   const pathName = usePathname();
   const isMain = pathName === "/main";
+
   return (
     <html lang="ko">
       <body className="bg-white dark:bg-slate-900">
         <BgImg />
         <Providers>
           <AnimatePresence mode="wait">
-            <ScrollToTop />
-            <Header isMain={isMain} />
-            {children}
-            <Footer isMain={isMain} />
+            <motion.div className="h-full">
+              <ScrollToTop />
+              <Header isMain={isMain} />
+              {children}
+              <Footer isMain={isMain} />
+            </motion.div>
           </AnimatePresence>
         </Providers>
       </body>
