@@ -20,3 +20,10 @@ interface CareerType {
   skill: Array<string>;
   experience: Array<string>;
 }
+
+interface ExperienceCardType {
+  title: string;
+  subtitle?: string;
+  time?: string;
+  text?: string;
+}
