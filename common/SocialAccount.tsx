@@ -55,10 +55,10 @@ const SocialAccount = ({ type }: { type: string }) => {
                   <SelectIcon name={item.name} type={type === "v"} />
                 </div>
               </div>
-              <span className="w-[70%] float-left relative inline-block font-jua uppercase">
+              <span className="w-[70%] float-left relative inline-block font-jua uppercase lg:text-xl text-sm">
                 {item.name}
               </span>
-              <span className="w-[10%] float-right relative inline-block text-gray-700 dark:text-gray-200 font-jua uppercase">
+              <span className="w-[10%] float-right relative inline-block text-gray-700 dark:text-gray-200 font-jua uppercase lg:text-xl text-base">
                 {">>"}
               </span>
             </Link>

@@ -29,7 +29,7 @@ const EduCredentialComponents = () => {
             style={{ scaleY: scrollYProgress1 }}
             className="absolute left-9 top-0 w-[4px] h-full origin-top bg-slate-900 dark:bg-white"
           />
-          <ul className="w-full flex flex-col items-start justify-between ml-4">
+          <ul className="w-full flex flex-col items-start justify-between ml-8">
             {EDU_CARD.map((e, i) => {
               return (
                 <EduCredentailDetail
@@ -51,7 +51,7 @@ const EduCredentialComponents = () => {
             style={{ scaleY: scrollYProgress2 }}
             className="absolute left-9 top-0 w-[4px] h-full origin-top bg-slate-900 dark:bg-white"
           />
-          <ul className="w-full flex flex-col items-start justify-between ml-4">
+          <ul className="w-full flex flex-col items-start justify-between ml-8">
             {CRE_CARD.map((e, i) => {
               return (
                 <EduCredentailDetail

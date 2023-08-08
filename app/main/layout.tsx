@@ -60,12 +60,12 @@ export const Footer = ({ isMain }: { isMain: boolean }) => {
   const [show, setShow] = useState<boolean>(false);
   return (
     <footer>
-      <div className="fixed bottom-3 xl:bottom-12 right-3 xl:right-32 z-[99]">
+      <div className="fixed bottom-3 xl:bottom-12 z-[99] w-full flex justify-end">
         <motion.button
           initial={{ opacity: 0, scale: 4, y: 80 }}
           animate={isMain ? "" : { opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0 }}
-          className={`bg-violet-300 w-10 h-10 rounded-xl grid place-items-center hover:cursor-pointer hover:bg-violet-500 ${
+          className={`bg-violet-300 w-10 h-10 rounded-xl grid place-items-center hover:cursor-pointer hover:bg-violet-500 me-3 xl:me-32${
             isMain ? "" : " animate-pulse hover:animate-none"
           }`}
           onClick={() => setShow(!show)}
@@ -76,7 +76,7 @@ export const Footer = ({ isMain }: { isMain: boolean }) => {
           <motion.div
             initial={{ y: 80, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
-            className="absolute bottom-11 right-0 sm:right-10 h-[80vh] sm:h-[600px] w-[450px] sm:w-[500px] flex justify-between items-center align-top"
+            className="absolute bottom-11 right-3 sm:right-10 xl:right-40 h-[80vh] sm:h-[600px] w-[90%] sm:w-[500px] flex justify-between items-center align-top"
           >
             <div className="inline-block w-full h-full py-2 bg-violet-100 dark:bg-gray-700 rounded-2xl rounded-br-none opacity-100 sm:opacity-40 sm:hover:opacity-100 transition-opacity">
               <motion.div
@@ -107,7 +107,7 @@ export const Footer = ({ isMain }: { isMain: boolean }) => {
               <li>{`참고 : Indiegogo 사기 당한 횟수 1회 (F(x)tec Pro 1x)`}</li>
             </ul>
           </div>
-          <div className="relative left-5 z-[95]">
+          <div className="absolute right-5 z-[95]">
             <ThemeSwitcher />
           </div>
         </div>
