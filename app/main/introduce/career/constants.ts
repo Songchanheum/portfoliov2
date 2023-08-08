@@ -116,4 +116,16 @@ export const CRE_CARD: Array<ExperienceCardType> = [
     time: "2016-05",
     text: "정보처리기사 자격증 취득",
   },
+  {
+    title: "ICDL Module 4 : Spreadsheets(M4)",
+    subtitle: "ICDL",
+    time: "2016-06-08",
+    text: "ICDL Module 4 자격증 취득",
+  },
+  {
+    title: "ICDL Module 3 : Word Processing(M3)",
+    subtitle: "ICDL",
+    time: "2016-04-11",
+    text: "ICDL Module 3 자격증 취득",
+  },
 ];
