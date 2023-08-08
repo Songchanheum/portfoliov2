@@ -41,26 +41,26 @@ const MainDiv = () => {
             initial={{ y: 80, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             exit={{ y: 80, opacity: 0 }}
-            className="absolute top-40 w-full h-[90%] lg:top-[20%] lg:h-[600px] lg:w-1/2 lg:min-w-[960px] bg-violet-100 dark:bg-gray-700 rounded-xl flex flex-col lg:flex-row lg:justify-between items-center align-top z-[99]"
+            className="absolute top-40 w-full h-[90%] md:top-[20%] md:h-[600px] md:w-1/2 md:min-w-[720px] lg:min-w-[960px] bg-violet-100 dark:bg-gray-700 rounded-xl flex flex-col md:flex-row md:justify-between items-center align-top z-[99]"
           >
-            <div className="inline-block lg:border-r-2 lg:border-gray-100 lg:w-1/3 w-full h-full">
+            <div className="inline-block md:border-r-2 lg:border-gray-100 md:w-1/3 w-full h-[15%] md:h-full">
               <motion.span
                 initial={{ x: -80, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 exit={{ x: -80, opacity: 0 }}
                 transition={{ delay: 0.2 }}
-                className="inline-block absolute top-5 w-full lg:w-1/3 text-center font-jua text-slate-500 dark:text-slate-200"
+                className="inline-block absolute top-5 w-full md:w-1/3 text-center font-jua text-slate-500 dark:text-slate-200"
               >
                 Social Accounts
               </motion.span>
-              <div className="hidden lg:block">
+              <div className="hidden md:block">
                 <SocialAccount type={"v"} />
               </div>
-              <div className="flex lg:hidden pt-16 justify-center items-center">
+              <div className="flex md:hidden pt-16 justify-center items-center">
                 <SocialAccount type={"h"} />
               </div>
             </div>
-            <div className="inline-block w-full h-[90%] lg:w-2/3 lg:h-full lg:pt-10 pt-2 pb-2">
+            <div className="inline-block w-full h-[85%] md:w-2/3 md:h-full md:pt-10 pt-2 pb-2">
               <motion.div
                 initial={{ y: 80, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
