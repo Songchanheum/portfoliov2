@@ -7,7 +7,13 @@ const ExperienceCard = ({ data }: { data: CareerType }) => {
   const { theme } = useTheme();
   const img = data.img;
   return (
-    <article className="flex flex-col xl:flex-row rounded-lg items-center space-y-7 flex-shrink-0 w-[400px] md:w-[600px] xl:w-[800px] snap-center bg-gray-200 dark:bg-gray-800 p-10 active:cursor-grabbing lg:opacity-40 lg:hover:opacity-100 cursor-grab transition-opacity ">
+    <div
+      className={`flex flex-col xl:flex-row rounded-lg items-center
+       space-y-7 flex-shrink-0 w-full
+         bg-gray-200 dark:bg-gray-800 p-10 active:cursor-grabbing cursor-grab
+         xl:h-[680px] lg:h-[810px] md:h-[820px] h-[770px]
+         `}
+    >
       <motion.img
         initial={{ y: -100, opacity: 0 }}
         transition={{ duration: 1.2 }}
@@ -50,7 +56,7 @@ const ExperienceCard = ({ data }: { data: CareerType }) => {
           ⇱ Read More
         </button>
       </div>
-    </article>
+    </div>
   );
 };
 
