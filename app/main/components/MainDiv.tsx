@@ -41,7 +41,7 @@ const MainDiv = () => {
             initial={{ y: 80, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             exit={{ y: 80, opacity: 0 }}
-            className="absolute top-40 w-full h-[90%] md:top-[20%] md:h-[600px] md:w-1/2 md:min-w-[720px] lg:min-w-[960px] bg-violet-100 dark:bg-gray-700 rounded-xl flex flex-col md:flex-row md:justify-between items-center align-top z-[99]"
+            className="absolute top-40 w-full h-[80%] md:top-[20%] md:h-[600px] md:w-1/2 md:min-w-[720px] lg:min-w-[960px] bg-violet-100 dark:bg-gray-700 rounded-xl flex flex-col md:flex-row md:justify-between items-center align-top z-[99]"
           >
             <div className="inline-block md:border-r-2 lg:border-gray-100 md:w-1/3 w-full h-[15%] md:h-full">
               <motion.span
