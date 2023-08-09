@@ -60,7 +60,7 @@ export const Footer = ({ isMain }: { isMain: boolean }) => {
   const [show, setShow] = useState<boolean>(false);
   return (
     <footer>
-      <div className="fixed bottom-3 xl:bottom-12 z-[99] w-full flex justify-end">
+      <div className="fixed bottom-3 xl:bottom-12 z-[90] w-full flex justify-end">
         <motion.button
           initial={{ opacity: 0, scale: 4, y: 80 }}
           animate={isMain ? "" : { opacity: 1, scale: 1, y: 0 }}
