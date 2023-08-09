@@ -218,7 +218,7 @@ function ChatModal({ isOpen }: { isOpen: boolean }) {
                 sendChat();
               }
             }}
-            className="w-full focus:outline-none text-sm focus:placeholder-gray-400 dark:focus:placeholder-gray-100 text-gray-600 dark:text-gray-200 placeholder-gray-600 dark:placeholder-gray-200 bg-gray-200 dark:bg-gray-700 rounded-md pl-5 py-3"
+            className="w-full focus:outline-none text-sm focus:placeholder-gray-400 dark:focus:placeholder-gray-100 text-gray-600 dark:text-gray-200 placeholder-gray-600 dark:placeholder-gray-200 bg-gray-200 dark:bg-gray-700 rounded-md pl-5 pr-20 py-3"
           />
           <div className="absolute right-0 items-center inset-y-0 flex">
             <button
