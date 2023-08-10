@@ -41,3 +41,19 @@ section {
   align-items: center;
   position: relative;
 }
+
+.swiper-pagination-bullet {
+  @apply dark:!bg-gray-300 !bg-gray-600;
+}
+.swiper-pagination-bullet-active {
+  @apply dark:!bg-white !bg-black;
+}
+.swiper-button-prev {
+  @apply dark:!text-violet-600 !text-orange-300 bg-white bg-opacity-60 rounded-full !w-16 !h-16;
+}
+.swiper-button-next {
+  @apply dark:!text-violet-600 !text-orange-300 bg-white bg-opacity-60 rounded-full !w-16 !h-16;
+}
+.swiper-button-disabled {
+  @apply opacity-50;
+}
