@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const MeInfo = () => {
   return (
-    <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800 flex flex-col justify-start items-center pt-15 lg:pt-10">
+    <div className="h-full px-3 py-4 overflow-y-auto scrollbar-hide bg-gray-50 dark:bg-gray-800 flex flex-col justify-start items-center pt-15 lg:pt-10">
       <div className="flex flex-col">
         <div className="flex items-center justify-center flex-row lg:flex-col">
           <Image
