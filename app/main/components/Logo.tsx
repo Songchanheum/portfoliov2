@@ -16,7 +16,7 @@ function Logo() {
         whileHover={{
           backgroundColor:
             theme === "light"
-              ? ["#121212", "#2e0914", "#1f3e2f", "#1f1fff", "#121212"]
+              ? ["#121212", "#ff23df", "#1f3e2f", "#1f1fff", "#121212"]
               : ["#f3f3f3", "#2e0914", "#ff23df", "#d32f3f", "#121212"],
           transition: { duration: 1, repeat: Infinity },
         }}

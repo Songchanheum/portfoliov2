@@ -1,4 +1,15 @@
 import React from "react";
+import GithubCal from "./components/GithubCal";
+import MeInfo from "./components/MeInfo";
+import ToggleInfo from "./components/ToggleInfo";
+
+function Header() {
+  return (
+    <header>
+      <ToggleInfo />
+    </header>
+  );
+}
 
 export default function RootLayout({
   children,
@@ -7,7 +18,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
