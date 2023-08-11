@@ -58,7 +58,7 @@ const GithubCal = ({ id }: { id: string }) => {
         </Link>
         <p className="font-light text-gray-600 text-sm">
           <span className="font-bold text-black text-lg lg:text-xl">{`${id}`}</span>
-          's GitHub Calendar
+          {`'s GitHub Calendar`}
         </p>
       </div>
       {isMounted && (
