@@ -51,7 +51,7 @@ const GithubCal = ({ id }: { id: string }) => {
       <div className="flex justify-start items-center my-2">
         <Link
           className="hidden lg:block mr-4"
-          href={"https://github.com/Songchanheum"}
+          href={`https://github.com/${id}`}
           target="_blank"
         >
           <Github size={"35"} />
