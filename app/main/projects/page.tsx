@@ -17,7 +17,6 @@ import {
   RxGear,
 } from "react-icons/rx";
 
-import { BsArrowRight } from "react-icons/bs";
 import { PROJECT, WORK } from "./constants";
 import Image from "next/image";
 
