@@ -1,8 +1,9 @@
 "use client";
 import PageHeader from "@/app/main/components/PageHeader";
 import PageWrapper from "@/common/PageWrapper";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useRouter } from "next/navigation";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -19,8 +20,11 @@ import {
 
 import { PROJECT, WORK } from "./constants";
 import Image from "next/image";
+import Modal from "./components/Modal";
+import { BsArrowRight } from "react-icons/bs";
 
 const WorkSlider = () => {
+  const router = useRouter();
   const progressCircle = useRef<SVGSVGElement>(null);
   const progressContent = useRef<HTMLDivElement>(null);
   const onAutoplayTimeLeft = (_s: any, time: number, progress: number) => {
@@ -97,6 +101,7 @@ const WorkSlider = () => {
   );
 };
 const ProjectSlider = () => {
+  const router = useRouter();
   const progressCircle = useRef<SVGSVGElement>(null);
   const progressContent = useRef<HTMLDivElement>(null);
   const onAutoplayTimeLeft = (_s: any, time: number, progress: number) => {
@@ -108,6 +113,7 @@ const ProjectSlider = () => {
       progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
     }
   };
+  const [modal, setModal] = useState({ active: false, index: 0, image: 0 });
   return (
     <div className="h-fit">
       <Swiper
@@ -120,32 +126,39 @@ const ProjectSlider = () => {
           disableOnInteraction: false,
           pauseOnMouseEnter: true,
         }}
-        className="h-[350px] sm:h-[420px] md:h-[500px] lg:h-[700px] xl:h-[550px]"
+        className="h-[550px]"
       >
         {PROJECT.slide.map((e, i) => {
           return (
             <SwiperSlide key={i}>
-              <div className="grid grid-cols-2 grid-rows-2 gap-4 cursor-pointer">
+              <div className="flex flex-col gap-4 cursor-pointer">
                 {e.images.map((image, index) => {
                   return (
                     <div
                       key={image.title + index}
-                      className="relative rounded-lg overflow-hidden flex items-center justify-center group"
+                      className="relative rounded-s-xl overflow-hidden flex items-center justify-between group px-20 py-10 bg-slate-100 dark:bg-slate-800"
+                      onMouseEnter={() => {
+                        setModal({ active: true, index, image: i });
+                      }}
+                      onMouseLeave={() => {
+                        setModal({ active: false, index, image: i });
+                      }}
+                      onClick={() => {
+                        console.log(image.url);
+                        router.push(image.url);
+                      }}
                     >
-                      <div className="flex items-center justify-center relative overflow-hidden">
-                        <Image
-                          src={image.src}
-                          width={500}
-                          height={300}
-                          alt=""
+                      <h2 className="flex font-do group-hover:-translate-x-[10px] translate-x-0 text-2xl m-0 font-normal transition-all duration-[400ms]">
+                        {image.title}
+                        <BsArrowRight
+                          className="font-bold ms-2 translate-x-0 group-hover:translate-x-3 group-hover:text-red-500 transition-all duration-300"
+                          size={20}
                         />
-                        <div className="absolute inset-0 bg-gradient-to-l from-transparent via-pink-400 to-violet-600 opacity-0 group-hover:opacity-80 transition-all duration-700"></div>
-                        <div className="absolute bottom-0 translate-y-full group-hover:-translate-y-10 transition-all duration-300">
-                          <div className="flex items-center justify-center gap-x-2">
-                            <div>{image.title}</div>
-                          </div>
-                        </div>
-                      </div>
+                      </h2>
+                      <p className="group-hover:translate-x-[10px] translate-x-0 transition-all duration-[400ms] font-light">
+                        Design & Development
+                      </p>
+                      <div className="absolute inset-0 bg-gradient-to-l from-transparent via-pink-400 to-violet-600 opacity-0 group-hover:opacity-60 transition-all duration-700"></div>
                     </div>
                   );
                 })}
@@ -154,6 +167,7 @@ const ProjectSlider = () => {
           );
         })}
       </Swiper>
+      <Modal modal={modal} projects={PROJECT.slide} />
       <div className="autoplay-progress !relative right-5 bottom-0 z-[99] w-12 h-12 !flex float-right !items-center !justify-center !font-bold">
         <svg
           viewBox="0 0 48 48"

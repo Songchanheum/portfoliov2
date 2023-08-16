@@ -66,24 +66,39 @@ export const PROJECT = {
   slide: [
     {
       images: [
-        { src: "", url: "", title: "포트폴리오 V2" },
-        { src: "", url: "", title: "개발 블로그 V2" },
-        { src: "", url: "", title: "RESUME" },
-        { src: "", url: "", title: "포트폴리오 V1" },
+        {
+          color: "#000000",
+          src: "",
+          url: "",
+          title: "포트폴리오 V2",
+        },
+        { color: "#8C8C8C", src: "", url: "", title: "개발 블로그 V2" },
+        { color: "#EFE8D3", src: "", url: "", title: "RESUME" },
+        { color: "#706D63", src: "", url: "", title: "포트폴리오 V1" },
       ],
     },
     {
       images: [
-        { src: "", url: "", title: "아파트 홍보 페이지" },
-        { src: "", url: "", title: "개발 블로그 V1" },
-        { src: "", url: "", title: "코인 오토트레이딩 프로그램" },
-        { src: "", url: "", title: "Vue Chat Page" },
+        { color: "#000000", src: "", url: "", title: "아파트 홍보 페이지" },
+        { color: "#8C8C8C", src: "", url: "", title: "개발 블로그 V1" },
+        {
+          color: "#EFE8D3",
+          src: "",
+          url: "",
+          title: "코인 오토트레이딩 프로그램",
+        },
+        { color: "#706D63", src: "", url: "", title: "Vue Chat Page" },
       ],
     },
     {
       images: [
-        { src: "", url: "", title: "OIPF STB WEB Page" },
-        { src: "", url: "", title: "출섹체크 프로그램" },
+        { color: "#000000", src: "", url: "", title: "OIPF STB WEB Page" },
+        {
+          color: "#8C8C8C",
+          src: "",
+          url: "/resume",
+          title: "출섹체크 프로그램",
+        },
       ],
     },
   ],
