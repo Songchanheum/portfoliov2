@@ -3,6 +3,7 @@ import MeInfo from "./components/MeInfo";
 import ResumeWrapper from "./components/ResumeWrapper";
 import Timeline from "./components/Timeline";
 import ExperienceResume from "./components/ExperienceResume";
+import ProjectList from "./components/ProjectList";
 
 const ResumePage = () => {
   return (
@@ -22,8 +23,12 @@ const ResumePage = () => {
       <ResumeWrapper title="타임라인">
         <Timeline />
       </ResumeWrapper>
-      <ResumeWrapper title="업무 경험"><ExperienceResume /></ResumeWrapper>
-      <ResumeWrapper title="개인 프로젝트">123</ResumeWrapper>
+      <ResumeWrapper title="업무 경험">
+        <ExperienceResume />
+      </ResumeWrapper>
+      <ResumeWrapper title="개인 프로젝트">
+        <ProjectList />
+      </ResumeWrapper>
       <ResumeWrapper title="교육 및 자격증">123</ResumeWrapper>
     </div>
   );
