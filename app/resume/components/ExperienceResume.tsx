@@ -19,11 +19,11 @@ interface CompanyType {
 }
 const Company = (props: CompanyType) => {
   return (
-    <div className="w-[95%] h-fit p-3 mx-5 my-3 border-2 border-separate border-gray-100 rounded-3xl flex flex-row">
-      <div className="mt-3 w-[25%] h-fit font-do text-lg flex justify-end font-extralight">
+    <div className="w-[95%] h-fit p-3 mx-5 my-3 border-2 border-separate border-gray-100 rounded-3xl flex md:flex-row flex-col">
+      <div className="mt-3 md:w-[25%] h-fit font-do text-lg flex  mb-10 md:mb-0 justify-center md:justify-end font-extralight">
         {props.due}
       </div>
-      <div className="w-[75%] h-fit flex-col flex">
+      <div className="md:w-[75%] h-fit flex-col flex">
         <div className="flex flex-row justify-start items-center">
           <Image
             className="rounded-full w-12 h-12 bg-white mx-5"
@@ -32,10 +32,12 @@ const Company = (props: CompanyType) => {
             height={48}
             src={props.img}
           />
-          <p className="text-slate-900 font-d2 font-extrabold tracking-tighter pr-3 text-base">
-            {props.title}
-          </p>
-          <span className="text-gray-400 text-sm">{props.team}</span>
+          <div className="flex flex-col md:flex-row">
+            <p className="text-slate-900 font-d2 font-extrabold tracking-tighter pr-3 text-base">
+              {props.title}
+            </p>
+            <span className="text-gray-400 text-sm">{props.team}</span>
+          </div>
         </div>
         <div className="flex flex-wrap justify-start ms-3 mt-3 space-x-1">
           {props.skill.map((e, i) => {
