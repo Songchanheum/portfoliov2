@@ -100,7 +100,7 @@ const Modal = ({
                   key={`modal_${index + iindex}`}
                 >
                   <Image
-                    src={`/images/${src}`}
+                    src={`/images/project/${src}`}
                     width={300}
                     height={0}
                     alt="image"

@@ -122,7 +122,7 @@ const ProjectSlider = () => {
         modules={[Pagination, Autoplay]}
         onAutoplayTimeLeft={onAutoplayTimeLeft}
         autoplay={{
-          delay: 2500,
+          delay: 4500,
           disableOnInteraction: false,
           pauseOnMouseEnter: true,
         }}
@@ -136,7 +136,7 @@ const ProjectSlider = () => {
                   return (
                     <div
                       key={image.title + index}
-                      className="relative rounded-s-xl overflow-hidden flex items-center justify-between group px-20 py-10 bg-slate-100 dark:bg-slate-800"
+                      className="relative rounded-s-xl overflow-hidden flex items-center justify-between group px-3 md:px-20 py-10 bg-slate-100 dark:bg-slate-800"
                       onMouseEnter={() => {
                         setModal({ active: true, index, image: i });
                       }}
@@ -148,14 +148,14 @@ const ProjectSlider = () => {
                         router.push(image.url);
                       }}
                     >
-                      <h2 className="flex font-do group-hover:-translate-x-[10px] translate-x-0 text-2xl m-0 font-normal transition-all duration-[400ms]">
+                      <h2 className="flex font-do group-hover:-translate-x-[10px] translate-x-0 text-lg md:text-2xl m-0 font-normal transition-all duration-[400ms] w-[50%]">
                         {image.title}
                         <BsArrowRight
                           className="font-bold ms-2 translate-x-0 group-hover:translate-x-3 group-hover:text-red-500 transition-all duration-300"
                           size={20}
                         />
                       </h2>
-                      <p className="group-hover:translate-x-[10px] translate-x-0 transition-all duration-[400ms] font-light">
+                      <p className="group-hover:translate-x-[10px] translate-x-0 transition-all duration-[400ms] font-light text-sm md:text-base">
                         Design & Development
                       </p>
                       <div className="absolute inset-0 bg-gradient-to-l from-transparent via-pink-400 to-violet-600 opacity-0 group-hover:opacity-60 transition-all duration-700"></div>
