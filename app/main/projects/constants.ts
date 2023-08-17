@@ -68,35 +68,72 @@ export const PROJECT = {
       images: [
         {
           color: "#000000",
-          src: "",
-          url: "",
+          src: "pwpv2.png",
+          url: "/resume/project/0",
           title: "포트폴리오 V2",
+          year: 2023,
+          skill: ["React", "Next.js", "Tailwind CSS", "Framer"],
         },
-        { color: "#8C8C8C", src: "", url: "", title: "개발 블로그 V2" },
-        { color: "#EFE8D3", src: "", url: "", title: "RESUME" },
-        { color: "#706D63", src: "", url: "", title: "포트폴리오 V1" },
-      ],
-    },
-    {
-      images: [
-        { color: "#000000", src: "", url: "", title: "아파트 홍보 페이지" },
-        { color: "#8C8C8C", src: "", url: "", title: "개발 블로그 V1" },
-        {
-          color: "#EFE8D3",
-          src: "",
-          url: "",
-          title: "코인 오토트레이딩 프로그램",
-        },
-        { color: "#706D63", src: "", url: "", title: "Vue Chat Page" },
-      ],
-    },
-    {
-      images: [
-        { color: "#000000", src: "", url: "", title: "OIPF STB WEB Page" },
         {
           color: "#8C8C8C",
+          src: "dbv2.png",
+          url: "/resume/project/1",
+          title: "개발 블로그 V2",
+        },
+        {
+          color: "#EFE8D3",
+          src: "resume.png",
+          url: "/resume/project/2",
+          title: "RESUME",
+        },
+        {
+          color: "#706D63",
+          src: "pwpv1.png",
+          url: "/resume/project/3",
+          title: "포트폴리오 V1",
+        },
+      ],
+    },
+    {
+      images: [
+        {
+          color: "#000000",
+          src: "aptinfo.png",
+          url: "/resume/project/4",
+          title: "아파트 홍보 페이지",
+        },
+        {
+          color: "#8C8C8C",
+          src: "mern.png",
+          url: "/resume/project/5",
+          title: "개발 블로그 V1",
+        },
+        {
+          color: "#EFE8D3",
+          src: "auto.png",
+          url: "/resume/project/6",
+          title: "코인 오토트레이딩 프로그램",
+        },
+        {
+          color: "#706D63",
+          src: "chat.png",
+          url: "/resume/project/7",
+          title: "Vue Chat Page",
+        },
+      ],
+    },
+    {
+      images: [
+        {
+          color: "#000000",
           src: "",
-          url: "/resume",
+          url: "/resume/project/8",
+          title: "OIPF STB WEB Page",
+        },
+        {
+          color: "#8C8C8C",
+          src: "check.png",
+          url: "/resume/project/9",
           title: "출섹체크 프로그램",
         },
       ],

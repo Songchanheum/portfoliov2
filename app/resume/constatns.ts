@@ -2,13 +2,14 @@ export const EXPERIENCE_RESUME = [
   {
     title: "(주)알티모빌리티 / 프론트엔드 개발자",
     team: "플랫폼개발팀 - 연구원",
-    due: "2021.12.01 ~ 재직중 (9개월)",
+    due: "2021.12.01 ~ 재직중 (1년 9개월)",
     img: "/images/career/altimobility.png",
     skill: [
       "React",
       "javascript",
       "Typescript",
       "Node.js",
+      "Next.js",
       "Ant Design",
       "styledcomponents",
       "sass",
