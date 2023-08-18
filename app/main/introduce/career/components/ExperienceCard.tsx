@@ -2,6 +2,7 @@ import React from "react";
 
 import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
+import Link from "next/link";
 
 const ExperienceCard = ({ data }: { data: CareerType }) => {
   const { theme } = useTheme();
@@ -52,9 +53,11 @@ const ExperienceCard = ({ data }: { data: CareerType }) => {
             return <li key={item + index}>{item}</li>;
           })}
         </ul>
-        <button className="mt-5 rounded-full bg-orange-200 dark:bg-purple-700 px-5 py-2 text-sm lg:text-base">
-          ⇱ Read More
-        </button>
+        <Link href="/resume" target="_blank">
+          <button className="mt-5 rounded-full bg-orange-200 dark:bg-purple-700 px-5 py-2 text-sm lg:text-base">
+            ⇱ Read More
+          </button>
+        </Link>
       </div>
     </div>
   );

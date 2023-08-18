@@ -148,6 +148,7 @@ const ProjectSlider = () => {
                 {e.images.map((image, index) => {
                   return (
                     <Link
+                      key={image.title + index}
                       href={{
                         pathname: "/resume/project",
                         query: `code=${image.code}`,
@@ -155,7 +156,6 @@ const ProjectSlider = () => {
                       target="_blank"
                     >
                       <div
-                        key={image.title + index}
                         className="relative rounded-s-xl overflow-hidden flex items-center justify-between group px-3 md:px-20 py-10 bg-slate-100 dark:bg-slate-800"
                         onMouseEnter={() => {
                           setModal({ active: true, index, image: i });
