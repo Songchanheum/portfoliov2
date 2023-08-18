@@ -30,7 +30,7 @@ const Modal = ({
     image: number;
   };
   projects: {
-    images: { src: string; url: string; title: string; color: string }[];
+    images: { src: string; code: string; title: string; color: string }[];
   }[];
 }) => {
   const { active, index, image } = modal;

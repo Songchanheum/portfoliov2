@@ -1,9 +1,9 @@
 import React from "react";
-import MeInfo from "./components/MeInfo";
 import ResumeWrapper from "./components/ResumeWrapper";
 import Timeline from "./components/Timeline";
 import ExperienceResume from "./components/ExperienceResume";
 import ProjectList from "./components/ProjectList";
+import EduTimeline from "./components/EduTimeline";
 
 const ResumePage = () => {
   return (
@@ -29,7 +29,9 @@ const ResumePage = () => {
       <ResumeWrapper title="개인 프로젝트">
         <ProjectList />
       </ResumeWrapper>
-      <ResumeWrapper title="교육 및 자격증">123</ResumeWrapper>
+      <ResumeWrapper title="교육 및 자격증">
+        <EduTimeline />
+      </ResumeWrapper>
     </div>
   );
 };

@@ -1,46 +1,52 @@
 "use client";
 import { PROJECT } from "@/app/main/projects/constants";
-import React, { useState } from "react";
+import React from "react";
+import { Accordion } from "flowbite-react";
+import Link from "next/link";
 
-const Project = ({
-  project,
-}: {
-  project: {
-    color: string;
-    src: string;
-    url: string;
-    title: string;
-  }[];
-}) => {
-  return (
-    <>
-      {project.map((e, i) => {
-        return (
-          <div
-            key={e.title + i}
-            className="flex w-full justify-between items-center px-[100px] py-[20px] border-t-2 cursor-pointer transition-all duration-200 last-of-type:border-b-2 hover:opacity-50 group"
-          >
-            <h2 className="flex group-hover:-translate-x-[10px] translate-x-0 text-2xl m-0 font-normal transition-all duration-[400ms]">
-              {e.title}
-            </h2>
-            <p className="group-hover:translate-x-[10px] translate-x-0 transition-all duration-[400ms] font-light">
-              Design & Development
-            </p>
-          </div>
-        );
-      })}
-    </>
-  );
-};
 const ProjectList = () => {
-  const [modal, setModal] = useState({ active: false, index: 0 });
+  const pList: any = PROJECT.slide.map((e) => e.images).flat(Infinity);
   return (
     <div>
-      <div className="flex h-fit w-[95%] flex-col items-center justify-center">
-        {PROJECT.slide.map((project, index) => {
-          return <Project key={index} project={project.images} />;
+      <Accordion alwaysOpen>
+        {pList.map((project: ProjectType, index: number) => {
+          return (
+            <Accordion.Panel key={index} className="!ps-3 !p-2">
+              <Accordion.Title className="text-lg ps-10 py-3">
+                {project.title}
+                <span className="ps-10 text-sm text-gary-300">
+                  {project.due}
+                </span>
+              </Accordion.Title>
+              <Accordion.Content>
+                <div className="ps-5 mb-5">
+                  <p className="text-base font-do">{project.description}</p>
+                  <ul className="mt-3">
+                    <li className="text-base text-slate-700 ps-2">
+                      프로젝트 내용
+                      <ol className="space-y-1 list-disc list-inside text-sm font-d2 mt-2">
+                        {project.info?.map((data, i) => {
+                          return <li key={data + i}>{data}</li>;
+                        })}
+                      </ol>
+                    </li>
+                  </ul>
+                </div>
+                <Link
+                  href={{
+                    pathname: "/resume/project",
+                    query: `code=${project.code}`,
+                  }}
+                >
+                  <div className="w-24 h-auto p-2 ms-5 rounded-full bg-orange-200 hover:bg-orange-400 text-sm text-center align-middle transition-colors duration-300">
+                    Read More
+                  </div>
+                </Link>
+              </Accordion.Content>
+            </Accordion.Panel>
+          );
         })}
-      </div>
+      </Accordion>
     </div>
   );
 };
