@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import { EduCredentialList } from "@/app/main/introduce/career/components/EduCredentialComponents";
 const EduTimeline = () => {
