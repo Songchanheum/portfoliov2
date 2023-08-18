@@ -27,3 +27,24 @@ interface ExperienceCardType {
   time?: string;
   text?: string;
 }
+
+interface ProjectType {
+  title: string;
+  description: string;
+  code: string;
+  due: string;
+  skill: string[];
+  info: string[];
+  role?: string[];
+  purpose?: string[];
+  result?: string[];
+  link?: string[];
+}
+interface CompanyType {
+  title: string;
+  due: string;
+  team: string;
+  img: string;
+  skill: Array<string>;
+  project: Array<ProjectType>;
+}

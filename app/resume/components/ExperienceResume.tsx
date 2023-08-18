@@ -4,19 +4,7 @@ import Link from "next/link";
 import { EXPERIENCE_RESUME } from "../constatns";
 import { BsArrowRight } from "react-icons/bs";
 import Image from "next/image";
-interface ProjectType {
-  title: string;
-  due: string;
-  url: string;
-}
-interface CompanyType {
-  title: string;
-  due: string;
-  team: string;
-  img: string;
-  skill: Array<string>;
-  project: Array<ProjectType>;
-}
+
 const Company = (props: CompanyType) => {
   return (
     <div className="w-[95%] h-fit p-3 mx-5 my-3 border-2 border-separate border-gray-100 rounded-3xl flex md:flex-row flex-col">
@@ -60,7 +48,10 @@ const Company = (props: CompanyType) => {
                   className="flex-col list-square list-item"
                 >
                   <Link
-                    href={e.url}
+                    href={{
+                      pathname: "/resume/project",
+                      query: `code=${e.code}`,
+                    }}
                     className="no-underline hover:underline decoration-wavy group  flex items-center"
                   >
                     <dt className="mb-1 text-base font-semibold cursor-pointer w-[90%]">

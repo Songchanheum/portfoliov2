@@ -18,13 +18,13 @@ import {
   RxGear,
 } from "react-icons/rx";
 
-import { PROJECT, WORK } from "./constants";
-import Image from "next/image";
+import { PROJECT } from "./constants";
 import Modal from "./components/Modal";
 import { BsArrowRight } from "react-icons/bs";
+import { EXPERIENCE_RESUME } from "@/app/resume/constatns";
+import Link from "next/link";
 
 const WorkSlider = () => {
-  const router = useRouter();
   const progressCircle = useRef<SVGSVGElement>(null);
   const progressContent = useRef<HTMLDivElement>(null);
   const onAutoplayTimeLeft = (_s: any, time: number, progress: number) => {
@@ -59,24 +59,38 @@ const WorkSlider = () => {
         }}
         className="h-[240px] sm:h-[340px]"
       >
-        {WORK.map((e, i) => {
+        {EXPERIENCE_RESUME.map((e, i) => {
           return (
-            <SwiperSlide key={e.title + i}>
-              <div className="bg-white font-d2 dark:bg-slate-800 opacity-90 h-max rounded-lg px-6 py-8 flex sm:flex-col gap-x-6 sm:gap-x-0 group cursor-pointer hover:opacity-100 transition-all duration-300">
-                <div className="text-4xl text-red-600 mb-8">
-                  <Icon icon={e.icon} />
-                </div>
-                <div>
-                  <div className="mb-2 text-lg">{e.title}</div>
-                  <p className="leading-normal text-gray-800 dark:text-gray-200 text-base">
-                    {e.description}
-                  </p>
-                </div>
-                <div className="text-3xl absolute top-3 right-3">
-                  <RxArrowTopRight className="group-hover:rotate-45 group-hover:text-red-600 transition-all duration-300" />
-                </div>
-              </div>
-            </SwiperSlide>
+            <>
+              {e.project.map((e1, i1) => {
+                return (
+                  <SwiperSlide key={e1.title + i1}>
+                    <Link
+                      href={{
+                        pathname: "/resume/project",
+                        query: `code=${e1.code}`,
+                      }}
+                      target="_blank"
+                    >
+                      <div className="bg-white font-d2 dark:bg-slate-800 opacity-90 h-max rounded-lg px-6 py-8 flex sm:flex-col gap-x-6 sm:gap-x-0 group cursor-pointer hover:opacity-100 transition-all duration-300">
+                        <div className="text-4xl text-red-600 mb-8">
+                          <Icon icon={e1.icon} />
+                        </div>
+                        <div>
+                          <div className="mb-2 text-lg">{e1.title}</div>
+                          <p className="leading-normal text-gray-800 dark:text-gray-200 text-base">
+                            {e1.description}
+                          </p>
+                        </div>
+                        <div className="text-3xl absolute top-3 right-3">
+                          <RxArrowTopRight className="group-hover:rotate-45 group-hover:text-red-600 transition-all duration-300" />
+                        </div>
+                      </div>
+                    </Link>
+                  </SwiperSlide>
+                );
+              })}
+            </>
           );
         })}
       </Swiper>
@@ -101,7 +115,6 @@ const WorkSlider = () => {
   );
 };
 const ProjectSlider = () => {
-  const router = useRouter();
   const progressCircle = useRef<SVGSVGElement>(null);
   const progressContent = useRef<HTMLDivElement>(null);
   const onAutoplayTimeLeft = (_s: any, time: number, progress: number) => {
@@ -134,32 +147,36 @@ const ProjectSlider = () => {
               <div className="flex flex-col gap-4 cursor-pointer">
                 {e.images.map((image, index) => {
                   return (
-                    <div
-                      key={image.title + index}
-                      className="relative rounded-s-xl overflow-hidden flex items-center justify-between group px-3 md:px-20 py-10 bg-slate-100 dark:bg-slate-800"
-                      onMouseEnter={() => {
-                        setModal({ active: true, index, image: i });
+                    <Link
+                      href={{
+                        pathname: "/resume/project",
+                        query: `code=${image.code}`,
                       }}
-                      onMouseLeave={() => {
-                        setModal({ active: false, index, image: i });
-                      }}
-                      onClick={() => {
-                        console.log(image.url);
-                        router.push(image.url);
-                      }}
+                      target="_blank"
                     >
-                      <h2 className="flex font-do group-hover:-translate-x-[10px] translate-x-0 text-lg md:text-2xl m-0 font-normal transition-all duration-[400ms] w-[50%]">
-                        {image.title}
-                        <BsArrowRight
-                          className="font-bold ms-2 translate-x-0 group-hover:translate-x-3 group-hover:text-red-500 transition-all duration-300"
-                          size={20}
-                        />
-                      </h2>
-                      <p className="group-hover:translate-x-[10px] translate-x-0 transition-all duration-[400ms] font-light text-sm md:text-base">
-                        Design & Development
-                      </p>
-                      <div className="absolute inset-0 bg-gradient-to-l from-transparent via-pink-400 to-violet-600 opacity-0 group-hover:opacity-60 transition-all duration-700"></div>
-                    </div>
+                      <div
+                        key={image.title + index}
+                        className="relative rounded-s-xl overflow-hidden flex items-center justify-between group px-3 md:px-20 py-10 bg-slate-100 dark:bg-slate-800"
+                        onMouseEnter={() => {
+                          setModal({ active: true, index, image: i });
+                        }}
+                        onMouseLeave={() => {
+                          setModal({ active: false, index, image: i });
+                        }}
+                      >
+                        <h2 className="flex font-do group-hover:-translate-x-[10px] translate-x-0 text-lg md:text-2xl m-0 font-normal transition-all duration-[400ms] w-[50%]">
+                          {image.title}
+                          <BsArrowRight
+                            className="font-bold ms-2 translate-x-0 group-hover:translate-x-3 group-hover:text-red-500 transition-all duration-300"
+                            size={20}
+                          />
+                        </h2>
+                        <p className="group-hover:translate-x-[10px] translate-x-0 transition-all duration-[400ms] font-light text-sm md:text-base">
+                          Design & Development
+                        </p>
+                        <div className="absolute inset-0 bg-gradient-to-l from-transparent via-pink-400 to-violet-600 opacity-0 group-hover:opacity-60 transition-all duration-700"></div>
+                      </div>
+                    </Link>
                   );
                 })}
               </div>

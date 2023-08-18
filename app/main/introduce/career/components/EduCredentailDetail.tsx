@@ -20,13 +20,11 @@ const EduCredentailDetail = ({
         whileInView={{ y: 0 }}
         transition={{ duration: 0.5, type: "spring" }}
       >
-        <h3 className="font-bold text-base md:text-lg lg:text-xl xl:text-2xl w-full">
-          {title}
-        </h3>
-        <span className="font-medium text-sm md:text-base lg:text-lg text-gray-500 dark:text-gray-400 w-full mb-2">
+        <h3 className="font-medium text-base md:text-lg w-full">{title}</h3>
+        <span className="font-medium text-sm md:text-base  text-gray-400 w-full mb-2">
           {subtitle} | {time}
         </span>
-        <p className="font-medium w-full text-base md:text-lg lg:text-xl">
+        <p className="font-medium w-full text-base md:text-lg text-gray-600 dark:text-gray-200">
           {text}
         </p>
       </motion.div>

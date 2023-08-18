@@ -7,7 +7,7 @@ const LiIcon = ({ ref }: { ref: RefObject<HTMLLIElement> }) => {
     offset: ["center end", "center center"],
   });
   return (
-    <figure className="absolute left-0 stroke-black dark:stroke-white">
+    <figure className="absolute left-0 stroke-gray-400 dark:stroke-white">
       <svg
         className="-rotate-90"
         width={"75"}
