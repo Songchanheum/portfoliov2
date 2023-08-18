@@ -35,7 +35,7 @@ const ProjectList = () => {
                 <Link
                   href={{
                     pathname: "/resume/project",
-                    query: `code=${project.code}`,
+                    query: { code: project.code },
                   }}
                 >
                   <div className="w-24 h-auto p-2 ms-5 mb-5 rounded-full bg-orange-200 hover:bg-orange-400 text-sm text-center align-middle transition-colors duration-300">

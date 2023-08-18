@@ -68,7 +68,7 @@ const WorkSlider = () => {
                     <Link
                       href={{
                         pathname: "/resume/project",
-                        query: `code=${e1.code}`,
+                        query: { code: e1.code },
                       }}
                       target="_blank"
                     >
@@ -151,7 +151,7 @@ const ProjectSlider = () => {
                       key={image.title + index}
                       href={{
                         pathname: "/resume/project",
-                        query: `code=${image.code}`,
+                        query: { code: image.code },
                       }}
                       target="_blank"
                     >

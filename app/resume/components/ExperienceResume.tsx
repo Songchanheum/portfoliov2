@@ -50,7 +50,7 @@ const Company = (props: CompanyType) => {
                   <Link
                     href={{
                       pathname: "/resume/project",
-                      query: `code=${e.code}`,
+                      query: { code: e.code },
                     }}
                     className="no-underline hover:underline decoration-wavy group  flex items-center"
                   >
