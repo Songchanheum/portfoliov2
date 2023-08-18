@@ -19,7 +19,7 @@ const ProjectList = () => {
                 </span>
               </Accordion.Title>
               <Accordion.Content>
-                <div className="ps-5 mb-5">
+                <div className="ps-5 my-5">
                   <p className="text-base font-do">{project.description}</p>
                   <ul className="mt-3">
                     <li className="text-base text-slate-700 ps-2">
@@ -38,7 +38,7 @@ const ProjectList = () => {
                     query: `code=${project.code}`,
                   }}
                 >
-                  <div className="w-24 h-auto p-2 ms-5 rounded-full bg-orange-200 hover:bg-orange-400 text-sm text-center align-middle transition-colors duration-300">
+                  <div className="w-24 h-auto p-2 ms-5 mb-5 rounded-full bg-orange-200 hover:bg-orange-400 text-sm text-center align-middle transition-colors duration-300">
                     Read More
                   </div>
                 </Link>
