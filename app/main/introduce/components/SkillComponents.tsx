@@ -44,7 +44,7 @@ const SkillComponents = () => {
                         <Skill
                           key="skillIndex"
                           src={`https://skillicons.dev/icons?i=${skillItem}&theme=${
-                            theme ?? "light"
+                            theme === "system" ? "light" : theme
                           }`}
                           percent={item.percent[skillIndex]}
                         />
