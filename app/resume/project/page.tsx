@@ -18,6 +18,7 @@ const PR_INFO = [
   { title: "역할", name: "role" },
   { title: "목표", name: "purpose" },
   { title: "성과", name: "result" },
+  { title: "Link", name: "link" },
 ];
 const ProjectDetail = () => {
   const searchParam = useSearchParams();
@@ -117,7 +118,15 @@ const ProjectDetail = () => {
                       </div>
                       <ul className="pl-5 mt-2 space-y-1 list-disc list-inside">
                         {info[e.name].map((e1: string, i1: number) => {
-                          return <li key={i1}>{e1}</li>;
+                          return (
+                            <li key={i1}>
+                              {e.name === "link" ? (
+                                <Link href={e1}>{e1}</Link>
+                              ) : (
+                                e1
+                              )}
+                            </li>
+                          );
                         })}
                       </ul>
                     </li>
