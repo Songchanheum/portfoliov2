@@ -41,7 +41,9 @@ const ExperienceCard = ({ data }: { data: CareerType }) => {
                 key={item + index}
                 className="h-10 w-10 m-2"
                 src={`https://skillicons.dev/icons?i=${item}&theme=${
-                  theme === "system" ? "light" : theme
+                  theme === undefined || theme === null || theme === "system"
+                    ? "light"
+                    : theme
                 }`}
                 alt=""
               />
