@@ -17,7 +17,8 @@ const ResumePage = () => {
           JAVA Spring Framwork, Spring boot, eGovFramework를 이용한 백엔드
           서버개발에도 참여하였습니다.
           <br />
-          현재 NextJS 기반 SSR Page 개발에 관심을 갖고 있습니다
+          현재 NextJS SSR Page, Typescript 개발에 관심을 갖고 있으며, F/E 설계
+          기반 프로젝트 리딩을 배우고 있습니다
         </p>
       </ResumeWrapper>
       <ResumeWrapper title="타임라인">
