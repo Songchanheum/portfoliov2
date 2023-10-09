@@ -2,7 +2,7 @@ export const EXPERIENCE_RESUME = [
   {
     title: "(주)알티모빌리티 / 프론트엔드 개발자",
     team: "플랫폼개발팀 - 연구원",
-    due: "2021.12.01 ~ 재직중 (1년 9개월)",
+    due: "2021.12.01 ~ 재직중 (1년 11개월)",
     img: "/images/career/altimobility.png",
     skill: [
       "React",
@@ -15,6 +15,24 @@ export const EXPERIENCE_RESUME = [
       "sass",
     ],
     project: [
+      {
+        title: "DMS Admin Page F/E 설계 및 개발 (LG U+)",
+        due: "2023-07 ~ 진행중",
+        code: "C0017",
+        description: "DMS 서비스 Admin Page F/E 설계 및 개발, 기능 관련 리딩",
+        icon: "dev",
+        skill: ["React", "Next.js", "Antdesign", "SASS", "Typescript"],
+        info: ["LG U+ SI 프로젝트 DMS 시스템 개발"],
+        role: [
+          "Admin Page Boilerplate 이용하여 개발 진행",
+          "발주/주문 관련 기능 설계 리딩 및 개발",
+          "Ant-design, SASS 디자인 시스템 도입",
+        ],
+        purpose: [
+          "다수의 주문(100건)의 안정적인 주문/발주 처리",
+          "Device 설치기사 APP 과 안정적인 데이터 연동을 위한 설계",
+        ],
+      },
       {
         title: "Admin / BizPortal 향 Boiler Plate 개발 (연구과제)",
         due: "2023-02 ~ 2023-08",
@@ -36,7 +54,7 @@ export const EXPERIENCE_RESUME = [
       },
       {
         title: "RAiDEA 서비스 관리자용 Admin Page 개발 및 유지보수",
-        due: "2021-12 ~ 2023-08",
+        due: "2021-12 ~ 진행중",
         code: "C0002",
         description: "Admin Page F/E 개발 및 유지보수",
         icon: "dev",
@@ -64,7 +82,7 @@ export const EXPERIENCE_RESUME = [
       },
       {
         title: "MSA 대응을 위한 BFF Service 개발 및 유지보수",
-        due: "2021-12 ~ 2023-08",
+        due: "2021-12 ~ 진행중",
         code: "C0003",
         description: "MSA 대응을 위한 BFF 유지보수",
         icon: "system",
@@ -101,11 +119,12 @@ export const EXPERIENCE_RESUME = [
         code: "C0004",
         description: "물, 수도 관련 SI 프로젝트 개발",
         icon: "dev",
-        skill: [""],
-        info: ["", "", ""],
-        role: ["", "", ""],
-        purpose: [""],
-        result: [""],
+        skill: ["React", "JAVA", "springboot", "Postgresql"],
+        info: [
+          "상수관망에 설치된 저전력 계측 시스템 데이터 연동",
+          "실시간 데이터 표출(초단위) 및 차트 데이터 표출",
+        ],
+        role: ["Front-end, Back-end, DB 설계 및 개발"],
       },
       {
         title: "수돗물 수질 이상여부 진단 키트 개발",
@@ -113,10 +132,15 @@ export const EXPERIENCE_RESUME = [
         code: "C0005",
         description: "물, 수도 관련 SI 프로젝트 개발",
         icon: "dev",
-        skill: [""],
-        info: ["", "", ""],
-        role: ["", "", ""],
-        purpose: [""],
+        skill: ["React", "JAVA", "springframework", "Postgresql"],
+        info: [
+          "수질 Kit를 분석하고 분석데이터를 저장하여 표출하는 시스템 개발",
+          "Mobile Web Page로 카메라 사용을 위한 https 배포, 분석한 Kit 결과를 DB에 저장",
+        ],
+        role: [
+          "Front-end, Back-end 개발",
+          "개발 진행 중 인계받아 개발 마무리 및 고도화 개발 진행",
+        ],
         result: [""],
       },
       {
@@ -126,11 +150,15 @@ export const EXPERIENCE_RESUME = [
         code: "C0006",
         description: "물, 수도 관련 SI 프로젝트 개발",
         icon: "dev",
-        skill: [""],
-        info: ["", "", ""],
-        role: ["", "", ""],
-        purpose: [""],
-        result: [""],
+        skill: ["React", "JAVA", "springframework", "Postgresql"],
+        info: [
+          "수질 Kit를 분석하고 분석데이터를 저장하여 표출하는 시스템 개발",
+          "반응형 WEB Page 개발, 실시간 분석 Data 관리 및 UI 표출",
+        ],
+        role: [
+          "Front-end, Back-end 개발",
+          "개발 진행 중 인계받아 개발 마무리 및 고도화 개발 진행",
+        ],
       },
       {
         title: "아쿠아유나이티드 4.0 시스템 개발",
@@ -150,11 +178,15 @@ export const EXPERIENCE_RESUME = [
         code: "C0008",
         description: "웹앱 개발 및 신입사원 교육자료 개발",
         icon: "setting",
-        skill: [""],
-        info: ["", "", ""],
-        role: ["", "", ""],
-        purpose: [""],
-        result: [""],
+        skill: ["javascript", "React", "JAVA", "eGovFramework", "JPA"],
+        info: [
+          "수질 정보 및 수도관 정보를 모바일에서 확인할 수 있는 Mobile WEB Page 개발",
+        ],
+        role: [
+          "ERD, API설계 및 구축",
+          "Web 페이지 구축 진행 (F/E, B/E)",
+          "내부 과제로 개발 및 신입사원 교육과 같이 진행",
+        ],
       },
       {
         title: "배출영향분석 표준 프로그램 유지관리(2021)",
@@ -162,11 +194,12 @@ export const EXPERIENCE_RESUME = [
         code: "C0009",
         description: "환경부 주관 지자체 배출영향분석 프로그램 고도화",
         icon: "system",
-        skill: [""],
-        info: ["", "", ""],
-        role: ["", "", ""],
-        purpose: [""],
-        result: [""],
+        skill: ["Csharp", "Windows Form", "MSSQL", "install Shield"],
+        info: ["C# Windows Forms 을 사용한 프로그램 유지관리"],
+        role: [
+          "프로젝트 관리 및 유지보수",
+          "고객 요청사항에 맞게 수정 및 배포(InstallShield)",
+        ],
       },
       {
         title: "전국오염원조사 DB 및 웹 시스템 구축(4)",
@@ -174,9 +207,14 @@ export const EXPERIENCE_RESUME = [
         code: "C0010",
         description: "환경부 주관 전국오염원조사 고도화",
         icon: "system",
-        skill: [""],
-        info: ["", "", ""],
-        role: ["", "", ""],
+        skill: ["JAVA", "JSP", "Oracle", "JQuery", "HTML", "CSS"],
+        info: [
+          "전국오염원조사 홈페이지 (https://wems.nier.go.kr) 유지보수 및 고도화",
+        ],
+        role: [
+          "고도화 개발 참여",
+          "사용자 편의성을 위한 UI/UX개선 및 디자인 수정",
+        ],
         purpose: [""],
         result: [""],
       },

@@ -13,6 +13,7 @@ export const experience: Array<CareerType> = [
     due: "2021-12 - 현재",
     skill: ["react", "nextjs", "js", "ts"],
     experience: [
+      "DMS Admin Page F/E 설계 및 개발",
       "Admin / BizPortal 향 Boiler Plate 개발 (연구과제)",
       "RAiDEA 서비스 관리자용 Admin Page 개발 및 유지보수",
       "MSA 대응을 위한 BFF Service 개발 및 유지보수",
@@ -98,12 +99,6 @@ export const EDU_CARD: Array<ExperienceCardType> = [
   },
 ];
 export const CRE_CARD: Array<ExperienceCardType> = [
-  {
-    title: "웹 디자인 기능사 (미취득)",
-    subtitle: "한국산업인력공단",
-    time: "2023-08 (진행중)",
-    text: "웹 디자인 기능사 자격증 취즉 진행중",
-  },
   {
     title: "소프트웨어 교육 과정 이수",
     subtitle: "정보통신산업진흥원",
