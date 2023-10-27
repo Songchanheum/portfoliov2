@@ -4,15 +4,15 @@
 
 @font-face {
   font-family: "JUA";
-  src: url("../public/font/Jua-Regular.ttf");
+  src: url("../public/font/NanumSquareNeo-Variable.ttf");
 }
 @font-face {
   font-family: "D2CODING";
-  src: url("../public/font/D2coding.ttf");
+  src: url("../public/font/MaruBuri-Regular.ttf");
 }
 @font-face {
   font-family: "DOHYEON";
-  src: url("../public/font/DoHyeon-Regular.ttf");
+  src: url("../public/font/NanumBarunpenR.ttf");
 }
 
 *:before,
