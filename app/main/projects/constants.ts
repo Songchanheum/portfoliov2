@@ -124,7 +124,7 @@ export const PROJECT = {
           src: "check.png",
           code: "P0009",
           due: "2018",
-          title: "출섹체크 프로그램",
+          title: "출석체크 프로그램",
           skill: ["React", "Next.js", "Tailwind CSS", "Framer"],
           info: ["제작"],
         },
