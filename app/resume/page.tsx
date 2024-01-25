@@ -7,7 +7,7 @@ import EduTimeline from "./components/EduTimeline";
 
 const ResumePage = () => {
   return (
-    <div className="px-4 pt-20 lg:ms-96 lg:pt-10">
+    <div className="px-4 2xl:px-20 pt-20 lg:ms-96 lg:pt-10">
       <ResumeWrapper title="소개글">
         <p className="text-d2 text-base p-2 leading-7">
           협력과 소통을 중시하고 신규 기술 트렌드에 관심이 있습니다. 새로운
