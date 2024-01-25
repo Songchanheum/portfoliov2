@@ -65,7 +65,7 @@ const Timeline = () => {
         <span>
           {`RAiDEA 서비스 Admin Page 개발`}
           <br />
-          {`Mobility Service SI 프로젝트 진행`}
+          {`Mobility Service 프로젝트 진행`}
         </span>
       ),
     },

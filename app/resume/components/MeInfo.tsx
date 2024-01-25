@@ -9,8 +9,8 @@ const MeInfo = () => {
         <div className="flex items-center justify-center flex-row lg:flex-col">
           <Image
             src="/images/resume/profile.jpeg"
-            width={"96"}
-            height={"96"}
+            width={"1000"}
+            height={"1000"}
             alt=""
             className="rounded-full h-36 w-36 lg:h-64 lg:w-64"
           />
