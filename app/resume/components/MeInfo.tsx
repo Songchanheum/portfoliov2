@@ -5,7 +5,7 @@ import Image from "next/image";
 const MeInfo = () => {
   return (
     <div className="h-full px-3 py-4 overflow-y-auto scrollbar-hide bg-gray-50 dark:bg-gray-800 flex flex-col justify-start items-center pt-15 lg:pt-10">
-      <div className="flex flex-col">
+      <div className="flex flex-col w-full">
         <div className="flex items-center justify-center flex-row lg:flex-col">
           <Image
             src="/images/resume/profile.jpeg"
@@ -23,9 +23,7 @@ const MeInfo = () => {
             </p>
           </div>
         </div>
-        <div>
-          <GithubCal id="Songchanheum" />
-        </div>
+        <GithubCal id="Songchanheum" />
       </div>
       <div className="w-[90%] ms-3 divide-y divide-gray-200 mb-10">
         <p className="text-lg font-do font-bold ps-2 mb-3 ">프로필</p>

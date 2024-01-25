@@ -47,8 +47,8 @@ const GithubCal = ({ id }: { id: string }) => {
     });
   };
   return (
-    <div>
-      <div className="flex justify-start items-center my-2">
+    <div className="w-full mb-5">
+      <div className="flex justify-start items-center my-4 mx-2">
         <Link
           className="hidden lg:block mr-4"
           href={`https://github.com/${id}`}
@@ -63,21 +63,7 @@ const GithubCal = ({ id }: { id: string }) => {
       </div>
       {isMounted && (
         <>
-          <div className="hidden lg:block">
-            <GitHubCalendar
-              username={id}
-              blockSize={12}
-              transformData={selectLastHalfYear}
-              hideTotalCount={true}
-              weekStart={0}
-              colorScheme="light"
-              style={{
-                height: "14.4rem",
-                width: "72rem",
-              }}
-            />
-          </div>
-          <div className="block lg:hidden mr-2">
+          <div className="hidden lg:block mx-4">
             <GitHubCalendar
               username={id}
               blockSize={10}
@@ -86,8 +72,20 @@ const GithubCal = ({ id }: { id: string }) => {
               weekStart={0}
               colorScheme="light"
               style={{
-                height: "12rem",
-                width: "66rem",
+                width: "100%",
+              }}
+            />
+          </div>
+          <div className="block lg:hidden mx-2">
+            <GitHubCalendar
+              username={id}
+              blockSize={10}
+              transformData={selectLastHalfYear}
+              hideTotalCount={true}
+              weekStart={0}
+              colorScheme="light"
+              style={{
+                width: "100%",
               }}
             />
           </div>
