@@ -35,6 +35,8 @@ export const PROJECT = {
           ],
           purpose: [
             "MD > DB (Redis or Notion md) 이용하여 데이터 표출하도록 수정(진행중)",
+            "menu 추가 및 카테고리 설정",
+            "widget 이용하여 간편하게 사용하도록 수정",
           ],
           link: [
             "https://songsblog.vercel.app/",

@@ -3,6 +3,7 @@ import React, { useLayoutEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { PROJECT } from "@/app/main/projects/constants";
 import { EXPERIENCE_RESUME } from "../constatns";
+import { BiChevronLeft } from "react-icons/bi";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -47,14 +48,14 @@ const ProjectDetail = () => {
   }, [searchParam]);
 
   return (
-    <div className="px-4 pt-20 lg:ms-96 lg:pt-10">
+    <div className="px-12 pt-20 lg:ms-96 lg:pt-10 pb-32 ">
       {info ? (
         <div className="py-3 px-5 md:px-12 flex flex-col">
           <Link
             href="/resume"
-            className="text-5xl tracking-tighter font-d2 text-gray-400 mb-8"
+            className="text-5xl tracking-tighter font-d2 text-gray-800 mb-8"
           >
-            {"<"}
+            <BiChevronLeft />
           </Link>
           {info.src ? (
             <div className="flex justify-center items-center">
