@@ -69,17 +69,17 @@ export default function Home() {
         </aside>
         <main className="w-full md:ml-[70px] xl:ml-[244px]">
           <section className="mx-auto max-w-[975px] h-screen bg-white md:p-4 justify-start flex-col">
-            <header className="flex w-full md:mb-[44px] gap-[30px] p-4">
-              <div className="shrink-0 hidden md:block md:w-[290px]">
+            <header className="flex w-full md:mb-[24px] gap-[30px] p-4">
+              <div className="shrink-0 hidden md:flex md:w-[290px] items-center justify-center">
                 <Image
                   src="/images/main/main.png"
                   width={300}
                   height={300}
-                  className="w-[150px] h-[150px] mx-auto rounded-full bg-slate-100"
+                  className="w-[150px] h-[150px] rounded-full bg-slate-100"
                   alt="profile"
                 ></Image>
               </div>
-              <section className="h-full w-full items-start flex-col gap-5 text-sm">
+              <section className="h-full w-full items-start flex-col gap-5 text-sm  min-w-[350px]">
                 <div className="flex gap-4 items-center order-3 md:order-1 w-full">
                   <div className="flex gap-4 flex-col md:flex-row items-center w-full">
                     <h2 className="font-jua text-lg font-bold hidden md:block">
@@ -99,27 +99,27 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-                <ul className="flex gap-9 order-1 md:order-2 w-full justify-center items-center md:justify-start text-base">
-                  <div className="shrink-0 w-[90px] md:hidden">
+                <ul className="flex gap-9 order-1 md:order-2 w-full items-center md:justify-start text-base">
+                  <div className="shrink-0 w-[100px] md:hidden flex justify-center items-center">
                     <Image
                       src="/images/main/main.png"
                       width={300}
                       height={300}
-                      className="w-[90px] h-[90px] rounded-full bg-slate-100 outline-offset-2 outline-2"
+                      className="w-[88px] h-[88px] rounded-full bg-slate-100 outline-offset-2 outline-2"
                       alt="profile"
                     ></Image>
                   </div>
                   <li className="flex flex-col md:flex-row md:gap-2 w-[33%] md:w-auto items-center">
                     <p className="order-2 md:order-1 text-sm">게시글</p>
-                    <strong>123</strong>
+                    <strong className="font-sans font-semibold">123</strong>
                   </li>
                   <li className="flex flex-col md:flex-row md:gap-2 w-[33%] md:w-auto items-center">
                     <p className="order-2 md:order-1 text-sm">투데이</p>
-                    <strong>123</strong>
+                    <strong className="font-sans font-semibold">123</strong>
                   </li>
                   <li className="flex flex-col md:flex-row md:gap-2 w-[33%] md:w-auto items-center">
                     <p className="order-2 md:order-1 text-sm">토탈</p>
-                    <strong>123</strong>
+                    <strong className="font-sans font-semibold">123</strong>
                   </li>
                 </ul>
                 <div className="flex flex-col order-2 md:order-3">
