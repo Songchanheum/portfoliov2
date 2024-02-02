@@ -25,7 +25,7 @@ export default function Home() {
               alt="mainlogo"
             ></Image>
           </div>{" "}
-          <div className="block xl:hidden pt-[25px] pb-[16px] mb-[13px]">
+          <div className="hidden md:block xl:hidden pt-[25px] pb-[16px] mb-[13px]">
             <Image
               src="/images/common/mainlogo_small.png"
               width={90}
