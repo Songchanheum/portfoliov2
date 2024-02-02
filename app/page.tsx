@@ -1,8 +1,27 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { MdBookmarkAdd } from "react-icons/md";
 import { FaRegHandPointRight } from "react-icons/fa";
+
 export default function Home() {
+  const [projectData, setProjectData] = useState<ProjectType[]>();
+  useEffect(() => {
+    fetch(
+      `${
+        process.env.NEXT_PUBLIC_API_URL || "https://songsintroduce.vercel.app/"
+      }api/project`
+    )
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (jsonData) {
+        setProjectData(jsonData);
+      });
+  }, []);
+
   return (
     <>
       <header className="flex md:hidden h-[44px] border-b-[1px] border-b-slate-300 justify-center items-center">
@@ -141,16 +160,30 @@ export default function Home() {
                 </a>
               </div>
               <article className="grid grid-cols-3 w-full gap-1">
-                <div className="max-w-[311px] after:pb-[100%] flex justify-center items-center bg-gray-100"></div>
-                <div className="max-w-[311px] after:pb-[100%] flex justify-center items-center bg-gray-100"></div>
-                <div className="max-w-[311px] after:pb-[100%] flex justify-center items-center bg-gray-100"></div>
-                <div className="max-w-[311px] after:pb-[100%] flex justify-center items-center bg-gray-100"></div>
-                <div className="max-w-[311px] after:pb-[100%] flex justify-center items-center bg-gray-100"></div>
-                <div className="max-w-[311px] after:pb-[100%] flex justify-center items-center bg-gray-100"></div>
-                <div className="max-w-[311px] after:pb-[100%] flex justify-center items-center bg-gray-100"></div>
-                <div className="max-w-[311px] after:pb-[100%] flex justify-center items-center bg-gray-100"></div>
-                <div className="max-w-[311px] after:pb-[100%] flex justify-center items-center bg-gray-100"></div>
-                <div className="max-w-[311px] after:pb-[100%] flex justify-center items-center bg-gray-100"></div>
+                {projectData ? (
+                  projectData.map((e: ProjectType) => {
+                    return (
+                      <div
+                        key={e.code}
+                        className="max-w-[311px] after:pb-[100%] flex justify-center items-center bg-gray-100"
+                      >
+                        {e.src ? (
+                          <Image
+                            src={`/images/project/${e.src}`}
+                            width={500}
+                            height={500}
+                            alt={`${e.title}`}
+                            className="object-cover h-full"
+                          ></Image>
+                        ) : (
+                          <>No Image</>
+                        )}
+                      </div>
+                    );
+                  })
+                ) : (
+                  <></>
+                )}
               </article>
             </section>
           </section>

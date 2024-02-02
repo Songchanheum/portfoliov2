@@ -39,6 +39,9 @@ interface ProjectType {
   purpose?: string[];
   result?: string[];
   link?: string[];
+  color?: string;
+  src?: string;
+  icon?: string;
 }
 interface CompanyType {
   title: string;
