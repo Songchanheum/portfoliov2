@@ -20,6 +20,7 @@ module.exports = {
         jua: ["JUA", "cursive"],
         d2: ["D2CODING", "sans"],
         do: ["DOHYEON", "sans"],
+        insta: ["INSTA", "Pretendard"],
       },
       transitionProperty: {
         height: "height",

@@ -14,7 +14,10 @@
   font-family: "DOHYEON";
   src: url("../public/font/NanumBarunpenR.ttf");
 }
-
+@font-face {
+  font-family: "INSTA";
+  src: url("../public/font/Instagram\ Sans.ttf");
+}
 *:before,
 *:after {
   margin: 0;
