@@ -15,24 +15,31 @@ export default function Home() {
         ></Image>
       </header>
       <div className="flex w-full">
-        <aside className="z-50 md:shrink-0 w-full md:w-[70px] xl:w-[244px] fixed bottom-0 md:top-0 md:left-0 bg-slate-50 p-[12px]">
-          <menu>
-            <div className="hidden xl:block pt-[25px] pb-[16px] px-[12px] mb-[13px]">
-              <Image
-                src="/images/common/mainlogo.png"
-                width={260}
-                height={90}
-                className="w-[100px] h-[32px]"
-                alt="mainlogo"
-              ></Image>
-            </div>
-            <ul className="flex flex-row md:flex-col justify-between px-10 md:justify-start md:px-0">
-              <li>홈</li>
-              <li>홈</li>
-              <li>홈</li>
-              <li>홈</li>
-            </ul>
-          </menu>
+        <aside className="z-50 md:shrink-0 w-full md:w-[72px] xl:w-[244px] fixed bottom-0 md:top-0 md:left-0 bg-slate-50 p-[12px]">
+          <div className="hidden xl:block pt-[25px] pb-[16px] px-[12px] mb-[13px]">
+            <Image
+              src="/images/common/mainlogo.png"
+              width={260}
+              height={90}
+              className="w-[120px] h-[40px]"
+              alt="mainlogo"
+            ></Image>
+          </div>{" "}
+          <div className="block xl:hidden pt-[25px] pb-[16px] mb-[13px]">
+            <Image
+              src="/images/common/mainlogo_small.png"
+              width={90}
+              height={90}
+              className="w-[40px] h-[40px]  mx-auto"
+              alt="mainlogo"
+            ></Image>
+          </div>
+          <ul className="flex flex-row md:flex-col justify-between px-10 md:justify-start md:px-0">
+            <li>홈</li>
+            <li>홈</li>
+            <li>홈</li>
+            <li>홈</li>
+          </ul>
         </aside>
         <main className="w-full bg-gray-200 font-jua md:ml-[70px] xl:ml-[244px]">
           <section className="mx-auto max-w-[975px] h-screen bg-white md:p-4 justify-start flex-col">
@@ -82,7 +89,7 @@ export default function Home() {
                   </li>
                 </ul>
                 <div className="flex flex-col order-2 md:order-3">
-                  <strong className="text-base">🖥송찬흠💻</strong>
+                  <strong className="text-base">🖥 송찬흠 💻</strong>
                   <p>
                     <span className="font-d2">Daily Dev Post</span> 기록, 개발
                     성장 일지
