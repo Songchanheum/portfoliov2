@@ -1,7 +1,6 @@
-import React from "react";
 import MainDiv from "@/app/main/components/MainDiv";
 
-async function Main() {
+function Main() {
   return (
     <div className="w-full h-screen grid place-items-center">
       <MainDiv />

@@ -1,10 +1,9 @@
-import { GoogleAnalytics } from "@next/third-parties/google";
-import { Analytics } from "@vercel/analytics/react";
+import ReactQueryProvider from "@/app/components/layout/ReactQueryProvider";
 import "./globals.css";
 
 export const metadata = {
-  title: "소개합니다!",
-  description: "포트폴리오 만들었음니다",
+  title: "DailyDev",
+  description: "Daily Dev Post",
   viewport:
     "initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width",
 };
@@ -14,11 +13,13 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  "use client";
+
   return (
-    <html lang="en">
-      <body>{children}</body>
-      <Analytics />
-      <GoogleAnalytics gaId="G-WWREKKG35Y" />
+    <html lang="ko">
+      <body>
+        <ReactQueryProvider>{children}</ReactQueryProvider>
+      </body>
     </html>
   );
 }

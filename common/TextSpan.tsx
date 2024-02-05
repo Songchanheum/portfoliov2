@@ -26,7 +26,7 @@ export default function TextSpan({
   };
   return (
     <motion.span
-      className="inline-block text-6xl lg:text-7xl xl:text-8xl font-medium font-do"
+      className="inline-block text-6xl lg:text-7xl xl:text-8xl font-medium font-jua"
       animate={controls}
       onMouseOver={() => {
         if (!isPlaying) {

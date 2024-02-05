@@ -44,4 +44,12 @@ export const Me = ({ size, ...rest }) => (
     {...rest}
   ></Image>
 );
-export const ChatIcon = ({ ...rest }) => <TbMessageCircle2 {...rest} />;
+export const ChatIcon = ({ size, ...rest }) => (
+  <Image
+    src="/images/icon/ico_message.svg"
+    alt="img"
+    width={size}
+    height={size}
+    {...rest}
+  ></Image>
+);
