@@ -8,7 +8,6 @@ import { MdOutlineBookmarkBorder } from "react-icons/md";
 import { MdOutlineLibraryBooks } from "react-icons/md";
 import { MdOutlineGridOn } from "react-icons/md";
 import { BsThreeDots } from "react-icons/bs";
-import { FaRegHandPointRight } from "react-icons/fa";
 import { FaChevronLeft } from "react-icons/fa";
 
 export default function Home() {
@@ -128,7 +127,7 @@ export default function Home() {
                     <span className="font-d2">Daily Dev Post</span> 기록, 개발
                     성장 일지
                   </p>
-                  <p className="flex gap-3">
+                  {/* <p className="flex gap-3">
                     포트폴리오 <FaRegHandPointRight size={"18"} />
                     <Link
                       href="https://songsintroduce.vercel.app/main/"
@@ -158,7 +157,7 @@ export default function Home() {
                     >
                       이동
                     </Link>
-                  </p>
+                  </p> */}
                 </div>
               </section>
             </header>

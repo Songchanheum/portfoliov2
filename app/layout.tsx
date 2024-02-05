@@ -1,5 +1,5 @@
-import React from "react";
 import "./globals.css";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata = {
   title: "소개합니다!",
@@ -16,6 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>{children}</body>
+      <GoogleAnalytics gaId="G-WWREKKG35Y" />
     </html>
   );
 }

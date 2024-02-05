@@ -1,4 +1,3 @@
-import React from "react";
 import ResumeWrapper from "./components/ResumeWrapper";
 import Timeline from "./components/Timeline";
 import ExperienceResume from "./components/ExperienceResume";
