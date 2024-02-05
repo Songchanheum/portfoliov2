@@ -9,10 +9,12 @@ import { MdOutlineLibraryBooks } from "react-icons/md";
 import { MdOutlineGridOn } from "react-icons/md";
 import { BsThreeDots } from "react-icons/bs";
 import { FaChevronLeft } from "react-icons/fa";
+import { sendGAEvent } from "@next/third-parties/google";
 
 export default function Home() {
   const [projectData, setProjectData] = useState<ProjectType[]>();
   useEffect(() => {
+    sendGAEvent({ event: "page_view", value: { page: location.pathname } });
     fetch(
       `${
         process.env.NEXT_PUBLIC_API_URL || "https://songsintroduce.vercel.app/"
@@ -180,7 +182,7 @@ export default function Home() {
                 </a>
               </div>
               <article className="grid grid-cols-3 w-full gap-1">
-                {projectData ? (
+                {projectData && projectData?.length > 0 ? (
                   projectData.map((e: ProjectType) => {
                     return (
                       <div

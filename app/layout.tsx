@@ -1,5 +1,6 @@
-import "./globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { Analytics } from "@vercel/analytics/react";
+import "./globals.css";
 
 export const metadata = {
   title: "소개합니다!",
@@ -16,6 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>{children}</body>
+      <Analytics />
       <GoogleAnalytics gaId="G-WWREKKG35Y" />
     </html>
   );
