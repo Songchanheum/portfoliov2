@@ -98,9 +98,9 @@ const InfoHeader = () => {
           </div>
         </section>
       </header>
-      <section className="flex w-full min-h-[115px] md:min-h-[130px] justify-start px-[30px] md:px-[60px] gap-7 mb-4">
+      <section className="flex w-full min-h-[115px] h-[115px] md:min-h-[130px] md:h-[130px] justify-start px-[30px] md:px-[60px] gap-7 mb-4">
         <div className="w-[75px] md:w-[85px] flex flex-col items-center gap-2 relative">
-          <button className="hover:animate-spin rounded-full z-50">
+          <button className="hover:animate-spin rounded-full z-10">
             <Link href={"/main"} target="_blank">
               <Image
                 src={"/images/common/highlight.png"}
@@ -117,7 +117,7 @@ const InfoHeader = () => {
           <p className="text-sm">portfolio</p>
         </div>
         <div className="w-[75px] md:w-[85px] flex flex-col items-center gap-2 relative">
-          <button className="hover:animate-spin rounded-full z-50">
+          <button className="hover:animate-spin rounded-full z-10">
             <Link href={"http://songsblog.vercel.app/"} target="_blank">
               <Image
                 src={"/images/common/highlight.png"}
@@ -134,7 +134,7 @@ const InfoHeader = () => {
           <p className="text-sm ">blog</p>
         </div>
         <div className="w-[75px] md:w-[85px] flex flex-col items-center gap-2 relative">
-          <button className="hover:animate-spin rounded-full z-50">
+          <button className="hover:animate-spin rounded-full z-10">
             <Link href={"/resume"} target="_blank">
               <Image
                 src={"/images/common/highlight.png"}

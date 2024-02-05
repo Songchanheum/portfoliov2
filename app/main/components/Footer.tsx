@@ -22,7 +22,7 @@ export const Footer = () => {
           }`}
           onClick={() => setShow(!show)}
         >
-          <ChatIcon size="30" fill="white" />
+          <ChatIcon size={30} />
         </motion.button>
         {show && !isMain ? (
           <motion.div
