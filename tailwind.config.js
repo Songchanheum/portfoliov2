@@ -34,6 +34,9 @@ module.exports = {
       height: {
         screenHeightWithoutHeader: "calc(100vh - 141px)",
       },
+      left: {
+        igSide: "calc(100% + 70px)",
+      },
       margin: {
         header: "181px",
       },

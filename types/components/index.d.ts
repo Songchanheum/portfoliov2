@@ -51,3 +51,9 @@ interface CompanyType {
   skill: Array<string>;
   project: Array<ProjectType>;
 }
+interface MetaType {
+  title: string;
+  image?: string;
+  desc?: string;
+  url?: string;
+}

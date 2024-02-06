@@ -1,9 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import Image from "next/image";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { useMutationRequest } from "@/common/hooks/useRequest";
-import { getUrlMeta } from "@/common/utils/webScrapping";
 import { useSearchParam } from "@/common/hooks/useSearchParam";
 import { motion } from "framer-motion";
 
@@ -13,7 +11,8 @@ const DevPostComponents = () => {
 
   const [projectData, setProjectData] = useState<ProjectType[]>();
   const [postUrlData, setPostData] = useState<Object[]>();
-  const [openPost, setOpenPost] = useState<boolean>(false);
+  const [openPost, setOpenPost] = useState<MetaType>();
+  const [showModal, setShowModal] = useState<boolean>(false);
 
   const {
     data: proData,
@@ -42,7 +41,6 @@ const DevPostComponents = () => {
     setProjectData([]);
     setPostData([]);
 
-    console.log(selectTab);
     switch (selectTab) {
       case "dev":
         proRequest();
@@ -60,6 +58,14 @@ const DevPostComponents = () => {
       setPostData(postData);
     }
   }, [proData, postData]);
+
+  function showPostModal(props: MetaType) {
+    console.log(props, showModal);
+    if (!showModal) {
+      setOpenPost(props);
+    }
+    setShowModal(!showModal);
+  }
   return (
     <>
       {proIsLoading || postIsLoading ? (
@@ -86,6 +92,7 @@ const DevPostComponents = () => {
               image={e.src ? `/images/project/${e.src}` : null}
               desc={e.description}
               url={`/resume/project?code=${e.code}`}
+              showPostModal={showPostModal}
             />
           );
         })
@@ -102,25 +109,27 @@ const DevPostComponents = () => {
               image={e.image}
               desc={e.desc}
               url={e.url}
+              showPostModal={showPostModal}
             />
           );
         })
       ) : (
         <></>
       )}
-      {openPost ? <div></div> : <></>}
+      <DevDetailPost view={showModal} setView={setShowModal} {...openPost} />
     </>
   );
 };
-
-function DevPost({
-  key,
+function DevDetailPost({
+  view,
+  setView,
   title,
   image,
   desc,
   url,
 }: {
-  key: string;
+  view: boolean;
+  setView: Dispatch<SetStateAction<boolean>>;
   title?: string | null;
   image?: string | null;
   desc?: string | null;
@@ -128,14 +137,44 @@ function DevPost({
 }) {
   return (
     <>
-      <div
-        key={key}
+      {view ? (
+        <>
+          <button
+            className="fixed top-0 left-0 w-full h-full bg-black opacity-40 z-30 cursor-default"
+            onClick={() => setView(false)}
+          ></button>
+          <div className="fixed top-12 left-[50%] md:left-[calc(50%+35px)] 2xl:left-[calc(50%+122px)] translate-x-[-50%] 2xl:w-[75%] w-[90%] h-[80%] bg-white z-40 rounded-xl">
+            <div>{title}</div>
+            <div>{image}</div>
+            <div>{desc}</div>
+            <div>{url}</div>
+          </div>
+        </>
+      ) : (
+        <></>
+      )}
+    </>
+  );
+}
+function DevPost(props: {
+  key: string;
+  title?: string | null;
+  image?: string | null;
+  desc?: string | null;
+  url?: string | null;
+  showPostModal: (e: any) => void;
+}) {
+  return (
+    <>
+      <button
+        key={props.key}
         className="max-w-[311px] after:pb-[100%] flex justify-center items-center bg-gray-100 cursor-pointer"
+        onClick={() => props.showPostModal({ ...props })}
       >
-        {image ? (
+        {props?.image ? (
           <motion.img
-            src={`${image}`}
-            alt={`${title}`}
+            src={`${props?.image}`}
+            alt={`${props?.title}`}
             className="object-cover h-full group-hover:grayscale"
             initial={{
               opacity: 0,
@@ -153,10 +192,10 @@ function DevPost({
             whileInView={{ opacity: 1 }}
             whileHover={{ opacity: 0.5 }}
           >
-            {title}
+            {props?.title}
           </motion.div>
         )}
-      </div>
+      </button>
     </>
   );
 }
