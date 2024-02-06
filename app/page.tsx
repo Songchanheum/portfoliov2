@@ -19,7 +19,9 @@ export default function Home() {
                 <HomeTabList />
               </Suspense>
               <article className="grid grid-cols-3 w-full gap-1">
-                <DevPostComponents />
+                <Suspense fallback={<>Loading...</>}>
+                  <DevPostComponents />
+                </Suspense>
               </article>
             </section>
           </section>
