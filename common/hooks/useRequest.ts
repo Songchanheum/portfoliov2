@@ -8,7 +8,7 @@ import {
   UseGetRequestReturn,
   UseMutationRequestProps,
   UseMutationRequestReturn,
-} from "../types";
+} from "@/types/hooks";
 import { useMutation, useQuery } from "@tanstack/react-query";
 
 type RouteApiErrorRes = {

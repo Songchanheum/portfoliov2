@@ -1,5 +1,5 @@
 import { getURL } from "@/common/hooks/useSearchParam";
-import { RequestMethodType } from "@/common/types";
+import { RequestMethodType } from "@/types/hooks";
 
 export async function requestHandler<T>(paramData: {
   param?: T;

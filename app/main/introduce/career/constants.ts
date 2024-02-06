@@ -35,14 +35,6 @@ export const experience: Array<CareerType> = [
     ],
   },
   {
-    img: "/images/career/kth.png",
-    title: "KTH",
-    subTitle: "프리랜서",
-    due: "2020-10 - 2021-01",
-    skill: ["html", "css", "js", "jquery"],
-    experience: ["Olleh TV STB 마이크로템플릿 고도화"],
-  },
-  {
     img: "/images/career/cnp.png",
     title: "Copynpaste - 카피앤패이스트",
     subTitle: "미디어플랫폼팀 대리 - 정규직",
