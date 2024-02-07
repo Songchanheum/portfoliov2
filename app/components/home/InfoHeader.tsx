@@ -22,9 +22,14 @@ const InfoHeader = () => {
                 songch_
               </h2>
               <div className="flex gap-2 justify-between md:justify-start w-full md:w-auto text-sm">
-                <button className="bg-[#0095F6] py-1 px-4 rounded-lg text-white font-bold h-8 grow">
-                  <Link href="/main">팔로우</Link>
-                </button>
+                <Link
+                  href="/main"
+                  className="flex justify-center items-center grow bg-[#0095F6] rounded-md"
+                >
+                  <button className="text-white font-bold h-8 py-1 px-4">
+                    팔로우
+                  </button>
+                </Link>
                 <button className="bg-[#efefef] py-1 px-4 rounded-md text-black  h-8 grow">
                   메시지
                 </button>
