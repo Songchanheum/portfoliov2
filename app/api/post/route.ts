@@ -10,6 +10,7 @@ export async function GET() {
 export async function POST(req: NextRequest) {
   const { url } = await req.json();
   const meta: MetaType = await getUrlMeta(url);
+  const lange = await kv.llen("post");
   const messageKV = await kv.lpush(
     `post`,
     `{"title": "${meta.title.replaceAll(
@@ -18,7 +19,10 @@ export async function POST(req: NextRequest) {
     )}", "image":"${meta.image?.replaceAll(
       '"',
       ""
-    )}", "desc":"${meta.desc?.replaceAll('"', "")}", "url":"${url}"}`
+    )}", "desc":"${meta.desc?.replaceAll(
+      '"',
+      ""
+    )}", "url":"${url}", "code":"post${lange}"}`
   );
   return NextResponse.json(messageKV);
 }

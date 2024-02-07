@@ -56,4 +56,5 @@ interface MetaType {
   image?: string;
   desc?: string;
   url?: string;
+  code?: string;
 }

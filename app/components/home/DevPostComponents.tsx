@@ -10,7 +10,7 @@ const DevPostComponents = () => {
   const selectTab = searchParam.getData("selectTab");
 
   const [projectData, setProjectData] = useState<ProjectType[]>();
-  const [postUrlData, setPostData] = useState<Object[]>();
+  const [postUrlData, setPostData] = useState<MetaType[]>();
   const [openPost, setOpenPost] = useState<MetaType>();
   const [showModal, setShowModal] = useState<boolean>(false);
 
@@ -92,6 +92,7 @@ const DevPostComponents = () => {
               image={e.src ? `/images/project/${e.src}` : null}
               desc={e.description}
               url={`/resume/project?code=${e.code}`}
+              code={e.code}
               showPostModal={showPostModal}
             />
           );
@@ -101,7 +102,7 @@ const DevPostComponents = () => {
       )}
 
       {postUrlData && postUrlData?.length > 0 ? (
-        postUrlData.map((e: any) => {
+        postUrlData.map((e: MetaType) => {
           return (
             <DevPost
               key={e.title}
@@ -109,6 +110,7 @@ const DevPostComponents = () => {
               image={e.image}
               desc={e.desc}
               url={e.url}
+              code={e.code}
               showPostModal={showPostModal}
             />
           );

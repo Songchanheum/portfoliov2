@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { MdBookmarkAdd } from "react-icons/md";
 
-const InfoHeader = () => {
+const InfoHeader = ({ data }: { data: any }) => {
   return (
     <>
       <header className="flex w-full md:mb-[24px] gap-[30px] p-4">
@@ -56,11 +56,15 @@ const InfoHeader = () => {
             </li>
             <li className="flex flex-col md:flex-row md:gap-2 w-[33%] md:w-auto items-center">
               <p className="order-2 md:order-1 text-sm">투데이</p>
-              <strong className="font-sans font-semibold">123</strong>
+              <strong className="font-sans font-semibold">
+                {data?.today ?? 0}
+              </strong>
             </li>
             <li className="flex flex-col md:flex-row md:gap-2 w-[33%] md:w-auto items-center">
               <p className="order-2 md:order-1 text-sm">토탈</p>
-              <strong className="font-sans font-semibold">123</strong>
+              <strong className="font-sans font-semibold">
+                {data?.total ?? 0}
+              </strong>
             </li>
           </ul>
           <div className="flex flex-col order-2 md:order-3">
@@ -69,37 +73,6 @@ const InfoHeader = () => {
               <span className="font-d2">Daily Dev Post</span> 기록, 개발 성장
               일지
             </p>
-            {/* <p className="flex gap-3">
-                    포트폴리오 <FaRegHandPointRight size={"18"} />
-                    <Link
-                      href="https://songsintroduce.vercel.app/main/"
-                      target="_blank"
-                      className="text-blue-700"
-                    >
-                      이동
-                    </Link>
-                  </p>
-                  <p className="flex gap-3">
-                    블로그 <FaRegHandPointRight size={"18"} />
-                    <Link
-                      href="https://songsblog.vercel.app/"
-                      target="_blank"
-                      className="text-blue-700"
-                    >
-                      이동
-                    </Link>
-                  </p>
-                  <p className="flex gap-3">
-                    경력기술
-                    <FaRegHandPointRight size={"18"} />
-                    <Link
-                      href="https://songsintroduce.vercel.app/resume/"
-                      target="_blank"
-                      className="text-blue-700"
-                    >
-                      이동
-                    </Link>
-                  </p> */}
           </div>
         </section>
       </header>
