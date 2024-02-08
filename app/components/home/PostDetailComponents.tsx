@@ -5,6 +5,7 @@ import { GrShare } from "react-icons/gr";
 import Image from "next/image";
 import Link from "next/link";
 import { useMutationRequest } from "@/common/hooks/useRequest";
+import { styled } from "styled-components";
 
 function Comment({
   idKey,
@@ -15,14 +16,26 @@ function Comment({
   comment: string;
   date: string;
 }) {
-  const idPass = idKey.substring(0, 6);
-  const classNames = `w-10 h-10 rounded-full text-center leading-10 shrink-0 bg-[#${idPass}]`;
+  const idPassBy6 = idKey.substring(0, 6);
+  const idPassBy1 = idKey.substring(0, 1);
+  const passkey1HextoNum = parseInt(idPassBy1, 16) % 8;
+
+  const CircleDiv = styled.div`
+    background: linear-gradient(
+      ${passkey1HextoNum * 45}deg,
+      #dddddd 10%,
+      #${idPassBy6} 70%,
+      #e5e7eb 100%
+    );
+  `;
   return (
-    <li className="flex items-center gap-4 mb-3">
-      <div className={classNames}>{idKey.substring(0, 1)}</div>
+    <li className="flex items-center gap-4 my-3 mx-2">
+      <CircleDiv className="w-8 h-8 rounded-full text-center leading-8 shrink-0 outline outline-3 outline-gray-400 outline-offset-2">
+        {idPassBy1}
+      </CircleDiv>
       <div className="flex flex-col">
         <p className="text-base text-gray-600 break-words">
-          <span className="font-bold mr-2 text-black">{idPass}</span>
+          <span className="font-bold mr-2 text-black">{idPassBy6}</span>
           {comment}
         </p>
         <p className="text-xs text-gray-400">{date}</p>
