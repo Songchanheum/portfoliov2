@@ -7,6 +7,7 @@ import crypto from "crypto";
 import { useMutationRequest } from "@/common/hooks/useRequest";
 import CommonModalComponent from "../common/CommonModalComponent";
 import { KeyIcon } from "@/common/utils/Icons";
+import ChatModal from "@/app/main/components/ChatModal";
 
 const InfoHeader = ({
   toggle,
@@ -72,7 +73,22 @@ const InfoHeader = ({
                     팔로우
                   </button>
                 </Link>
-                <button className="bg-[#efefef] py-1 px-4 rounded-md text-black  h-8 grow">
+                <button
+                  className="bg-[#efefef] py-1 px-4 rounded-md text-black  h-8 grow"
+                  onClick={() => {
+                    toggle();
+                    setModalComp(
+                      <CommonModalComponent
+                        type="INFO"
+                        title="메시지 보내기"
+                        onSuccess={() => {}}
+                        toggle={toggle}
+                      >
+                        <ChatModal isOpen={showModal} />
+                      </CommonModalComponent>
+                    );
+                  }}
+                >
                   메시지
                 </button>
                 <button

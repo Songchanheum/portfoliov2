@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { getEventListeners } from "stream";
 
 export const useModalDefaultSetting = (_toggle: () => void) => {
   useEffect(() => {
@@ -17,13 +16,4 @@ export const useModalDefaultSetting = (_toggle: () => void) => {
       window.removeEventListener("popstate", _toggle);
     };
   }, []);
-  // useEffect(() => {
-  //   const event = history.listen((listener: any) => {
-  //     if (listener.action === "POP") {
-  //       history.back();
-  //       toggle();
-  //     }
-  //   });
-  //   return event;
-  // }, [history]);
 };
