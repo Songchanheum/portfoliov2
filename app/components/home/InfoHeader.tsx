@@ -1,8 +1,40 @@
+"use client";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { MdBookmarkAdd } from "react-icons/md";
+import crypto from "crypto";
+import { useMutationRequest } from "@/common/hooks/useRequest";
 
-const InfoHeader = ({ data }: { data: any }) => {
+const InfoHeader = () => {
+  const { data, request } = useMutationRequest<any>({
+    requestPath: "today",
+    reactQueryKey: "TODAY_SET",
+    requestMethod: "POST",
+  });
+
+  const { data: getData, request: getRequest } = useMutationRequest<any>({
+    requestPath: "today",
+    reactQueryKey: "TODAY_GET",
+    requestMethod: "GET",
+  });
+
+  const [info, setInfo] = useState<InfoType>({});
+
+  useEffect(() => {
+    if (!sessionStorage.getItem("idKey")) {
+      const key = crypto.randomBytes(8).toString("hex");
+      sessionStorage.setItem("idKey", key);
+      request({ key });
+    } else {
+      getRequest();
+    }
+  }, []);
+
+  useEffect(() => {
+    setInfo(getData ?? data);
+  }, [data, getData]);
+
   return (
     <>
       <header className="flex w-full md:mb-[24px] gap-[30px] p-4">
@@ -52,18 +84,20 @@ const InfoHeader = ({ data }: { data: any }) => {
             </div>
             <li className="flex flex-col md:flex-row md:gap-2 w-[33%] md:w-auto items-center">
               <p className="order-2 md:order-1 text-sm">게시글</p>
-              <strong className="font-sans font-semibold">123</strong>
+              <strong className="font-sans font-semibold">
+                {info?.post ?? 0}
+              </strong>
             </li>
             <li className="flex flex-col md:flex-row md:gap-2 w-[33%] md:w-auto items-center">
               <p className="order-2 md:order-1 text-sm">투데이</p>
               <strong className="font-sans font-semibold">
-                {data?.today ?? 0}
+                {info?.today ?? 0}
               </strong>
             </li>
             <li className="flex flex-col md:flex-row md:gap-2 w-[33%] md:w-auto items-center">
               <p className="order-2 md:order-1 text-sm">토탈</p>
               <strong className="font-sans font-semibold">
-                {data?.total ?? 0}
+                {info?.total ?? 0}
               </strong>
             </li>
           </ul>

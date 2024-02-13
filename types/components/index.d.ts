@@ -58,3 +58,9 @@ interface MetaType {
   url?: string;
   code?: string;
 }
+
+interface InfoType {
+  post?: number;
+  today?: number;
+  total?: number;
+}
