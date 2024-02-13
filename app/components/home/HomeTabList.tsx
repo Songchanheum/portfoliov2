@@ -25,7 +25,7 @@ const HomeTabList = () => {
 
   useEffect(() => {
     if (!selectTab) {
-      searchParam.set("selectTab", "dev").replace();
+      searchParam.set("selectTab", "post").replace();
     }
   }, [selectTab]);
 
@@ -37,6 +37,14 @@ const HomeTabList = () => {
   };
   return (
     <div className="flex md:gap-16 text-sm w-full justify-center mb-2">
+      <button
+        onClick={() => PathRedirect("post")}
+        className={selectTab === "post" ? selTabClass : defTabClass}
+      >
+        <MdOutlineBookmarkBorder className="hidden md:block" />
+        <MdOutlineBookmarkBorder className="md:hidden" size="26" />
+        <span className="md:block hidden">포스트</span>
+      </button>
       <button
         onClick={() => PathRedirect("dev")}
         className={selectTab === "dev" ? selTabClass : defTabClass}
@@ -52,14 +60,6 @@ const HomeTabList = () => {
         <MdOutlineLibraryBooks className="hidden md:block" />
         <MdOutlineLibraryBooks className="md:hidden" size="26" />
         <span className="md:block hidden">블로그</span>
-      </button>
-      <button
-        onClick={() => PathRedirect("post")}
-        className={selectTab === "post" ? selTabClass : defTabClass}
-      >
-        <MdOutlineBookmarkBorder className="hidden md:block" />
-        <MdOutlineBookmarkBorder className="md:hidden" size="26" />
-        <span className="md:block hidden">포스트</span>
       </button>
     </div>
   );

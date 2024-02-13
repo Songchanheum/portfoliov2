@@ -53,3 +53,26 @@ export const ChatIcon = ({ size, ...rest }) => (
     {...rest}
   ></Image>
 );
+export const KeyIcon = ({ type, children }) => {
+  return (
+    <>
+      {type === "text" ? (
+        <span
+          className={
+            "rounded-xl bg-gray-100 border-2 border-black w-fit py-1 px-2 text-sm"
+          }
+        >
+          {children}
+        </span>
+      ) : (
+        <div
+          className={
+            "rounded-xl bg-gray-100 border-2 border-black w-fit p-1 inline-block"
+          }
+        >
+          {children}
+        </div>
+      )}
+    </>
+  );
+};

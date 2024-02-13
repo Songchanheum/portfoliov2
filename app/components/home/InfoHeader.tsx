@@ -1,12 +1,22 @@
 "use client";
-import { useEffect, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { MdBookmarkAdd } from "react-icons/md";
+import { MdBookmarkAdd, MdKeyboardCommandKey } from "react-icons/md";
 import crypto from "crypto";
 import { useMutationRequest } from "@/common/hooks/useRequest";
+import CommonModalComponent from "../common/CommonModalComponent";
+import { KeyIcon } from "@/common/utils/Icons";
 
-const InfoHeader = () => {
+const InfoHeader = ({
+  toggle,
+  showModal,
+  setModalComp,
+}: {
+  toggle: () => void;
+  showModal: boolean;
+  setModalComp: (comp: ReactNode) => void;
+}) => {
   const { data, request } = useMutationRequest<any>({
     requestPath: "today",
     reactQueryKey: "TODAY_SET",
@@ -65,7 +75,51 @@ const InfoHeader = () => {
                 <button className="bg-[#efefef] py-1 px-4 rounded-md text-black  h-8 grow">
                   메시지
                 </button>
-                <button className="bg-[#efefef] py-1 px-2 rounded-md text-black flex items-center  h-8 grow-0">
+                <button
+                  className="bg-[#efefef] py-1 px-2 rounded-md text-black flex items-center h-8 grow-0"
+                  onClick={() => {
+                    toggle();
+                    setModalComp(
+                      <CommonModalComponent
+                        type="INFO"
+                        title="북마크 추가"
+                        onSuccess={() => {}}
+                        toggle={toggle}
+                      >
+                        {navigator.userAgent.toLowerCase().indexOf("mobile") <
+                        0 ? (
+                          navigator.userAgent.toLowerCase().indexOf("mac") >=
+                          0 ? (
+                            <>
+                              <div className="flex items-center gap-1">
+                                <KeyIcon type="icon">
+                                  <MdKeyboardCommandKey />
+                                </KeyIcon>
+                                + <KeyIcon type="text">D</KeyIcon>{" "}
+                                <span>키를 눌러주세요!</span>
+                              </div>
+                              북마크(즐겨찾기)에 등록하실 수 있습니다.
+                            </>
+                          ) : (
+                            <>
+                              <div className="flex items-center gap-1">
+                                <KeyIcon type="text">Ctrl</KeyIcon>+{" "}
+                                <KeyIcon type="text">D</KeyIcon>
+                                <span>키를 눌러주세요!</span>
+                              </div>
+                              북마크(즐겨찾기)에 등록하실 수 있습니다.
+                            </>
+                          )
+                        ) : (
+                          <p className="text-base">
+                            해당 브라우저는 수동으로 추가 가능합니다.
+                            <br /> 브라우저 별 북마크 기능을 확인해주세요
+                          </p>
+                        )}
+                      </CommonModalComponent>
+                    );
+                  }}
+                >
                   <MdBookmarkAdd size="18" />
                   <p className="hidden md:block">북마크 추가</p>
                 </button>

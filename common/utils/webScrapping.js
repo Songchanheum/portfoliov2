@@ -1,4 +1,4 @@
-import cheerio from "cheerio";
+import * as cheerio from "cheerio";
 
 export function _getHostname(url) {
   let start = url.indexOf("://") + 3;

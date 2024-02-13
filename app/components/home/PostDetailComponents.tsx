@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useMutationRequest } from "@/common/hooks/useRequest";
 import { styled } from "styled-components";
+import { useModalDefaultSetting } from "@/common/hooks/useModalDefaultSetting";
 
 function Comment({
   idKey,
@@ -133,7 +134,6 @@ function CommentComponent({
   );
 }
 export function DevDetailPost({
-  view,
   setView,
   title,
   image,
@@ -141,64 +141,52 @@ export function DevDetailPost({
   url,
   code,
 }: {
-  view: boolean;
-  setView: Dispatch<SetStateAction<boolean>>;
+  setView: () => void;
   title?: string | null;
   image?: string | null;
   desc?: string | null;
   url?: string | null;
   code?: string | null;
 }) {
+  useModalDefaultSetting(setView);
   return (
     <>
-      {view ? (
-        <>
-          <button
-            className="fixed top-0 left-0 w-full h-full bg-black opacity-40 z-30 cursor-default overflow-hidden"
-            onClick={() => setView(false)}
-          ></button>
-          <div className="fixed top-0 left-0 md:top-12 md:left-[calc(50%+35px)] 2xl:left-[calc(50%+122px)] md:translate-x-[-50%] w-full h-full md:w-[90%] md:h-[80%] 2xl:w-[75%] max-w-[1018px] bg-white z-50 rounded-xl">
-            <header className="h-16 border-b-2 flex justify-end gap-4 items-center mb-8 px-3">
-              <Link href={url ?? ""} target="_blank">
-                <button className="text-lg bg-slate-200 rounded-xl px-4 h-10 flex justify-center items-center gap-2 hover:bg-slate-300">
-                  <span>Read post</span> <GrShare />
-                </button>
-              </Link>
-              <button
-                className="p-2 rounded-full"
-                onClick={() => setView(false)}
-              >
-                <MdClose size={30} />
-              </button>
-            </header>
-            <div className="flex flex-col md:flex-row h-[calc(100%-110px)] box-border">
-              <div className="flex flex-col flex-nowrap gap-10 max-w-[678px] md:w-[65%] w-full px-10 overflow-auto box-border">
-                <h2 className="font-d2 font-bold text-3xl">{title}</h2>
-                <p className="text-base">{desc}</p>
-                {image ? (
-                  <Image
-                    src={image}
-                    width={1000}
-                    height={1000}
-                    alt={title ?? ""}
-                    unoptimized={true}
-                    className="w-[100%] rounded-xl"
-                  />
-                ) : (
-                  <></>
-                )}
-                <CommentComponent
-                  classes={"md:hidden flex"}
-                  code={code ?? ""}
-                />
-              </div>
-              <CommentComponent classes={"md:flex hidden"} code={code ?? ""} />
-            </div>
+      <button
+        className="fixed top-0 left-0 w-full h-full bg-black opacity-40 z-30 cursor-default"
+        onClick={setView}
+      ></button>
+      <div className="fixed top-0 left-0 md:top-12 md:left-[calc(50%+35px)] 2xl:left-[calc(50%+122px)] md:translate-x-[-50%] w-full h-full md:w-[90%] md:h-[80%] 2xl:w-[75%] max-w-[1018px] bg-white z-50 rounded-xl">
+        <header className="h-16 border-b-2 flex justify-end gap-4 items-center mb-8 px-3">
+          <Link href={url ?? ""} target="_blank">
+            <button className="text-lg bg-slate-200 rounded-xl px-4 h-10 flex justify-center items-center gap-2 hover:bg-slate-300">
+              <span>Read post</span> <GrShare />
+            </button>
+          </Link>
+          <button className="p-2 rounded-full" onClick={setView}>
+            <MdClose size={30} />
+          </button>
+        </header>
+        <div className="flex flex-col md:flex-row h-[calc(100%-110px)] box-border">
+          <div className="flex flex-col flex-nowrap gap-10 max-w-[678px] md:w-[65%] w-full px-10 overflow-auto box-border">
+            <h2 className="font-d2 font-bold text-3xl">{title}</h2>
+            <p className="text-base">{desc}</p>
+            {image ? (
+              <Image
+                src={image}
+                width={1000}
+                height={1000}
+                alt={title ?? ""}
+                unoptimized={true}
+                className="w-[100%] rounded-xl"
+              />
+            ) : (
+              <></>
+            )}
+            <CommentComponent classes={"md:hidden flex"} code={code ?? ""} />
           </div>
-        </>
-      ) : (
-        <></>
-      )}
+          <CommentComponent classes={"md:flex hidden"} code={code ?? ""} />
+        </div>
+      </div>
     </>
   );
 }

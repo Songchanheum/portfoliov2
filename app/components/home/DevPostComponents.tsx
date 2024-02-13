@@ -1,18 +1,24 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { useMutationRequest } from "@/common/hooks/useRequest";
 import { useSearchParam } from "@/common/hooks/useSearchParam";
 import { DevDetailPost, DevPost } from "./PostDetailComponents";
 
-const DevPostComponents = () => {
+const DevPostComponents = ({
+  toggle,
+  showModal,
+  setModalComp,
+}: {
+  toggle: () => void;
+  showModal: boolean;
+  setModalComp: (comp: ReactNode) => void;
+}) => {
   const searchParam = useSearchParam();
   const selectTab = searchParam.getData("selectTab");
 
   const [projectData, setProjectData] = useState<ProjectType[]>();
   const [postUrlData, setPostData] = useState<MetaType[]>();
-  const [openPost, setOpenPost] = useState<MetaType>();
-  const [showModal, setShowModal] = useState<boolean>(false);
 
   const {
     data: proData,
@@ -60,11 +66,11 @@ const DevPostComponents = () => {
   }, [proData, postData]);
 
   function showPostModal(props: MetaType) {
-    console.log(props, showModal);
+    console.log(showModal);
+    toggle();
     if (!showModal) {
-      setOpenPost(props);
+      setModalComp(<DevDetailPost setView={toggle} {...props} />);
     }
-    setShowModal(!showModal);
   }
   return (
     <>
@@ -118,7 +124,6 @@ const DevPostComponents = () => {
       ) : (
         <></>
       )}
-      <DevDetailPost view={showModal} setView={setShowModal} {...openPost} />
     </>
   );
 };
