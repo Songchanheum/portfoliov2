@@ -15,24 +15,24 @@ export const EXPERIENCE_RESUME = [
       "sass",
     ],
     project: [
-      {
-        title: "DMS Admin Page F/E 설계 및 개발 (LG U+)",
-        due: "2023-07 ~ 진행중",
-        code: "C0017",
-        description: "DMS 서비스 Admin Page F/E 설계 및 개발, 기능 관련 리딩",
-        icon: "dev",
-        skill: ["React", "Next.js", "Antdesign", "SASS", "Typescript"],
-        info: ["LG U+ SI 프로젝트 DMS 시스템 개발"],
-        role: [
-          "Admin Page Boilerplate 이용하여 개발 진행",
-          "발주/주문 관련 기능 설계 리딩 및 개발",
-          "Ant-design, SASS 디자인 시스템 도입",
-        ],
-        purpose: [
-          "다수의 주문(100건)의 안정적인 주문/발주 처리",
-          "Device 설치기사 APP 과 안정적인 데이터 연동을 위한 설계",
-        ],
-      },
+      // {
+      //   title: "DMS Admin Page F/E 설계 및 개발 (LG U+)",
+      //   due: "2023-07 ~ 진행중",
+      //   code: "C0017",
+      //   description: "DMS 서비스 Admin Page F/E 설계 및 개발, 기능 관련 리딩",
+      //   icon: "dev",
+      //   skill: ["React", "Next.js", "Antdesign", "SASS", "Typescript"],
+      //   info: ["LG U+ SI 프로젝트 DMS 시스템 개발"],
+      //   role: [
+      //     "Admin Page Boilerplate 이용하여 개발 진행",
+      //     "발주/주문 관련 기능 설계 리딩 및 개발",
+      //     "Ant-design, SASS 디자인 시스템 도입",
+      //   ],
+      //   purpose: [
+      //     "다수의 주문(100건)의 안정적인 주문/발주 처리",
+      //     "Device 설치기사 APP 과 안정적인 데이터 연동을 위한 설계",
+      //   ],
+      // },
       {
         title: "Admin / BizPortal 향 Boiler Plate 개발 (연구과제)",
         due: "2023-02 ~ 2023-08",
