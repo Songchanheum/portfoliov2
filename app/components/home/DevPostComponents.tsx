@@ -4,6 +4,7 @@ import { ReactNode, useEffect, useState } from "react";
 import { useMutationRequest } from "@/common/hooks/useRequest";
 import { useSearchParam } from "@/common/hooks/useSearchParam";
 import { DevDetailPost, DevPost } from "./PostDetailComponents";
+import PostSkeletonComponent from "../common/PostSkeletonComponent";
 
 const DevPostComponents = ({
   toggle,
@@ -74,21 +75,7 @@ const DevPostComponents = ({
   }
   return (
     <>
-      {proIsLoading || postIsLoading ? (
-        <>
-          <div className="max-w-[311px] after:pb-[100%] flex justify-center items-center bg-gray-100 animate-pulse"></div>
-          <div className="max-w-[311px] after:pb-[100%] flex justify-center items-center bg-gray-100 animate-pulse"></div>
-          <div className="max-w-[311px] after:pb-[100%] flex justify-center items-center bg-gray-100 animate-pulse"></div>
-          <div className="max-w-[311px] after:pb-[100%] flex justify-center items-center bg-gray-100 animate-pulse"></div>
-          <div className="max-w-[311px] after:pb-[100%] flex justify-center items-center bg-gray-100 animate-pulse"></div>
-          <div className="max-w-[311px] after:pb-[100%] flex justify-center items-center bg-gray-100 animate-pulse"></div>
-          <div className="max-w-[311px] after:pb-[100%] flex justify-center items-center bg-gray-100 animate-pulse"></div>
-          <div className="max-w-[311px] after:pb-[100%] flex justify-center items-center bg-gray-100 animate-pulse"></div>
-          <div className="max-w-[311px] after:pb-[100%] flex justify-center items-center bg-gray-100 animate-pulse"></div>
-        </>
-      ) : (
-        <></>
-      )}
+      {proIsLoading || postIsLoading ? <PostSkeletonComponent /> : <></>}
       {projectData && projectData?.length > 0 ? (
         projectData.map((e: ProjectType) => {
           return (

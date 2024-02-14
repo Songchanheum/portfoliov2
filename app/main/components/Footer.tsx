@@ -2,7 +2,7 @@
 import { ChatIcon } from "@/common/utils/Icons";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import ChatModal from "./ChatModal";
+import ChatModal from "../../components/common/ChatModalComponent";
 import ThemeSwitcher from "./theme/ThemeSwitcher";
 import { usePathname } from "next/navigation";
 

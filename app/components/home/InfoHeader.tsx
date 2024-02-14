@@ -7,7 +7,7 @@ import crypto from "crypto";
 import { useMutationRequest } from "@/common/hooks/useRequest";
 import CommonModalComponent from "../common/CommonModalComponent";
 import { KeyIcon } from "@/common/utils/Icons";
-import ChatModal from "@/app/main/components/ChatModal";
+import ChatModal from "@/app/components/common/ChatModalComponent";
 
 const InfoHeader = ({
   toggle,
@@ -84,7 +84,9 @@ const InfoHeader = ({
                         onSuccess={() => {}}
                         toggle={toggle}
                       >
-                        <ChatModal isOpen={showModal} />
+                        <div className="h-[600px] mt-[-24px]">
+                          <ChatModal isOpen={showModal} />
+                        </div>
                       </CommonModalComponent>
                     );
                   }}

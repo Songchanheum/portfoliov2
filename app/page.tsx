@@ -6,6 +6,7 @@ import HomeSidebar from "./components/home/HomeSidebar";
 import InfoHeader from "./components/home/InfoHeader";
 import HomeTabList from "./components/home/HomeTabList";
 import { useBooleanToggle } from "@/common/hooks/useBooleanToggle";
+import PostSkeletonComponent from "./components/common/PostSkeletonComponent";
 
 export default function Home() {
   const { data: showModal, toggle } = useBooleanToggle();
@@ -31,7 +32,7 @@ export default function Home() {
                 <HomeTabList />
               </Suspense>
               <article className="grid grid-cols-3 w-full gap-1 pb-40">
-                <Suspense fallback={<>Loading...</>}>
+                <Suspense fallback={<PostSkeletonComponent />}>
                   <DevPostComponents
                     toggle={toggle}
                     showModal={showModal}

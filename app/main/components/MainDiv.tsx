@@ -3,7 +3,7 @@ import React, { useRef, useState } from "react";
 
 import MainImg from "@/app/main/components/MainImg";
 import { motion } from "framer-motion";
-import ChatModal from "@/app/main/components/ChatModal";
+import ChatModal from "@/app/components/common/ChatModalComponent";
 import SocialAccount from "@/common/SocialAccount";
 
 const MainDiv = () => {

@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import SocialAccount from "@/common/SocialAccount";
-import ChatModal from "./ChatModal";
+import ChatModal from "../../components/common/ChatModalComponent";
 
 const Contact = ({
   scrollRef,
