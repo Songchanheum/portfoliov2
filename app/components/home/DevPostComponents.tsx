@@ -5,6 +5,7 @@ import { useMutationRequest } from "@/common/hooks/useRequest";
 import { useSearchParam } from "@/common/hooks/useSearchParam";
 import { DevDetailPost, DevPost } from "./PostDetailComponents";
 import PostSkeletonComponent from "../common/PostSkeletonComponent";
+import { TPost } from "@/app/api/post/blog/route";
 
 const DevPostComponents = ({
   toggle,
@@ -20,6 +21,7 @@ const DevPostComponents = ({
 
   const [projectData, setProjectData] = useState<ProjectType[]>();
   const [postUrlData, setPostData] = useState<MetaType[]>();
+  const [blogNotionData, setBlogData] = useState<TPost[]>();
 
   const {
     data: proData,
@@ -42,11 +44,23 @@ const DevPostComponents = ({
     requestMethod: "GET",
   });
 
+  const {
+    data: blogData,
+    request: blogRequest,
+    isLoading: blogIsLoading,
+    reset: blogReset,
+  } = useMutationRequest<any>({
+    requestPath: "post/blog",
+    reactQueryKey: "GET_BLOG_LIST",
+    requestMethod: "GET",
+  });
   useEffect(() => {
     proReset();
     postReset();
+    blogReset();
     setProjectData([]);
     setPostData([]);
+    setBlogData([]);
 
     switch (selectTab) {
       case "dev":
@@ -54,6 +68,9 @@ const DevPostComponents = ({
         break;
       case "post":
         postRequest();
+        break;
+      case "blog":
+        blogRequest();
         break;
     }
   }, [selectTab]);
@@ -63,8 +80,10 @@ const DevPostComponents = ({
       setProjectData(proData);
     } else if (postData) {
       setPostData(postData);
+    } else if (blogData) {
+      setBlogData(blogData);
     }
-  }, [proData, postData]);
+  }, [proData, postData, blogData]);
 
   function showPostModal(props: MetaType) {
     console.log(showModal);
@@ -104,6 +123,24 @@ const DevPostComponents = ({
               desc={e.desc}
               url={e.url}
               code={e.code}
+              showPostModal={showPostModal}
+            />
+          );
+        })
+      ) : (
+        <></>
+      )}
+
+      {blogNotionData && blogNotionData?.length > 0 ? (
+        blogNotionData.map((e: TPost) => {
+          return (
+            <DevPost
+              key={e.slug}
+              title={e.title}
+              image={e.thumbnail}
+              desc={e.summary}
+              url={"https://songsblog.vercel.app/" + e.slug}
+              code={e.id}
               showPostModal={showPostModal}
             />
           );
