@@ -38,7 +38,7 @@ const tomorrow = new Date(current);
 tomorrow.setDate(tomorrow.getDate() + 1);
 tomorrow.setHours(0, 0, 0, 0);
 
-export function filterPosts(
+function filterPosts(
   posts: TPost[],
   options: FilterPostsOptions = initialOption
 ) {
