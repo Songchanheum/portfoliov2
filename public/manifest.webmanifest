@@ -1,0 +1,22 @@
+{
+  "name": "Daily Dev",
+  "icons": [
+    {
+      "src": "/images/main/main.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/main/main.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "display": "fullscreen",
+  "start_url": "/",
+  "description": "Song`s Daily Dev",
+  "background_color": "white",
+  "short_name": "short name",
+  "theme_color": "#FFBC00",
+  "orientation": "portrait"
+}

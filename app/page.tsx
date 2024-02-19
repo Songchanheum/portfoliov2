@@ -1,5 +1,5 @@
 "use client";
-import { ReactNode, Suspense, useState } from "react";
+import { ReactNode, Suspense, useEffect, useState } from "react";
 import DevPostComponents from "./components/home/DevPostComponents";
 import HomeHeader from "./components/home/HomeHeader";
 import HomeSidebar from "./components/home/HomeSidebar";
@@ -15,6 +15,20 @@ export default function Home() {
   const setModalComp = (comp: ReactNode) => {
     setModal(comp);
   };
+  useEffect(() => {
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", function () {
+        navigator.serviceWorker.register("/sw.js").then(
+          function (regi) {
+            console.log(regi.scope);
+          },
+          function (err) {
+            console.log(err);
+          }
+        );
+      });
+    }
+  }, []);
   return (
     <>
       <HomeHeader />

@@ -24,16 +24,20 @@ export function _bodyScrap(url) {
     // 글이미지
     let image = $("meta[property='og:image']").attr("content");
     if (!image) {
-      image = $("img").attr("src");
-      //이미지 세팅
-      if (image && image.indexOf("http") === 0) {
-        // http 로 시작하면 그냥 사용
-      } else if (image && image[0] === "/") {
-        // image 경로가 / 로 시작한다면
-        //let urlObj = new URL(url);
-        image = _getProtocol(url) + _getHostname(url) + image;
-      } else {
-        image = "";
+      image = $("meta[property='image']").attr("content");
+      if (!image) {
+        image = $("img").attr("src");
+
+        //이미지 세팅
+        if (image && image.indexOf("http") === 0) {
+          // http 로 시작하면 그냥 사용
+        } else if (image && image[0] === "/") {
+          // image 경로가 / 로 시작한다면
+          //let urlObj = new URL(url);
+          image = _getProtocol(url) + _getHostname(url) + image;
+        } else {
+          image = "";
+        }
       }
     }
 

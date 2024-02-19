@@ -12,10 +12,13 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  "use client";
-
   return (
     <html lang="ko">
+      <head>
+        <link rel="apple-touch-icon" href="/images/main/main.png" />
+        <link rel="apple-touch-icon" href="/images/main/main.png" />
+        <link rel="manifest" href="/manifest.webmanifest" />
+      </head>
       <body>
         <ReactQueryProvider>{children}</ReactQueryProvider>
       </body>

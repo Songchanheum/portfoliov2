@@ -8,6 +8,7 @@ import { useMutationRequest } from "@/common/hooks/useRequest";
 import CommonModalComponent from "../common/CommonModalComponent";
 import { KeyIcon } from "@/common/utils/Icons";
 import ChatModal from "@/app/components/common/ChatModalComponent";
+import { useA2HS } from "@/common/hooks/useA2HS";
 
 const InfoHeader = ({
   toggle,
@@ -18,6 +19,8 @@ const InfoHeader = ({
   showModal: boolean;
   setModalComp: (comp: ReactNode) => void;
 }) => {
+  const { deferredPrompt, installApp, clearPrompt } = useA2HS();
+
   const { data, request } = useMutationRequest<any>({
     requestPath: "today",
     reactQueryKey: "TODAY_SET",
@@ -96,46 +99,52 @@ const InfoHeader = ({
                 <button
                   className="bg-[#efefef] py-1 px-2 rounded-md text-black flex items-center h-8 grow-0"
                   onClick={() => {
-                    toggle();
-                    setModalComp(
-                      <CommonModalComponent
-                        type="INFO"
-                        title="북마크 추가"
-                        onSuccess={() => {}}
-                        toggle={toggle}
-                      >
-                        {navigator.userAgent.toLowerCase().indexOf("mobile") <
-                        0 ? (
-                          navigator.userAgent.toLowerCase().indexOf("mac") >=
+                    if (
+                      navigator.userAgent.toLowerCase().indexOf("mobile") < 0
+                    ) {
+                      toggle();
+                      setModalComp(
+                        <CommonModalComponent
+                          type="INFO"
+                          title="북마크 추가"
+                          onSuccess={() => {}}
+                          toggle={toggle}
+                        >
+                          {navigator.userAgent.toLowerCase().indexOf("mobile") <
                           0 ? (
-                            <>
-                              <div className="flex items-center gap-1">
-                                <KeyIcon type="icon">
-                                  <MdKeyboardCommandKey />
-                                </KeyIcon>
-                                + <KeyIcon type="text">D</KeyIcon>{" "}
-                                <span>키를 눌러주세요!</span>
-                              </div>
-                              북마크(즐겨찾기)에 등록하실 수 있습니다.
-                            </>
+                            navigator.userAgent.toLowerCase().indexOf("mac") >=
+                            0 ? (
+                              <>
+                                <div className="flex items-center gap-1">
+                                  <KeyIcon type="icon">
+                                    <MdKeyboardCommandKey />
+                                  </KeyIcon>
+                                  + <KeyIcon type="text">D</KeyIcon>{" "}
+                                  <span>키를 눌러주세요!</span>
+                                </div>
+                                북마크(즐겨찾기)에 등록하실 수 있습니다.
+                              </>
+                            ) : (
+                              <>
+                                <div className="flex items-center gap-1">
+                                  <KeyIcon type="text">Ctrl</KeyIcon>+{" "}
+                                  <KeyIcon type="text">D</KeyIcon>
+                                  <span>키를 눌러주세요!</span>
+                                </div>
+                                북마크(즐겨찾기)에 등록하실 수 있습니다.
+                              </>
+                            )
                           ) : (
-                            <>
-                              <div className="flex items-center gap-1">
-                                <KeyIcon type="text">Ctrl</KeyIcon>+{" "}
-                                <KeyIcon type="text">D</KeyIcon>
-                                <span>키를 눌러주세요!</span>
-                              </div>
-                              북마크(즐겨찾기)에 등록하실 수 있습니다.
-                            </>
-                          )
-                        ) : (
-                          <p className="text-base">
-                            해당 브라우저는 수동으로 추가 가능합니다.
-                            <br /> 브라우저 별 북마크 기능을 확인해주세요
-                          </p>
-                        )}
-                      </CommonModalComponent>
-                    );
+                            <p className="text-base">
+                              해당 브라우저는 수동으로 추가 가능합니다.
+                              <br /> 브라우저 별 북마크 기능을 확인해주세요
+                            </p>
+                          )}
+                        </CommonModalComponent>
+                      );
+                    } else {
+                      installApp();
+                    }
                   }}
                 >
                   <MdBookmarkAdd size="18" />

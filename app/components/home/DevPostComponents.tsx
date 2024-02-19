@@ -94,7 +94,11 @@ const DevPostComponents = ({
   }
   return (
     <>
-      {proIsLoading || postIsLoading ? <PostSkeletonComponent /> : <></>}
+      {proIsLoading || postIsLoading || blogIsLoading ? (
+        <PostSkeletonComponent />
+      ) : (
+        <></>
+      )}
       {projectData && projectData?.length > 0 ? (
         projectData.map((e: ProjectType) => {
           return (
