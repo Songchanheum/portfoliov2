@@ -1,11 +1,8 @@
 import Image from "next/image";
-import { BsThreeDots } from "react-icons/bs";
-import { FaChevronLeft } from "react-icons/fa";
 
 const HomeHeader = () => {
   return (
-    <header className="flex md:hidden h-[44px] border-b-slate-300 justify-between items-center w-full px-4">
-      <FaChevronLeft />
+    <header className="flex md:hidden h-[44px] border-b-slate-300 justify-center items-end w-full px-4">
       <Image
         src="/images/common/mainlogo.png"
         width={260}
@@ -13,7 +10,6 @@ const HomeHeader = () => {
         className="w-[100px] h-[32px]"
         alt="mainlogo"
       ></Image>
-      <BsThreeDots />
     </header>
   );
 };
