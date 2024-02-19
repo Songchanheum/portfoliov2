@@ -16,7 +16,7 @@
   "start_url": "/",
   "description": "Song`s Daily Dev",
   "background_color": "white",
-  "short_name": "short name",
+  "short_name": "Daily Dev",
   "theme_color": "#FFBC00",
   "orientation": "portrait"
 }

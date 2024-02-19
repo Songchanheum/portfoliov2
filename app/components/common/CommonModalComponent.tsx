@@ -6,6 +6,7 @@ interface ModalType {
   type: "INFO" | "ERROR" | "CONFIRM";
   title: string;
   onSuccess: () => void;
+  onCancel?: () => void;
   toggle: () => void;
   children: ReactNode;
 }
@@ -14,6 +15,7 @@ const CommonModalComponent = ({
   type,
   title,
   onSuccess,
+  onCancel,
   toggle,
   children,
 }: ModalType) => {
@@ -35,7 +37,26 @@ const CommonModalComponent = ({
         {type === "INFO" ? (
           <></>
         ) : (
-          <footer className="h-16 border-t-2"></footer>
+          <footer className="h-16 border-t-2 flex justify-end px-4 gap-4">
+            <button
+              onClick={() => {
+                onSuccess();
+                toggle();
+              }}
+            >
+              OK
+            </button>
+            <button
+              onClick={() => {
+                if (onCancel) {
+                  onCancel();
+                }
+                toggle();
+              }}
+            >
+              Cancel
+            </button>
+          </footer>
         )}
       </div>
     </>

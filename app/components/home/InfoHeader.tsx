@@ -110,40 +110,44 @@ const InfoHeader = ({
                           onSuccess={() => {}}
                           toggle={toggle}
                         >
-                          {navigator.userAgent.toLowerCase().indexOf("mobile") <
+                          {navigator.userAgent.toLowerCase().indexOf("mac") >=
                           0 ? (
-                            navigator.userAgent.toLowerCase().indexOf("mac") >=
-                            0 ? (
-                              <>
-                                <div className="flex items-center gap-1">
-                                  <KeyIcon type="icon">
-                                    <MdKeyboardCommandKey />
-                                  </KeyIcon>
-                                  + <KeyIcon type="text">D</KeyIcon>{" "}
-                                  <span>키를 눌러주세요!</span>
-                                </div>
-                                북마크(즐겨찾기)에 등록하실 수 있습니다.
-                              </>
-                            ) : (
-                              <>
-                                <div className="flex items-center gap-1">
-                                  <KeyIcon type="text">Ctrl</KeyIcon>+{" "}
-                                  <KeyIcon type="text">D</KeyIcon>
-                                  <span>키를 눌러주세요!</span>
-                                </div>
-                                북마크(즐겨찾기)에 등록하실 수 있습니다.
-                              </>
-                            )
+                            <>
+                              <div className="flex items-center gap-1">
+                                <KeyIcon type="icon">
+                                  <MdKeyboardCommandKey />
+                                </KeyIcon>
+                                + <KeyIcon type="text">D</KeyIcon>{" "}
+                                <span>키를 눌러주세요!</span>
+                              </div>
+                              북마크(즐겨찾기)에 등록하실 수 있습니다.
+                            </>
                           ) : (
-                            <p className="text-base">
-                              해당 브라우저는 수동으로 추가 가능합니다.
-                              <br /> 브라우저 별 북마크 기능을 확인해주세요
-                            </p>
+                            <>
+                              <div className="flex items-center gap-1">
+                                <KeyIcon type="text">Ctrl</KeyIcon>+{" "}
+                                <KeyIcon type="text">D</KeyIcon>
+                                <span>키를 눌러주세요!</span>
+                              </div>
+                              북마크(즐겨찾기)에 등록하실 수 있습니다.
+                            </>
                           )}
                         </CommonModalComponent>
                       );
                     } else {
-                      installApp();
+                      toggle();
+                      setModalComp(
+                        <CommonModalComponent
+                          type="CONFIRM"
+                          title="홈화면 추가"
+                          onSuccess={() => {
+                            installApp();
+                          }}
+                          toggle={toggle}
+                        >
+                          홈화면에 추가하시겠습니까?
+                        </CommonModalComponent>
+                      );
                     }
                   }}
                 >
