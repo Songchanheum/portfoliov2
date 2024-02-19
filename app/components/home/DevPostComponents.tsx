@@ -5,7 +5,7 @@ import { useMutationRequest } from "@/common/hooks/useRequest";
 import { useSearchParam } from "@/common/hooks/useSearchParam";
 import { DevDetailPost, DevPost } from "./PostDetailComponents";
 import PostSkeletonComponent from "../common/PostSkeletonComponent";
-import { TPost } from "@/app/api/post/blog/route";
+import { TPost } from "@/app/api/post/blog/post";
 
 const DevPostComponents = ({
   toggle,
