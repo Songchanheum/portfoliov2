@@ -28,14 +28,14 @@ const MeInfo = () => {
       <div className="w-[90%] ms-3 divide-y divide-gray-200 mb-10">
         <p className="text-lg font-do font-bold ps-2 mb-3 ">프로필</p>
         <dl className="text-gray-900">
-          <div className="flex flex-col py-3">
+          {/* <div className="flex flex-col py-3">
             <dt className="mb-1 text-gray-500 text-base">이메일</dt>
             <dd className="text-base font-semibold">bsk9212@gmail.com</dd>
           </div>
           <div className="flex flex-col py-3">
             <dt className="mb-1 text-gray-500 text-base">전화번호</dt>
             <dd className="text-base font-semibold">010-4100-7802</dd>
-          </div>
+          </div> */}
           <div className="flex flex-col py-3">
             <dt className="mb-1 text-gray-500 text-base">지역</dt>
             <dd className="text-base font-semibold">
