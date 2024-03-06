@@ -21,19 +21,19 @@ const SelectIcon = ({ name, type }: { name: string; type: boolean }) => {
 const SocialAccount = ({ type }: { type: string }) => {
   const social = [
     { name: "github", href: "https://github.com/Songchanheum" },
-    {
-      name: "instagram",
-      href: "https://www.instagram.com/songch_/",
-    },
+    // {
+    //   name: "instagram",
+    //   href: "https://www.instagram.com/songch_/",
+    // },
     {
       name: "programmers",
       href: "https://career.programmers.co.kr/pr/softsch1_9949",
     },
     { name: "blog", href: "https://songsblog.vercel.app/" },
-    {
-      name: "gmail",
-      href: "mailto:bsk9212@gmail.com?subject=Portfolio 문의 사항",
-    },
+    // {
+    //   name: "gmail",
+    //   href: "mailto:bsk9212@gmail.com?subject=Portfolio 문의 사항",
+    // },
   ];
   const mainClass =
     type === "v"
