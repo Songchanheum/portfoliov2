@@ -7,6 +7,10 @@ export const skillData: Array<SkilType> = [
         src: [
           "react",
           "js",
+          "nextjs",
+          "nuxtjs",
+          "ts",
+          "vite",
           "html",
           "css",
           "vue",
@@ -18,12 +22,9 @@ export const skillData: Array<SkilType> = [
           "sass",
           "jquery",
         ],
-        percent: [100, 100, 80, 70, 70, 50, 70, 60, 80, 70, 60, 80],
-      },
-      {
-        title: "Interest",
-        src: ["nextjs", "nuxtjs", "ts", "vite"],
-        percent: [60, 30, 70, 30],
+        percent: [
+          100, 100, 80, 30, 70, 30, 80, 70, 70, 50, 70, 60, 80, 70, 60, 80,
+        ],
       },
     ],
   },

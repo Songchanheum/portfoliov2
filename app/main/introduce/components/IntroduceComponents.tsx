@@ -79,7 +79,7 @@ const IntroduceComponents = () => {
           exit="hidden"
           className="w-full flex hover:text-orange-400 dark:hover:text-violet-300 transition-colors duration-500"
         >
-          <Experience text="Year Of Experience" num={7} />
+          <Experience text="Year Of Experience" num={8} />
           <Experience text="Projects Completed" num={30} />
           <Experience text="Dev Toy Project" num={10} />
         </motion.div>

@@ -25,10 +25,10 @@ const SocialAccount = ({ type }: { type: string }) => {
     //   name: "instagram",
     //   href: "https://www.instagram.com/songch_/",
     // },
-    {
-      name: "programmers",
-      href: "https://career.programmers.co.kr/pr/softsch1_9949",
-    },
+    // {
+    //   name: "programmers",
+    //   href: "https://career.programmers.co.kr/pr/softsch1_9949",
+    // },
     { name: "blog", href: "https://songsblog.vercel.app/" },
     // {
     //   name: "gmail",
