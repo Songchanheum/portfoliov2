@@ -32,7 +32,7 @@ export default function Home() {
   return (
     <>
       <HomeHeader />
-      <div className={"flex w-full font-insta "}>
+      <div className={"flex w-full font-insta bg-white"}>
         <HomeSidebar />
         <main className="w-full md:ml-[70px] xl:ml-[244px]">
           <section className="mx-auto max-w-[975px] h-screen bg-white md:p-4 justify-start flex-col">
