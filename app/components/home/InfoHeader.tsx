@@ -195,74 +195,76 @@ const InfoHeader = ({
           </div>
         </section>
       </header>
-      <section className="flex min-w-[100vw] min-h-[115px] h-[115px] md:min-h-[130px] md:h-[130px] justify-start px-[30px] md:px-[60px] gap-7 mb-4 overflow-x-auto overflow-h-hidden">
-        <div className="w-[75px] md:w-[85px] flex flex-col items-center gap-2 relative">
-          <button className="hover:animate-spin rounded-full z-10">
-            <Link href={"/main"} target="_blank">
-              <Image
-                src={"/images/common/highlight.png"}
-                width={100}
-                height={100}
-                alt="highlight"
-                className="md:w-[85px] md:h-[85px] h-[75px] w-[75px]"
-              />
-            </Link>
-          </button>
-          <div className="md:w-[75px] md:h-[75px] w-[67px] h-[67px] absolute top-[4px] left-[4px] md:top-[5px] md:left-[5px] rounded-full bg-gradient-to-tr to-blue-100 from-red-200 text-white text-xs font-insta items-center flex justify-center">
-            Portfolio
+      <section className="flex items-center justify-start w-full min-h-[115px] h-[115px] md:min-h-[130px] md:h-[130px] px-[30px] md:px-[60px] mb-4 overflow-x-auto overflow-y-hidden">
+        <div className="flex gap-7">
+          <div className="w-[75px] md:w-[85px] flex flex-col items-center gap-2 relative">
+            <button className="hover:animate-spin rounded-full z-10">
+              <Link href={"/main"} target="_blank">
+                <Image
+                  src={"/images/common/highlight.png"}
+                  width={100}
+                  height={100}
+                  alt="highlight"
+                  className="md:w-[85px] md:h-[85px] h-[75px] w-[75px]"
+                />
+              </Link>
+            </button>
+            <div className="md:w-[75px] md:h-[75px] w-[67px] h-[67px] absolute top-[4px] left-[4px] md:top-[5px] md:left-[5px] rounded-full bg-gradient-to-tr to-blue-100 from-red-200 text-white text-xs font-insta items-center flex justify-center">
+              Portfolio
+            </div>
+            <p className="text-sm">portfolio</p>
           </div>
-          <p className="text-sm">portfolio</p>
-        </div>
-        <div className="w-[75px] md:w-[85px] flex flex-col items-center gap-2 relative">
-          <button className="hover:animate-spin rounded-full z-10">
-            <Link href={"http://songsblog.vercel.app/"} target="_blank">
-              <Image
-                src={"/images/common/highlight.png"}
-                width={100}
-                height={100}
-                alt="highlight"
-                className="md:w-[85px] md:h-[85px] h-[75px] w-[75px]"
-              />
-            </Link>
-          </button>
-          <div className="md:w-[75px] md:h-[75px] w-[67px] h-[67px] absolute top-[4px] left-[4px] md:top-[5px] md:left-[5px] rounded-full bg-gradient-to-l to-yellow-100 from-sky-300 text-white text-xs font-insta items-center flex justify-center">
-            Dev Blog
+          <div className="w-[75px] md:w-[85px] flex flex-col items-center gap-2 relative">
+            <button className="hover:animate-spin rounded-full z-10">
+              <Link href={"http://songsblog.vercel.app/"} target="_blank">
+                <Image
+                  src={"/images/common/highlight.png"}
+                  width={100}
+                  height={100}
+                  alt="highlight"
+                  className="md:w-[85px] md:h-[85px] h-[75px] w-[75px]"
+                />
+              </Link>
+            </button>
+            <div className="md:w-[75px] md:h-[75px] w-[67px] h-[67px] absolute top-[4px] left-[4px] md:top-[5px] md:left-[5px] rounded-full bg-gradient-to-l to-yellow-100 from-sky-300 text-white text-xs font-insta items-center flex justify-center">
+              Dev Blog
+            </div>
+            <p className="text-sm ">blog</p>
           </div>
-          <p className="text-sm ">blog</p>
-        </div>
-        <div className="w-[75px] md:w-[85px] flex flex-col items-center gap-2 relative">
-          <button className="hover:animate-spin rounded-full z-10">
-            <Link href={"/resume"} target="_blank">
-              <Image
-                src={"/images/common/highlight.png"}
-                width={100}
-                height={100}
-                alt="highlight"
-                className="md:w-[85px] md:h-[85px] h-[75px] w-[75px]"
-              />
-            </Link>
-          </button>
-          <div className="md:w-[75px] md:h-[75px] w-[67px] h-[67px] absolute top-[4px] left-[4px] md:top-[5px] md:left-[5px] rounded-full bg-gradient-to-t to-violet-100 from-pink-300 text-white text-xs font-insta items-center flex justify-center">
-            Resume
+          <div className="w-[75px] md:w-[85px] flex flex-col items-center gap-2 relative">
+            <button className="hover:animate-spin rounded-full z-10">
+              <Link href={"/resume"} target="_blank">
+                <Image
+                  src={"/images/common/highlight.png"}
+                  width={100}
+                  height={100}
+                  alt="highlight"
+                  className="md:w-[85px] md:h-[85px] h-[75px] w-[75px]"
+                />
+              </Link>
+            </button>
+            <div className="md:w-[75px] md:h-[75px] w-[67px] h-[67px] absolute top-[4px] left-[4px] md:top-[5px] md:left-[5px] rounded-full bg-gradient-to-t to-violet-100 from-pink-300 text-white text-xs font-insta items-center flex justify-center">
+              Resume
+            </div>
+            <p className="text-sm ">resume</p>
           </div>
-          <p className="text-sm ">resume</p>
-        </div>
-        <div className="w-[75px] md:w-[85px] flex flex-col items-center gap-2 relative">
-          <button className="hover:animate-spin rounded-full z-10">
-            <Link href={"https://profile-mac-os.vercel.app"} target="_blank">
-              <Image
-                src={"/images/common/highlight.png"}
-                width={100}
-                height={100}
-                alt="highlight"
-                className="md:w-[85px] md:h-[85px] h-[75px] w-[75px]"
-              />
-            </Link>
-          </button>
-          <div className="md:w-[75px] md:h-[75px] w-[67px] h-[67px] absolute top-[4px] left-[4px] md:top-[5px] md:left-[5px] rounded-full bg-gradient-to-tl to-sky-100 from-violet-300 text-white text-xs font-insta items-center flex justify-center">
-            Profile OS
+          <div className="w-[75px] md:w-[85px] flex flex-col items-center gap-2 relative">
+            <button className="hover:animate-spin rounded-full z-10">
+              <Link href={"https://profile-mac-os.vercel.app"} target="_blank">
+                <Image
+                  src={"/images/common/highlight.png"}
+                  width={100}
+                  height={100}
+                  alt="highlight"
+                  className="md:w-[85px] md:h-[85px] h-[75px] w-[75px]"
+                />
+              </Link>
+            </button>
+            <div className="md:w-[75px] md:h-[75px] w-[67px] h-[67px] absolute top-[4px] left-[4px] md:top-[5px] md:left-[5px] rounded-full bg-gradient-to-tl to-sky-100 from-violet-300 text-white text-xs font-insta items-center flex justify-center">
+              Profile OS
+            </div>
+            <p className="text-sm ">profile os</p>
           </div>
-          <p className="text-sm ">profile os</p>
         </div>
       </section>
     </>
