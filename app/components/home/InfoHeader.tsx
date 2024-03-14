@@ -195,7 +195,7 @@ const InfoHeader = ({
           </div>
         </section>
       </header>
-      <section className="flex items-center justify-start w-full min-h-[115px] h-[115px] md:min-h-[130px] md:h-[130px] px-[30px] md:px-[60px] mb-4 overflow-x-auto overflow-y-hidden">
+      <section className="flex items-center justify-start w-full min-h-[115px] h-[115px] md:min-h-[130px] md:h-[130px] px-[30px] md:px-[60px] mb-4 overflow-x-auto overflow-y-hidden scrollbar-hide">
         <div className="flex gap-7">
           <div className="w-[75px] md:w-[85px] flex flex-col items-center gap-2 relative">
             <button className="hover:animate-spin rounded-full z-10">
