@@ -19,7 +19,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/images/main/main.png" />
         <link rel="manifest" href="/manifest.webmanifest" />
       </head>
-      <body className="bg-white">
+      <body>
         <ReactQueryProvider>{children}</ReactQueryProvider>
       </body>
     </html>
