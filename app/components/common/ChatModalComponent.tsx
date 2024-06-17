@@ -175,11 +175,8 @@ function ChatModal({ isOpen }: { isOpen: boolean }) {
               <div>
                 <span className="px-4 py-2 rounded-lg inline-block bg-gray-300 text-gray-600 rounded-bl-none">
                   {
-                    "안녕하세요. 프론트엔드 개발자 송찬흠입니다. 궁금하신 사항이나 문의사항은 E-mail (*) 혹은 여기에 남겨주시면 답변드리겠습니다! 감사합니다."
-                  }
-                  {/* {
                     "안녕하세요. 프론트엔드 개발자 송찬흠입니다. 궁금하신 사항이나 문의사항은 E-mail (bsk9212@gmail.com) 혹은 여기에 남겨주시면 답변드리겠습니다! 감사합니다."
-                  } */}
+                  }
                 </span>
               </div>
             </div>

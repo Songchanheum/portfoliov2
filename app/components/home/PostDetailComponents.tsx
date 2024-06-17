@@ -210,7 +210,7 @@ export function DevPost(props: {
           <motion.img
             src={`${props?.image}`}
             alt={`${props?.title}`}
-            className="object-cover h-full group-hover:grayscale"
+            className="object-cover w-full h-full aspect-square group-hover:grayscale"
             initial={{
               opacity: 0,
             }}
